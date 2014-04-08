@@ -5,136 +5,24 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>LNDD</title>
-	<link rel="stylesheet" href="fonts/font-awesome-4.0.3/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
 	
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="js/jquery.stellar.js"></script>
-	<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-	<script src="js/smoothscroll.js"></script>
-	<script src="js/flickrush.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/jquery.bxslider.js"></script>
-	<script src="js/jquery.countdown.js"></script>
-	<script src="js/fluidvids.js"></script>
-	<script src="js/retina-1.1.0.min.js"></script>
-	<script src="js/jquery.resizestop.min.js"></script>
-
-	<script type="text/javascript" src="js/main.js"></script>
+	<?php require_once("wg-header-script.php"); ?>
+	
 </head>
 <body>
+
 	<!--HEADER-->
-	<header>
-		<div class="container">
-			<a href="index.html" class="logo"><img src="img/logo.png" alt="logo"></a>
-			<!--MENU-->
-			<nav class="clearfix">
-				<a href="" id="header-menu-button"><i class="fa fa-bars"></i></a>  
-				<ul class="list-inline">
-					<li class="dropdown-submenu"><a href="">Inicio</a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Home 1</a></li>
-							<li><a href="#">Home 2 (grid)</a></li>
-							<li><a href="#">Home 3 (list)</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Director</a></li>
-					<li class="dropdown-submenu"><a href="">Columnistas</a>
-						<ul class="dropdown-menu">
-							<li><a href="search-#">Search results</a></li>
-							<li><a href="#">Author page</a></li>
-							<li><a href="#">Error404</a></li>
-							<li><a href="#">Coming soon</a></li>
-							<li><a href="#">Category page (grid)</a></li>
-							<li><a href="#">Category page (list)</a></li>
-							<li><a href="video-#">Post with video</a></li>
-							<li><a href="slider-#">Post with slider</a></li>
-							<li><a href="small-#">Post</a></li>
-							<li><a href="fullwidth-post-#">Post fullwidth with sidebar</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Contacto</a></li>
-					<li><a href="#">Nosotros</a></li>
-					<li><a href="#login" data-toggle="modal">Login</a></li>
-				</ul>
-			</nav>
-			<!--END MENU-->
-		</div>
-	</header>
+	<?php require_once("wg-header.php"); ?>
 	<!--END HEADER-->
-
-	<!--LOGIN FORM-->
-	<div id="login" class="modal fade">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-			  	<div class="modal-header">
-			    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			    	<h3>Login</h3>
-			 	</div>
-			  	<div class="modal-body">
-			    	<form>
-			    		<div class="input-group input-block">
-						  	<span class="input-group-addon">
-						  		<i class="fa fa-user"></i>
-						  	</span>
-						  	<input type="text" class="form-control" name="username" id="username-login" placeholder="Username" required>
-						</div>
-						<div class="input-group">
-						  	<span class="input-group-addon">
-						  		<i class="fa fa-lock"></i>
-						  	</span>
-						  	<input type="password" class="form-control" name="password" id="password-login" placeholder="Password" required>
-						</div>
-			    		<input class="btn btn-default btn-block" type="submit" value="Login">
-			    	</form>
-			    	<a href="">Lost your password?</a>
-			  	</div>
-			  	<div class="modal-footer">
-			    	<p>Not a member? <a href="#register" data-toggle="modal">Register</a></p>
-			 	</div>
-			</div>
-		</div>
-	</div>
-	<!--END LOGIN FORM-->
-
-	<!--REGISTER FORM-->
-	<div id="register" class="modal fade">
-	  	<div class="modal-dialog">
-	        <div class="modal-content">
-	          	<div class="modal-header">
-	            	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	            	<h3>Register</h3>
-	        	</div>
-		  		<div class="modal-body">
-	            	<form>
-	              		<div class="input-group input-block">
-	                		<span class="input-group-addon">
-	                  			<i class="fa fa-user"></i>
-	                		</span>
-	                		<input type="text" class="form-control" name="username" id="username-register" placeholder="Username" required>
-	            		</div>
-	            		<div class="input-group">
-	                		<span class="input-group-addon">
-	                 			<i class="fa fa-lock"></i>
-	                		</span>
-	                		<input type="password" class="form-control" name="password" id="password-register" placeholder="Password" required>
-	            		</div>
-	              		<input class="btn btn-default btn-block" type="submit" value="Register">
-		    		</form>
-		    		<p>A password will be e-mailed to you.</p>
-		  		</div>
-		  	</div>
-		</div>
-	</div>
-	<!--REGISTER FORM-->
 
 	<!--CONTAINER-->
 	<div class="container">
+
 		<!--MENU-->
 		<nav class="clearfix">
-			<a href="" id="menu-button"><i class="fa fa-bars"></i></a>  
+
+			<a href="" id="menu-button"><i class="fa fa-bars"></i></a>
+
 			<ul class="menu col-md-9 list-inline">
 				<li><a href="fashion.html">Política</a></li>
 				<li class="dropdown-submenu">
@@ -178,14 +66,18 @@
 	      			</span>
 			  	</div>
 			</form>
+
 		</nav>
 		<!--END MENU-->
 		
 		<!--MAIN SECTION-->
 		<div class="main">
+
 			<div class="row">
+
 				<!--CONTENT-->
 				<div class="posts col-md-9 col-sm-12">
+
 					<!--BREAKING NEWS-->
 					<div class="row">
 						<div class="breaking col-md-12 col-sm-12">
@@ -211,12 +103,18 @@
 						</div>
 					</div>
 					<!--END BREAKING NEWS-->
+
+					<!-- NOTICIA SUPERIOR -->
 					<div class="row">
+
+						<!-- POST SLIDER -->
 						<div class="post-slider col-md-8 col-sm-8">
+
 							<div class="controls">
 								<p class="prev"><i class="fa fa-angle-left"></i></p>
 								<p class="next"><i class="fa fa-angle-right"></i></p>
 							</div>
+
 							<div class="slides">
 								<article class="big clearfix">
 									<img src="img/big.jpg" alt="post">
@@ -290,7 +188,10 @@
 									</ul>
 								</article>
 							</div>
+
 						</div>
+						<!-- FIN POST SLIDER -->
+
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
 								<img src="img/mid5.jpg" alt="post">
@@ -317,9 +218,16 @@
 								</li>
 							</ul>
 						</article>
+
 					</div>
+					<!-- FIN NOTICIA SUPERIOR -->
+
+					<!-- NOTICIA CENTRAL -->
 					<div class="row">
+
+						<!-- COLUMNISTAS -->
 						<div class="col-md-4 col-sm-4">
+
 							<article class="col-md-12 col-sm-12 small col">
 								<img src="img/small2.jpg" alt="post">
 								<div class="info">
@@ -476,7 +384,11 @@
 									</li>
 								</ul>
 							</article>
+
 						</div>
+						<!-- FIN COLUMNISTAS -->
+
+						<!-- NOTICIA CENTRAL -->
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
 								<img src="img/mid3.jpg" alt="post">
@@ -504,6 +416,9 @@
 								</li>
 							</ul>
 						</article>
+						<!-- FIN NOTICIA CENTRAL -->
+
+						<!-- NOTICIA CENTRAL -->
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
 								<img src="img/mid4.jpg" alt="post">
@@ -531,8 +446,14 @@
 								</li>
 							</ul>
 						</article>
+						<!-- FIN NOTICIA CENTRAL -->
+
 					</div>
+					<!-- FIN NOTICIA CENTRAL -->
+
+					<!-- NOTICIA INFERIOR -->
 					<div class="row">
+
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
 								<img src="img/mid6.jpg" alt="post">
@@ -561,6 +482,7 @@
 								</li>
 							</ul>
 						</article>
+
 						<article class="col-md-8 col-sm-8 big">
 							<div class="img">
 								<img src="img/big.jpg" alt="post">
@@ -588,13 +510,17 @@
 								</li>
 							</ul>
 						</article>
+
 					</div>
+					<!-- NOTICIA INFERIOR -->
+
 				</div>
 				<!--END CONTENT-->
 
 				<!--SIDEBAR-->
 				<aside class="col-md-3 col-sm-12">
 					
+					<!-- CONTADOR SOCIAL MEDIA -->
 					<ul class="aside-social list-inline visible-md visible-lg">
 						<li>
 							<i class="fa fa-facebook"></i>
@@ -613,7 +539,9 @@
 							<p>9,012</p>
 						</li>
 					</ul>
+					<!-- FIN CONTADOR SOCIAL MEDIA -->
 
+					<!-- SUSCRIPCION -->
 					<div class="newsletter visible-md visible-lg">
 						<h3>Mantente al dia</h3>
 						<p>Suscribe y recive por mail lo ultimo en informacion y participa de nuestros sorteos</p>
@@ -622,13 +550,17 @@
 							<input type="submit" value="suscribete" class="btn btn-default btn-block">
 						</form>
 					</div>
+					<!-- FIN SUSCRIPCION -->
 
+					<!-- PUBLICIDAD -->
 					<div class="banner visible-md visible-lg">
 						<img src="img/banner2.png" alt="banner">
 					</div>
+					<!-- PUBLICIDAD -->
 
 					<div class="hidden-xs hidden-sm hidden-md hidden-lg"></div>
 
+					<!-- BLOG -->
 					<div class="most-discussed col-md-12 col-sm-6">
 						<h4>Blogs</h4>
 							<article class="small clearfix">
@@ -713,16 +645,21 @@
 							</article>
 						<a href="#" class="btn btn-default">Ver todos</a>
 					</div>
+					<!-- FIN BLOG -->
 
+					<!-- GALERIA DE FOTOS FLICKR -->
 					<div class="flickr col-md-12 col-sm-6">
 						<h4>Flickr galeria fotografica</h4>
 					</div>
+					<!-- FIN GALERIA DE FOTOS FLICKR -->
+
 				</aside>
 				<!--END SIDEBAR-->
 			</div>
 
-			<!--POPULAR SECTION-->
+			<!-- DEPORTES -->
 			<div class="popular">
+
 				<div class="clearfix">
 					<h3>Deportes</h3>
 					<div class="gallery-nav">
@@ -730,6 +667,7 @@
 						<p class="next"><i class="fa fa-angle-right"></i></p>
 					</div>
 				</div>
+
 				<div class="row gallery">
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -1067,13 +1005,18 @@
 						</ul>
 					</article>
 				</div>
+
 				<div class="pager"></div>
+
 			</div>
-			<!--END POPULAR SECTION-->
+			<!-- FIN DEPORTES -->
 			
 			<div class="category row">
+
 				<!--CATEGORY SECTION-->
 				<div class="col-md-9 col-sm-12">
+
+					<!-- VARIEDAD -->
 					<h3>Variedad</h3>		
 					<div class="row">
 						<article class="col-md-4 col-sm-4 mid">
@@ -1162,9 +1105,13 @@
 							</ul>
 						</article>
 					</div>
+					<!-- FIN VARIEDAD -->
+
 					<!--TABS-->
 					<div class="row">
+
 						<div class="col-md-12 col-sm-12">
+
 				            <ul id="Tabs" class="nav nav-tabs">
 				              	<li class="active"><a href="#fasion" data-toggle="tab">Sociedad y Cultura</a></li>
 				              	<li><a href="#Cine" data-toggle="tab">Cine</a></li>
@@ -1172,7 +1119,9 @@
 				              	<li><a href="#Musica" data-toggle="tab">Musica</a></li>
 				              	<li><a href="#Teatros" data-toggle="tab">Teatros</a></li>
 				            </ul>
+
 				            <div id="TabContent" class="tab-content">
+
 				              	<div class="tab-pane fade active in" id="fasion">
 				               	 	<div class="row">
 										<article class="col-md-4 col-sm-4 small">
@@ -1335,6 +1284,7 @@
 										</article>
 									</div>	
 				              	</div>
+
 				              	<div class="tab-pane fade" id="science">
 				                	<div class="row">
 										<article class="col-md-4 col-sm-4 small">
@@ -1497,6 +1447,7 @@
 										</article>
 									</div>	
 				              	</div>
+
 				              	<div class="tab-pane fade" id="lifestyle">
 				                	<div class="row">
 										<article class="col-md-4 col-sm-4 small">
@@ -1659,6 +1610,7 @@
 										</article>
 									</div>	
 				              	</div>
+
 				              	<div class="tab-pane fade" id="music">
 				                	<div class="row">
 										<article class="col-md-4 col-sm-4 small">
@@ -1821,6 +1773,7 @@
 										</article>
 									</div>	
 				              	</div>
+
 				              	<div class="tab-pane fade" id="movies">
 				                	<div class="row">
 										<article class="col-md-4 col-sm-4 small">
@@ -1983,10 +1936,14 @@
 										</article>
 									</div>	
 				              	</div>
+
 							</div>
+
 						</div>
+
 					</div>
 					<!--END TABS-->
+
 				</div>
 				<!--END CATEGORY SECTION-->
 				
@@ -2184,11 +2141,13 @@
 							</script>
 						</div>
 					</div>
+
 				</aside>
 				<!--END SIDEBAR-->
+
 			</div>
 
-			<!--BEST SECTION-->
+			<!-- TECNOLOGIA -->
 			<div class="best-week picture">
 
 				<h3>Tecnología</h3>
@@ -2369,12 +2328,15 @@
 					</article>
 				</div>
 			</div>
-			<!--END BEST SECTION-->
+			<!-- FIN TECNOLOGIA -->
 
 			<!--ARCHIVE SECTION-->
 			<div class="archive">
+
 				<div class="row">
+
 					<img src="img/archive.png" alt="archive" class="visible-md visible-lg col-md-4">
+
 					<div class="col-md-8 col-sm-12">
 						<h3>Archivo</h3>
 						<div class="row">
@@ -2457,157 +2419,25 @@
 								</div>
 							</article>
 						</div>
+
 					</div>
+
 				</div>
+
 			</div>
 			<!--END ARCHIVE SECTION-->
+			
 		</div>
 		<!--END MAIN SECTION-->
+
 		<!--FOOTER-->
-		<footer>
-			<div class="row">
-				<div class="about col-md-3 col-sm-6">
-					<img src="img/about-logo.png" alt="logo">
-					<h5>Sobre TabloideDigital</h5>
-					<p>
-						Tbla bla bla jdbjvbjvb jvbkjvbk jbvjvbkfjvb kbvjdfb vkjdfb vkjfdbv kjfbvkj jf kjfd kjfvkjn v jdf vkjf kjf jb jfdbfjdb kfnb lkfbnfldk n blknb lkdnblkd flknblkn dflkbnfb n 
-					</p>
-
-					<ul class="social list-inline">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-						<li><a href="#"><i class="fa fa-flickr"></i></a></li>
-						<li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-						<li><a href="#"><i class="fa  fa-tumblr"></i></a></li>
-						<li><a href="#"><i class="fa fa-rss"></i></a></li>
-					</ul>
-				</div>
-
-				<div class="categories col-md-3 col-sm-6">
-					<h5>Categorias</h5>
-					<ul>
-						<li><a href="#">dsddsdsdd (13)</a></li>
-						<li><a href="#">vfvgfbfgb (23)</a></li>
-						<li><a href="#">fgbfbfg (781)</a></li>
-						<li><a href="#">gfbfgfgn (14)</a></li>
-						<li><a href="#">fngfnf (3)</a></li>
-						<li><a href="#">fgnfgn (5)</a></li>
-						<li><a href="#">fgnfgngfn (32)</a></li>
-					</ul>
-				</div>
-
-				<div class="events col-md-3 col-sm-6">
-					<h5>Eventos</h5>
-					<div class="event">
-						<div class="col">
-							<h1><a href="">21</a></h1>
-							<p>nov</p>
-						</div>
-						<div class="info">
-							<h2><a href="">jkdfvndj jn jdvjknkjf</a></h2>
-							<p>mdflknvjvndkjvn  jn jn dj jdnf j n d k dkn dkjn dj fdjh dj .</p>
-						</div>
-					</div>
-					<div class="event">
-						<div class="col">
-							<h1><a href="">17</a></h1>
-							<p>nov</p>
-						</div>
-						<div class="info">
-							<h2><a href="">nfdjn jdnjd f</a></h2>
-							<p>dfnvjkdfnv jdfnvjfnjd nvfjvndj kvndfjn jnjkfdn vjkj.</p>
-						</div>
-					</div>
-					<div class="event">
-						<div class="col">
-							<h1><a href="">25</a></h1>
-							<p>nov</p>
-						</div>
-						<div class="info">
-							<h2><a href="">dfijvn jnvid</a></h2>
-							<p>Tnfdjnvvj vjdnvkjdfbj fdkbkjdf fjvndjkvn .</p>
-						</div>
-					</div>					
-				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<h5>Calendario</h5>
-					<div class="calendar">
-						<div class="header clearfix">
-							<h1>Marzo 2014</h1>
-							<div class="calendar-nav">
-								<a href="#" class="prev"><i class="fa fa-angle-left"></i></a>
-								<a href="#" class="next"><i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-						<div class="calendar-body">
-							<table>
-								<tr>
-									<td><a href="" class="prev-month">30</a></td>
-									<td><a href="" class="prev-month">31</a></td>
-									<td><a href="">1</a></td>
-									<td><a href="">2</a></td>
-									<td><a href="">3</a></td>
-									<td><a href="">4</a></td>
-									<td><a href="">5</a></td>
-								</tr>
-								<tr>
-									<td><a href="">6</a></td>
-									<td><a href="">7</a></td>
-									<td><a href="">8</a></td>
-									<td><a href="">9</a></td>
-									<td><a href="">10</a></td>
-									<td><a href="">11</a></td>
-									<td><a href="">12</a></td>
-								</tr>
-								<tr>
-									<td><a href="">13</a></td>
-									<td><a href="">14</a></td>
-									<td><a href="">15</a></td>
-									<td><a href="">16</a></td>
-									<td><a href="">17</a></td>
-									<td><a href="">18</a></td>
-									<td><a href="">19</a></td>
-								</tr>
-								<tr>
-									<td><a href="">20</a></td>
-									<td><a href="">21</a></td>
-									<td><a href="">22</a></td>
-									<td><a href="">23</a></td>
-									<td><a href="">24</a></td>
-									<td><a href="">25</a></td>
-									<td><a href="">26</a></td>
-								</tr>
-								<tr>
-									<td><a href="">27</a></td>
-									<td><a href="">28</a></td>
-									<td><a href="">29</a></td>
-									<td><a href="">30</a></td>
-									<td><a href="" class="next-month">1</a></td>
-									<td><a href="" class="next-month">2</a></td>
-									<td><a href="" class="next-month">3</a></td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="rights clearfix">
-				<p>© 2014 Todos los derechos reservados.</p>
-				<p>Designed by <a href="http://www.grupo7peru.com">Grupo 7 Perú</a>.</p>
-			</div>
-		</footer>
+		<?php require_once("wg-footer.php"); ?>
 		<!--END FOOTER-->
+
 	</div>
 	<!--END CONTAINER-->
+
+<?php require_once("wg-footer-script.php"); ?>
+
 </body>
 </html>
-
-
-
-
-
-
