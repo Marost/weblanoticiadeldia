@@ -1,7 +1,149 @@
-<!DOCTYPE html>
-<html>
-<head>
+<?php
+require_once("panel@lndd/conexion/conexion.php");
+require_once("panel@lndd/conexion/funciones.php");
 
+//NOTICIA DESTACADA
+$rst_not_dest=mysql_query("SELECT * FROM lndd_noticia WHERE destacada=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 4", $conexion);
+
+//NOTICIA SUPERIOR 1
+$rst_not_sup1=mysql_query("SELECT * FROM lndd_noticia WHERE superior_1=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
+$fila_not_sup1=mysql_fetch_array($rst_not_sup1);
+
+//VARIABLES
+$notSup1_id=$fila_not_sup1["id"];
+$notSup1_url=$fila_not_sup1["url"];
+$notSup1_titulo=$fila_not_sup1["titulo"];
+$notSup1_contenido=soloDescripcion($fila_not_sup1["contenido"]);
+$notSup1_imagen=$fila_not_sup1["imagen"];
+$notSup1_imagen_carpeta=$fila_not_sup1["imagen_carpeta"];
+$notSup1_categoria=$fila_not_sup1["categoria"];
+$notSup1_web=$web."noticia/".$notSup1_id."-".$notSup1_url;
+$notSup1_web_img=$web."imagenes/upload/".$notSup1_imagen_carpeta."thumb/".$notSup1_imagen;
+
+//FECHA PUBLICACION
+$notSup1_fecha=$fila_not_sup1["fecha_publicacion"];
+if($notSup1_fecha=="0000-00-00 00:00:00"){
+	$notSup1_fecha=$fila_not_sup1["fecha"];
+}else{ $notSup1_fecha=notaTiempo($notSup1_fecha);} 
+
+//CATEGORIA
+$fila_notsup1_cat=seleccionTabla($notSup1_categoria, "id", "lndd_noticia_categoria", $conexion);
+$notSup1Cat_url=$fila_notsup1_cat["url"];
+$notSup1Cat_titulo=$fila_notsup1_cat["categoria"];
+$notSup1Cat_web=$web."seccion/".$notSup1_categoria."/".$notSup1Cat_url;
+
+//NOTICIA SUPERIOR 2
+$rst_not_sup2=mysql_query("SELECT * FROM lndd_noticia WHERE superior_2=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
+$fila_not_sup2=mysql_fetch_array($rst_not_sup2);
+
+//VARIABLES
+$notSup2_id=$fila_not_sup2["id"];
+$notSup2_url=$fila_not_sup2["url"];
+$notSup2_titulo=$fila_not_sup2["titulo"];
+$notSup2_contenido=soloDescripcion($fila_not_sup2["contenido"]);
+$notSup2_imagen=$fila_not_sup2["imagen"];
+$notSup2_imagen_carpeta=$fila_not_sup2["imagen_carpeta"];
+$notSup2_categoria=$fila_not_sup2["categoria"];
+$notSup2_web=$web."noticia/".$notSup2_id."-".$notSup2_url;
+$notSup2_web_img=$web."imagenes/upload/".$notSup2_imagen_carpeta."thumb/".$notSup2_imagen;
+
+//FECHA PUBLICACION
+$notSup2_fecha=$fila_not_sup2["fecha_publicacion"];
+if($notSup2_fecha=="0000-00-00 00:00:00"){
+	$notSup2_fecha=$fila_not_sup2["fecha"];
+}else{ $notSup2_fecha=notaTiempo($notSup2_fecha);} 
+
+//CATEGORIA
+$fila_notsup2_cat=seleccionTabla($notSup2_categoria, "id", "lndd_noticia_categoria", $conexion);
+$notSup2Cat_url=$fila_notsup2_cat["url"];
+$notSup2Cat_titulo=$fila_notsup2_cat["categoria"];
+$notSup2Cat_web=$web."seccion/".$notSup2_categoria."/".$notSup2Cat_url;
+
+//NOTICIA SUPERIOR 3
+$rst_not_sup3=mysql_query("SELECT * FROM lndd_noticia WHERE superior_3=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
+$fila_not_sup3=mysql_fetch_array($rst_not_sup3);
+
+//VARIABLES
+$notSup3_id=$fila_not_sup3["id"];
+$notSup3_url=$fila_not_sup3["url"];
+$notSup3_titulo=$fila_not_sup3["titulo"];
+$notSup3_contenido=soloDescripcion($fila_not_sup3["contenido"]);
+$notSup3_imagen=$fila_not_sup3["imagen"];
+$notSup3_imagen_carpeta=$fila_not_sup3["imagen_carpeta"];
+$notSup3_categoria=$fila_not_sup3["categoria"];
+$notSup3_web=$web."noticia/".$notSup3_id."-".$notSup3_url;
+$notSup3_web_img=$web."imagenes/upload/".$notSup3_imagen_carpeta."thumb/".$notSup3_imagen;
+
+//FECHA PUBLICACION
+$notSup3_fecha=$fila_not_sup3["fecha_publicacion"];
+if($notSup3_fecha=="0000-00-00 00:00:00"){
+	$notSup3_fecha=$fila_not_sup3["fecha"];
+}else{ $notSup3_fecha=notaTiempo($notSup3_fecha);} 
+
+//CATEGORIA
+$fila_notsup3_cat=seleccionTabla($notSup3_categoria, "id", "lndd_noticia_categoria", $conexion);
+$notSup3Cat_url=$fila_notsup3_cat["url"];
+$notSup3Cat_titulo=$fila_notsup3_cat["categoria"];
+$notSup3Cat_web=$web."seccion/".$notSup3_categoria."/".$notSup3Cat_url;
+
+//NOTICIA SUPERIOR 4
+$rst_not_sup4=mysql_query("SELECT * FROM lndd_noticia WHERE superior_4=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
+$fila_not_sup4=mysql_fetch_array($rst_not_sup4);
+
+//VARIABLES
+$notSup4_id=$fila_not_sup4["id"];
+$notSup4_url=$fila_not_sup4["url"];
+$notSup4_titulo=$fila_not_sup4["titulo"];
+$notSup4_contenido=soloDescripcion($fila_not_sup4["contenido"]);
+$notSup4_imagen=$fila_not_sup4["imagen"];
+$notSup4_imagen_carpeta=$fila_not_sup4["imagen_carpeta"];
+$notSup4_categoria=$fila_not_sup4["categoria"];
+$notSup4_web=$web."noticia/".$notSup4_id."-".$notSup4_url;
+$notSup4_web_img=$web."imagenes/upload/".$notSup4_imagen_carpeta."thumb/".$notSup4_imagen;
+
+//FECHA PUBLICACION
+$notSup4_fecha=$fila_not_sup4["fecha_publicacion"];
+if($notSup4_fecha=="0000-00-00 00:00:00"){
+	$notSup4_fecha=$fila_not_sup4["fecha"];
+}else{ $notSup4_fecha=notaTiempo($notSup4_fecha);} 
+
+//CATEGORIA
+$fila_notsup4_cat=seleccionTabla($notSup4_categoria, "id", "lndd_noticia_categoria", $conexion);
+$notSup4Cat_url=$fila_notsup4_cat["url"];
+$notSup4Cat_titulo=$fila_notsup4_cat["categoria"];
+$notSup4Cat_web=$web."seccion/".$notSup4_categoria."/".$notSup4Cat_url;
+
+//NOTICIA SUPERIOR 5
+$rst_not_sup5=mysql_query("SELECT * FROM lndd_noticia WHERE superior_5=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
+$fila_not_sup5=mysql_fetch_array($rst_not_sup5);
+
+//VARIABLES
+$notSup5_id=$fila_not_sup5["id"];
+$notSup5_url=$fila_not_sup5["url"];
+$notSup5_titulo=$fila_not_sup5["titulo"];
+$notSup5_contenido=soloDescripcion($fila_not_sup5["contenido"]);
+$notSup5_imagen=$fila_not_sup5["imagen"];
+$notSup5_imagen_carpeta=$fila_not_sup5["imagen_carpeta"];
+$notSup5_categoria=$fila_not_sup5["categoria"];
+$notSup5_web=$web."noticia/".$notSup5_id."-".$notSup5_url;
+$notSup5_web_img=$web."imagenes/upload/".$notSup5_imagen_carpeta."thumb/".$notSup5_imagen;
+
+//FECHA PUBLICACION
+$notSup5_fecha=$fila_not_sup5["fecha_publicacion"];
+if($notSup5_fecha=="0000-00-00 00:00:00"){
+	$notSup5_fecha=$fila_not_sup5["fecha"];
+}else{ $notSup5_fecha=notaTiempo($notSup5_fecha);} 
+
+//CATEGORIA
+$fila_notsup5_cat=seleccionTabla($notSup5_categoria, "id", "lndd_noticia_categoria", $conexion);
+$notSup5Cat_url=$fila_notsup5_cat["url"];
+$notSup5Cat_titulo=$fila_notsup5_cat["categoria"];
+$notSup5Cat_web=$web."seccion/".$notSup5_categoria."/".$notSup5Cat_url;
+
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>LNDD</title>
@@ -116,77 +258,50 @@
 							</div>
 
 							<div class="slides">
+								<?php while($fila_not_dest=mysql_fetch_array($rst_not_dest)){
+										//VARIABLES
+										$notDest_id=$fila_not_dest["id"];
+										$notDest_url=$fila_not_dest["url"];
+										$notDest_titulo=$fila_not_dest["titulo"];
+										$notDest_contenido=soloDescripcion($fila_not_dest["contenido"]);
+										$notDest_imagen=$fila_not_dest["imagen"];
+										$notDest_imagen_carpeta=$fila_not_dest["imagen_carpeta"];
+										$notDest_categoria=$fila_not_dest["categoria"];
+
+										//FECHA PUBLICACION
+										$notDest_fecha=$fila_not_dest["fecha_publicacion"];
+					                    if($notDest_fecha=="0000-00-00 00:00:00"){
+					                        $notDest_fecha=$fila_not_dest["fecha"];
+					                    }else{ $notDest_fecha=notaTiempo($notDest_fecha);} 
+
+										//URLS
+										$notDest_web=$web."noticia/".$notDest_id."-".$notDest_url;
+										$notDest_web_img=$web."imagenes/upload/".$notDest_imagen_carpeta."thumb/".$notDest_imagen;
+
+										//NOTICIA DESTACADA - CATEGORIA
+										$rst_notdest_cat=mysql_query("SELECT * FROM lndd_noticia_categoria WHERE id=$notDest_categoria;", $conexion);
+										$fila_notdest_cat=mysql_fetch_array($rst_notdest_cat);
+
+										//VARIABLES
+										$notDestCat_url=$fila_notdest_cat["url"];
+										$notDestCat_titulo=$fila_notdest_cat["categoria"];
+										$notDestCat_web=$web."seccion/".$notDest_categoria."/".$fila_notdest_cat["url"];
+								?>
 								<article class="big clearfix">
-									<img src="img/big.jpg" alt="post">
+									<img src="<?php echo $notDest_web_img; ?>" alt="<?php echo $notDest_titulo; ?>" width="570px" height="460px">
 									<div class="info">
 										<p class="tags">
-											<a href="">Mundo</a>
+											<a href=""><?php echo $notDestCat_titulo; ?></a>
 										</p>
-										<h1><a href="">Crisis en Venezuela</a></h1>
+										<h1><a href=""><?php echo $notDest_titulo; ?></a></h1>
 										<p class="text">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+											<?php echo $notDest_contenido; ?>
 										</p>
-										<p class="details">Sep 25, 2013 | <a href="author.html">Julio De La Cruz</a></p>
+										<p class="details"><?php echo $notDest_fecha; ?><!--  | <a href="author.html">Julio De La Cruz</a> --></p>
 									</div>
-									<ul class="counters list-inline">
-										<li>
-											<a href=""><i class="fa fa-eye"></i>15271</a>
-										</li>
-										<li>
-											<a href=""><i class="fa fa-comment"></i>25</a>
-										</li>
-										<li>
-											<a href=""><i class="fa fa-heart"></i>724</a>
-										</li>
-									</ul>
 								</article>
-								<article class="big clearfix">
-									<img src="img/big2.jpg" alt="post">
-									<div class="info">
-										<p class="tags">
-										  <a href="">ACTUALIDAD</a><a href=""></a>
-										</p>
-										<h1><a href="">Límite marítimo</a></h1>
-										<p class="text">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-										</p>
-										<p class="details">Marz 25, 2014 | <a href="author.html">Roberto Guerrero</a></p>
-									</div>
-									<ul class="counters list-inline">
-										<li>
-											<a href=""><i class="fa fa-eye"></i>15271</a>
-										</li>
-										<li>
-											<a href=""><i class="fa fa-comment"></i>25</a>
-										</li>
-										<li>
-											<a href=""><i class="fa fa-heart"></i>724</a>
-										</li>
-									</ul>
-								</article>
-								<article class="big clearfix">
-									<img src="img/big3.jpg" alt="post">
-									<div class="info">
-										<p class="tags">
-											<a href="">POLÍTICA</a></p>
-										<h1><a href="">Cayó al océano</a></h1>
-										<p class="text">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-										</p>
-										<p class="details">Sep 25, 2013 | <a href="author.html">Jaime Tipe</a></p>
-									</div>
-									<ul class="counters list-inline">
-										<li>
-											<a href=""><i class="fa fa-eye"></i>15271</a>
-										</li>
-										<li>
-											<a href=""><i class="fa fa-comment"></i>25</a>
-										</li>
-										<li>
-											<a href=""><i class="fa fa-heart"></i>724</a>
-										</li>
-									</ul>
-								</article>
+								<?php } ?>
+
 							</div>
 
 						</div>
@@ -194,29 +309,18 @@
 
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
-								<img src="img/mid5.jpg" alt="post">
+								<img src="<?php echo $notSup1_web_img; ?>" alt="<?php echo $notSup1Cat_titulo; ?>" width="270">
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href="">Tecnología</a><a href=""></a>
+									<a href=""><?php echo $notSup1Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href="">Autumn Energy</a></h1>
-								<p class="details">Sep 25, 2013 | <a href="author.html">Julio De La cruz</a></p>
+								<h1><a href=""><?php echo $notSup1_titulo; ?></a></h1>
+								<p class="details"><?php echo $notSup1_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+									<?php echo $notSup1_contenido; ?>
 								</p>
 							</div>
-							<ul class="counters list-inline">
-								<li>
-									<a href=""><i class="fa fa-eye"></i>15271</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-comment"></i>25</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-heart"></i>724</a>
-								</li>
-							</ul>
 						</article>
 
 					</div>
@@ -242,17 +346,6 @@
 									</p>
 									
 								</div>
-								<ul class="counters list-inline">
-									<li>
-										<a href=""><i class="fa fa-eye"></i>15271</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-comment"></i>25</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-heart"></i>724</a>
-									</li>
-								</ul>
 							</article>
 							<article class="col-md-12 col-sm-12 small col">
 								<img src="img/small3.jpg" alt="post">
@@ -268,17 +361,6 @@
 									</p>
 									
 								</div>
-								<ul class="counters list-inline">
-									<li>
-										<a href=""><i class="fa fa-eye"></i>15271</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-comment"></i>25</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-heart"></i>724</a>
-									</li>
-								</ul>
 							</article>
 							<article class="col-md-12 col-sm-12 small col">
 								<img src="img/small4.jpg" alt="post">
@@ -294,17 +376,6 @@
 									</p>
 									
 								</div>
-								<ul class="counters list-inline">
-									<li>
-										<a href=""><i class="fa fa-eye"></i>15271</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-comment"></i>25</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-heart"></i>724</a>
-									</li>
-								</ul>
 							</article>
 							<article class="col-md-12 col-sm-12 small col">
 								<img src="img/small2.jpg" alt="post">
@@ -320,17 +391,6 @@
 									</p>
 									
 								</div>
-								<ul class="counters list-inline">
-									<li>
-										<a href=""><i class="fa fa-eye"></i>15271</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-comment"></i>25</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-heart"></i>724</a>
-									</li>
-								</ul>
 							</article>
 							<article class="col-md-12 col-sm-12 small col">
 								<img src="img/small3.jpg" alt="post">
@@ -346,17 +406,6 @@
 									</p>
 									
 								</div>
-								<ul class="counters list-inline">
-									<li>
-										<a href=""><i class="fa fa-eye"></i>15271</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-comment"></i>25</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-heart"></i>724</a>
-									</li>
-								</ul>
 							</article>
 							<article class="col-md-12 col-sm-12 small col">
 								<img src="img/small4.jpg" alt="post">
@@ -372,17 +421,6 @@
 									</p>
 									
 								</div>
-								<ul class="counters list-inline">
-									<li>
-										<a href=""><i class="fa fa-eye"></i>15271</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-comment"></i>25</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-heart"></i>724</a>
-									</li>
-								</ul>
 							</article>
 
 						</div>
@@ -391,60 +429,36 @@
 						<!-- NOTICIA CENTRAL -->
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
-								<img src="img/mid3.jpg" alt="post">
+								<img src="<?php echo $notSup2_web_img; ?>" alt="<?php echo $notSup2Cat_titulo; ?>" width="270">
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href="">Mundo</a><a href=""></a>
+									<a href=""><?php echo $notSup2Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href="">Pokras Calligraphy</a></h1>
-								<p class="details">Sep 25, 2013 | <a href="author.html">Roberto Guerrero</a></p>
+								<h1><a href=""><?php echo $notSup2_titulo; ?></a></h1>
+								<p class="details"><?php echo $notSup2_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+									<?php echo $notSup2_contenido; ?>
 								</p>
-								
 							</div>
-							<ul class="counters list-inline">
-								<li>
-									<a href=""><i class="fa fa-eye"></i>15271</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-comment"></i>25</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-heart"></i>724</a>
-								</li>
-							</ul>
 						</article>
 						<!-- FIN NOTICIA CENTRAL -->
 
 						<!-- NOTICIA CENTRAL -->
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
-								<img src="img/mid4.jpg" alt="post">
+								<img src="<?php echo $notSup3_web_img; ?>" alt="<?php echo $notSup3Cat_titulo; ?>" width="270">
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href="">Mundo</a><a href=""></a>
+									<a href=""><?php echo $notSup3Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href="">Bicycle Protection</a></h1>
-								<p class="details">Sep 25, 2013 | <a href="author.html">Jaime tipe</a></p>
+								<h1><a href=""><?php echo $notSup3_titulo; ?></a></h1>
+								<p class="details"><?php echo $notSup3_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+									<?php echo $notSup3_contenido; ?>
 								</p>
-								
 							</div>
-							<ul class="counters list-inline">
-								<li>
-									<a href=""><i class="fa fa-eye"></i>15271</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-comment"></i>25</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-heart"></i>724</a>
-								</li>
-							</ul>
 						</article>
 						<!-- FIN NOTICIA CENTRAL -->
 
@@ -456,59 +470,34 @@
 
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
-								<img src="img/mid6.jpg" alt="post">
+								<img src="<?php echo $notSup4_web_img; ?>" alt="<?php echo $notSup4Cat_titulo; ?>" width="270">
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href="">Mundo</a>
-							
+									<a href=""><?php echo $notSup4Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href="">Iceland</a></h1>
-								<p class="details">Sep 25, 2013 | <a href="author.html">Roberto Guerrero</a></p>
+								<h1><a href=""><?php echo $notSup4_titulo; ?></a></h1>
+								<p class="details"><?php echo $notSup4_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+									<?php echo $notSup4_contenido; ?>
 								</p>
-								
 							</div>
-							<ul class="counters list-inline">
-								<li>
-									<a href=""><i class="fa fa-eye"></i>15271</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-comment"></i>25</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-heart"></i>724</a>
-								</li>
-							</ul>
 						</article>
 
 						<article class="col-md-8 col-sm-8 big">
 							<div class="img">
-								<img src="img/big.jpg" alt="post">
+								<img src="<?php echo $notSup5_web_img; ?>" alt="<?php echo $notSup5Cat_titulo; ?>" width="570" height="460">
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href="">Política</a><a href=""></a>
+									<a href=""><?php echo $notSup5Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href="">Neo Science</a></h1>
-								<p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+								<h1><a href=""><?php echo $notSup5_titulo; ?></a></h1>
+								<p class="details"><?php echo $notSup5_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+									<?php echo $notSup5_contenido; ?>
 								</p>
-								
 							</div>
-							<ul class="counters list-inline">
-								<li>
-									<a href=""><i class="fa fa-eye"></i>15271</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-comment"></i>25</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-heart"></i>724</a>
-								</li>
-							</ul>
 						</article>
 
 					</div>
@@ -577,17 +566,6 @@
 									</p>
 									
 								</div>
-								<ul class="counters list-inline">
-									<li>
-										<a href=""><i class="fa fa-eye"></i>15271</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-comment"></i>25</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-heart"></i>724</a>
-									</li>
-								</ul>
 							</article>
 						
 							<article class="small clearfix">
@@ -604,17 +582,6 @@
 									</p>
 									
 								</div>
-								<ul class="counters list-inline">
-									<li>
-										<a href=""><i class="fa fa-eye"></i>15271</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-comment"></i>25</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-heart"></i>724</a>
-									</li>
-								</ul>
 							</article>
 						
 							<article class="small clearfix">
@@ -631,17 +598,6 @@
 									</p>
 									
 								</div>
-								<ul class="counters list-inline">
-									<li>
-										<a href=""><i class="fa fa-eye"></i>15271</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-comment"></i>25</a>
-									</li>
-									<li>
-										<a href=""><i class="fa fa-heart"></i>724</a>
-									</li>
-								</ul>
 							</article>
 						<a href="#" class="btn btn-default">Ver todos</a>
 					</div>
@@ -685,17 +641,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -713,17 +658,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -741,17 +675,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -769,17 +692,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -797,17 +709,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -825,17 +726,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -853,17 +743,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -881,17 +760,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -908,17 +776,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -936,17 +793,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -964,17 +810,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-3 col-sm-3">
 						<div class="img">
@@ -992,17 +827,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 				</div>
 
@@ -1036,17 +860,6 @@
 								</p>
 								
 							</div>
-							<ul class="counters list-inline">
-								<li>
-									<a href=""><i class="fa fa-eye"></i>15271</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-comment"></i>25</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-heart"></i>724</a>
-								</li>
-							</ul>
 						</article>
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
@@ -1064,17 +877,6 @@
 								</p>
 								
 							</div>
-							<ul class="counters list-inline">
-								<li>
-									<a href=""><i class="fa fa-eye"></i>15271</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-comment"></i>25</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-heart"></i>724</a>
-								</li>
-							</ul>
 						</article>
 						<article class="col-md-4 col-sm-4 mid">
 							<div class="img">
@@ -1092,17 +894,6 @@
 								</p>
 								
 							</div>
-							<ul class="counters list-inline">
-								<li>
-									<a href=""><i class="fa fa-eye"></i>15271</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-comment"></i>25</a>
-								</li>
-								<li>
-									<a href=""><i class="fa fa-heart"></i>724</a>
-								</li>
-							</ul>
 						</article>
 					</div>
 					<!-- FIN VARIEDAD -->
@@ -1138,17 +929,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/cultura2.jpg" alt="post">
@@ -1164,17 +944,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/cultura3.jpg" alt="post">
@@ -1190,17 +959,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>
 									<div class="row">
@@ -1218,17 +976,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/cultura5.jpg" alt="post">
@@ -1244,17 +991,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/cultura6.jpg" alt="post">
@@ -1270,17 +1006,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>	
 				              	</div>
@@ -1301,17 +1026,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1327,17 +1041,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1353,17 +1056,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>
 									<div class="row">
@@ -1381,17 +1073,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1407,17 +1088,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1433,17 +1103,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>	
 				              	</div>
@@ -1464,17 +1123,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1490,17 +1138,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1516,17 +1153,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>
 									<div class="row">
@@ -1544,17 +1170,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1570,17 +1185,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1596,17 +1200,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>	
 				              	</div>
@@ -1627,17 +1220,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1653,17 +1235,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1679,17 +1250,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>
 									<div class="row">
@@ -1707,17 +1267,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1733,17 +1282,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1759,17 +1297,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>	
 				              	</div>
@@ -1790,17 +1317,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1816,17 +1332,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1842,17 +1347,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>
 									<div class="row">
@@ -1870,17 +1364,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1896,17 +1379,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 										<article class="col-md-4 col-sm-4 small">
 											<img src="img/small.jpg" alt="post">
@@ -1922,17 +1394,6 @@
 												</p>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 									</div>	
 				              	</div>
@@ -1982,17 +1443,6 @@
 												<a href="">Leer más<i class="fa fa-align-left"></i></a>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 						      		</div>
 						    	</div>
@@ -2026,17 +1476,6 @@
 												<a href="">Leer más<i class="fa fa-align-left"></i></a>
 												
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 						      		</div>
 						    	</div>
@@ -2069,17 +1508,6 @@
 												</p>
 												<a href="">Leer más<i class="fa fa-align-left"></i></a>
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 						      		</div>
 						    	</div>
@@ -2112,17 +1540,6 @@
 												</p>
 												<a href="">Read more<i class="fa fa-align-left"></i></a>
 											</div>
-											<ul class="counters list-inline">
-												<li>
-													<a href=""><i class="fa fa-eye"></i>15271</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-comment"></i>25</a>
-												</li>
-												<li>
-													<a href=""><i class="fa fa-heart"></i>724</a>
-												</li>
-											</ul>
 										</article>
 						      		</div>
 						    	</div>
@@ -2169,17 +1586,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-2 col-sm-2 mid">
 						<div class="img">
@@ -2198,17 +1604,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href="#"><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-2 col-sm-2 mid">
 						<div class="img">
@@ -2227,17 +1622,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-2 col-sm-2 mid">
 						<div class="img">
@@ -2256,17 +1640,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-2 col-sm-2 mid">
 						<div class="img">
@@ -2285,17 +1658,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 					<article class="col-md-2 col-sm-2 mid">
 						<div class="img">
@@ -2314,17 +1676,6 @@
 							</p>
 							
 						</div>
-						<ul class="counters list-inline">
-							<li>
-								<a href=""><i class="fa fa-eye"></i>15271</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-comment"></i>25</a>
-							</li>
-							<li>
-								<a href=""><i class="fa fa-heart"></i>724</a>
-							</li>
-						</ul>
 					</article>
 				</div>
 			</div>
