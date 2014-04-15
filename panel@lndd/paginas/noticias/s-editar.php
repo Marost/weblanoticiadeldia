@@ -37,13 +37,13 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(570,460);
+		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}else{
 		$imagen=$_POST["imagen"];
 		$imagen_carpeta=$_POST["imagen_carpeta"];	
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(570,460);
+		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}
 }elseif($tipo_noticia=="not_superior1" OR 
@@ -71,13 +71,13 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(570,460);
+		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}else{
 		$imagen=$_POST["imagen"];
 		$imagen_carpeta=$_POST["imagen_carpeta"];	
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(570,460);
+		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}
 
@@ -87,13 +87,13 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(570,460);
+		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}else{
 		$imagen=$_POST["imagen"];
 		$imagen_carpeta=$_POST["imagen_carpeta"];	
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(570,460);
+		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}
 }
