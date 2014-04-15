@@ -17,7 +17,7 @@ a
   color inherit
   text-decoration none
 
-ahover
+a:hover
   color #f1284e
 
 h1,
@@ -68,17 +68,17 @@ header
           font-size 10px
           text-transform uppercase
           margin-left 10px
-        &hover
+        &:hover
           a
             color #fff
 
-        &after
+        &:after
           content "•"
           margin-left 10px
           font-family "Open Sans"
         
         &last-child
-          &after
+          &:after
             content none
             
 
@@ -119,21 +119,21 @@ nav
     -moz-transition background 0.3s, color 0.3s
     -o-transition background 0.3s, color 0.3s
 
-    .selected,&hover,&focus
+    .selected,&:hover,&focus
       border-radius 2px
       -webkit-border-radius 2px
       -moz-border-radius 2px
       background #f1284e
       color #fff
 
-    ahover
+    a:hover
       color #fff
 
     .dropdown-submenu
       .dropdown-menu
         left 0
         top 35px
-        &before
+        &:before
           padding 10px 100px 0 10px
           
       
@@ -209,7 +209,7 @@ nav
       -moz-transition background 0.1s, border 0.1s
       -o-transition background 0.1s, border 0.1s
 
-      &hover, &focus, &hover, &focus
+      &:hover, &focus, &:hover, &focus
         background #f1284e
         color #fff
         border-color #f1284e
@@ -243,10 +243,10 @@ nav
   border-bottom-left-radius 50%
   border 1px solid #ddd
 
-  &hover, &focus
+  &:hover, &focus
     background #ddd
 
-  &hover i, &focus i
+  &:hover i, &focus i
     color #fff
 
 .next
@@ -255,10 +255,10 @@ nav
   border 1px solid #ddd
   margin-left -4px
 
-  &hover, &focus
+  &:hover, &focus
     background #ddd
 
-  &hover i, &focus i
+  &:hover i, &focus i
     color #fff
 
 .prev i,
@@ -303,22 +303,19 @@ nav
 
 .row article .img img
   filter url('#grayscale')
-  /* Versión SVG para IE10, Chrome 17, FF3.5, Safari 5.2 and Opera 11.6 */
   -webkit-filter grayscale(100%)
   -moz-filter grayscale(100%)
   -ms-filter grayscale(100%)
   -o-filter grayscale(100%)
   filter grayscale(100%)
-  /* Para cuando es estándar funcione en todos */
   filter Gray()
-  /* IE4-8 and 9 */
   -webkit-transition all 0.5s ease
   -moz-transition all 0.5s ease
   -ms-transition all 0.5s ease
   -o-transition all 0.5s ease
   transition all 0.5s ease
 
-.row article .img imghover
+.row article .img img:hover
   -webkit-filter grayscale(0%)
   -moz-filter grayscale(0%)
   -ms-filter grayscale(0%)
@@ -351,22 +348,18 @@ article .img .overlay
   background-color #fff
   opacity 0
 
-article .imghover .overlay
+article .img:hover .overlay
   opacity 0.1
 
-article.small imghover
+article.small img:hover
   opacity 0.9
 
-article .counters lihover
+article .counters li:hover
   color #f1284e !important
 
 article.big
   position relative
   color #fff
-
-article.big img
-  width 570px !important
-  height 460px !important
 
 article.big .info
   position absolute
@@ -379,10 +372,10 @@ article.big .tags
   font-size 10px
   font-weight 600
 
-.tags>aafter
+.tags>a:after
   content ","
 
-.tags>alast-childafter
+.tags>alast-child:after
   content none
 
 article.big h1
@@ -405,9 +398,9 @@ article.big .details
 article.big .details a
   color #fff
 
-article.big .details ahover,
-article.mid .details ahover,
-article.small .details ahover
+article.big .details a:hover,
+article.mid .details a:hover,
+article.small .details a:hover
   color #f1284e
 
 article.big .counters
@@ -526,12 +519,12 @@ article.collast-child
   -moz-border-radius 90px 0 0 90px
   -webkit-border-radius 90px 0 0 90px
 
-.post-sliderhover .controls .prev,
-.post-sliderhover .controls .next
+.post-slider:hover .controls .prev,
+.post-slider:hover .controls .next
   background-color rgba(241,40,78,0.6)
 
-.post-sliderhover .controls .prev i,
-.post-sliderhover .controls .next i
+.post-slider:hover .controls .prev i,
+.post-slider:hover .controls .next i
   opacity 1
 
 .post-slider .controls .prev i,
@@ -573,7 +566,7 @@ article.collast-child
   -o-transition all 0.5s ease
   transition all 0.5s ease
 
-.post-slider .bx-wrapper .slides article imghover
+.post-slider .bx-wrapper .slides article img:hover
   -webkit-filter grayscale(0%)
   -moz-filter grayscale(0%)
   -ms-filter grayscale(0%)
@@ -606,7 +599,7 @@ article.collast-child
 .aside-social lifirst-child
   border-left none
 
-.aside-social lihover,
+.aside-social li:hover,
 .aside-social lifocus
   background #f5f5f5
 
@@ -616,7 +609,7 @@ article.collast-child
   margin-top -5px
   color #888
 
-.aside-social lihover i
+.aside-social li:hover i
   color #888
 
 .aside-social li i
@@ -728,7 +721,7 @@ aside h4
   background #fff
   opacity 0
 
-.flickr ahover .overlay
+.flickr a:hover .overlay
   opacity 0.3
 
 .flickr a
@@ -764,7 +757,7 @@ aside h4
   color #222
   margin 0
 
-.panel-heading a .nav-icon .fahover
+.panel-heading a .nav-icon .fa:hover
   background #f5f5f5
 
 #twitter div
@@ -839,7 +832,7 @@ aside h4
   font-size 0
   padding 3px
 
-.bx-pager-linkhover,
+.bx-pager-link:hover,
 .bx-pager-link.active
   background #f1284e
   border 1px solid #f1284e
@@ -904,18 +897,18 @@ aside h4
 
 .best-week.gray h3,
 .best-week.gray article.mid h1 a,
-.best-week.gray article.mid h1 ahover,
+.best-week.gray article.mid h1 a:hover,
 .best-week.gray article.mid .details,
 .best-week.gray article.mid .details>a,
-.best-week.gray article.mid .details>ahover
+.best-week.gray article.mid .details>a:hover
   color #222
 
 .best-week.color h3,
 .best-week.color article.mid h1 a,
-.best-week.color article.mid h1 ahover,
+.best-week.color article.mid h1 a:hover,
 .best-week.color article.mid .details,
 .best-week.color article.mid .details>a,
-.best-week.color article.mid .details>ahover
+.best-week.color article.mid .details>a:hover
   color #fff
 
 .best-week h3
@@ -923,7 +916,7 @@ aside h4
   width 100%
 
 .best-week article.mid h1 a,
-.best-week article.mid h1 ahover
+.best-week article.mid h1 a:hover
   color #fff
   font-size 18px
 
@@ -932,7 +925,7 @@ aside h4
   opacity 0.5
 
 .best-week article.mid .details>a,
-.best-week article.mid .details>ahover
+.best-week article.mid .details>a:hover
   color #fff
 
 .best-week article.mid .text,
@@ -1024,7 +1017,7 @@ footer .about p
   -moz-transition background 0.7s, border 0.7s
   -o-transition background 0.7s, border 0.7s
 
-.social li ahover
+.social li a:hover
   background #f1284e
   border 1px solid #f1284e
   transition background 0.1s, border 0.1s
@@ -1032,7 +1025,7 @@ footer .about p
   -moz-transition background 0.1s, border 0.1s
   -o-transition background 0.1s, border 0.1s
 
-.social li ahover i
+.social li a:hover i
   color #fff
   opacity 1
 
@@ -1067,14 +1060,14 @@ footer .about p
 .categories ul>lilast-child
   border-bottom none
 
-.categories ul>lihover
+.categories ul>li:hover
   background rgba(255,255,255,0.04)
   transition background 0.3s
   -webkit-transition background 0.3s
   -moz-transition background 0.3s
   -o-transition background 0.3s
 
-.categories ul>lihover a
+.categories ul>li:hover a
   color #f1284e
 
 footer .event
@@ -1111,11 +1104,11 @@ footer .event .col
   margin-right 20px
   margin-bottom 20px
 
-footer .event .colhover
+footer .event .col:hover
   border 1px solid #f1284e
 
-footer .event .colhover h1,
-footer .event .colhover p
+footer .event .col:hover h1,
+footer .event .col:hover p
   color #f1284e
 
 footer .event .col>p
@@ -1145,16 +1138,16 @@ footer .calendar .calendar-nav
   float right
   padding 7px
 
-.calendar-nav>.prevhover,
+.calendar-nav>.prev:hover,
 .calendar-nav>.prevfocus,
-.calendar-nav>.nexthover,
+.calendar-nav>.next:hover,
 .calendar-nav>.nextfocus
   border 1px solid #f1284e
   background #f1284e
 
-.calendar-nav>.prevhover i,
+.calendar-nav>.prev:hover i,
 .calendar-nav>.prevfocus i,
-.calendar-nav>.nexthover i,
+.calendar-nav>.next:hover i,
 .calendar-nav>.nextfocus i
   color #fff
 
@@ -1205,7 +1198,7 @@ footer .calendar table td
   -moz-transition background 0.7s, border 0.7s
   -o-transition background 0.7s, border 0.7s
 
-footer .calendar table tdhover
+footer .calendar table td:hover
   border 1px solid #f1284e
   background #f1284e
   transition background 0.1s, border 0.1s
@@ -1217,7 +1210,7 @@ footer .calendar a.next-month,
 footer .calendar a.prev-month
   color rgba(255,255,255,0.2)
 
-footer .calendar table tdhover a
+footer .calendar table td:hover a
   color #fff
 
 footer .rights
@@ -1279,7 +1272,7 @@ article.row .counters
 .archive.categories ul>li
   border-bottom 1px dashed rgba(0,0,0,0.1)
 
-.archive.categories ul>lihover
+.archive.categories ul>li:hover
   background rgba(0,0,0,0.04)
 
 .archive.categories ul>lilast-child
@@ -1355,7 +1348,7 @@ article.row .counters
 .member .social li
   border 1px solid #ddd
 
-.member .social lihover
+.member .social li:hover
   background #f1284e
   border 1px solid #f1284e
 
@@ -1363,7 +1356,7 @@ article.row .counters
   color #aaa
   opacity 1
 
-.member .social lihover i
+.member .social li:hover i
   color #fff
 
 .team
@@ -1539,7 +1532,7 @@ form [class*="col-md-"]
   margin-right 10px
   display inline-block
 
-.countdown_section .countdown_amountafter
+.countdown_section .countdown_amount:after
   content "."
 
 .countdown_section
@@ -1640,7 +1633,7 @@ form [class*="col-md-"]
   border 1px solid #ddd
   padding 8px 21px
 
-.post-page article.post .tags aafter
+.post-page article.post .tags a:after
   content none
 
 .post-page article.post
@@ -1682,7 +1675,7 @@ form [class*="col-md-"]
   background #ddd
   color #888
 
-.post-page .comments article .btnhover
+.post-page .comments article .btn:hover
   background #f1284e
   color #fff
 
@@ -1809,7 +1802,7 @@ form [class*="col-md-"]
     font-size 28px
     margin-right 10px
 
-  #menu-buttonhover i
+  #menu-button:hover i
     color #f1284e
 
   #header-menu-button
@@ -1822,7 +1815,7 @@ form [class*="col-md-"]
   #header-menu-button i
     font-size 14px
 
-  #header-menu-buttonhover i
+  #header-menu-button:hover i
     color #222
 
   header nav>ul
@@ -1837,12 +1830,10 @@ form [class*="col-md-"]
     -webkit-box-shadow 0 0 8px 0 rgba(0,0,0,0.2)
     -moz-box-shadow 0 0 8px 0 rgba(0,0,0,0.2)
 
-  header ul>lihover>a,
-header ul>lifocus>a
+  header ul>li:hover>a, header ul>lifocus>a
     color #222 !important
 
-  header ul>lihover,
-header ul>lifocus
+  header ul>li:hover, header ul>lifocus
     background rgba(0,0,0,0.1) !important
 
   header nav>ul li
@@ -1856,13 +1847,13 @@ header ul>lifocus
     padding 10px 20px !important
     margin-left 0 !important
 
-  header>.container>nav>ul>linot(.dropdown-submenu)after
+  header>.container>nav>ul>linot(.dropdown-submenu):after
     content ' ' !important
 
   header nav>ul .dropdown-submenu
     position relative
 
-  header nav>ul .dropdown-submenuafter
+  header nav>ul .dropdown-submenu:after
     position absolute
     top 30%
     right 10px
@@ -1871,7 +1862,7 @@ header ul>lifocus
     font-size 11px
     content '\f0d7' !important
 
-  header nav>ul .dropdown-submenu > .dropdown-menubefore
+  header nav>ul .dropdown-submenu > .dropdown-menu:before
     content none !important
 
   header nav>ul .dropdown-submenu > .dropdown-menu
@@ -1909,7 +1900,7 @@ header ul>lifocus
   .menu>li
     padding 15px !important
 
-  .menu .dropdown-submenuafter
+  .menu .dropdown-submenu:after
     position absolute
     top 30%
     right 10px
@@ -1918,7 +1909,7 @@ header ul>lifocus
     font-size 11px
     content '\f0d7'
 
-  .menu .dropdown-submenu > .dropdown-menubefore
+  .menu .dropdown-submenu > .dropdown-menu:before
     content none !important
 
   .menu .dropdown-submenu > .dropdown-menu
@@ -1943,9 +1934,7 @@ header ul>lifocus
   article.big .details
     font-size 10px !important
 
-  article.big .counters li,
-article.mid .counters li,
-.popular .counters li
+  article.big .counters li, article.mid .counters li, .popular .counters li
     font-size 10px !important
 
   article.mid .counters li
@@ -1958,10 +1947,7 @@ article.mid .counters li,
   article.mid h1
     font-size 15px !important
 
-  article.mid .details,
-article.mid .details a,
-article.small .details,
-article.small .details a
+  article.mid .details, article.mid .details a, article.small .details, article.small .details a
     font-size 10px !important
     margin-top 5px !important
 
@@ -2041,7 +2027,7 @@ article.small .details a
     padding 0 7px
 
   .best-week article.mid h1 a,
-.best-week article.mid h1 ahover
+.best-week article.mid h1 a:hover
     font-size 14px !important
 
   .archive .col-md-8
@@ -2107,10 +2093,10 @@ article.small .details a
     font-size 28px
     margin-right 10px
 
-  #menu-buttonhover
+  #menu-button:hover
     color #222
 
-  #menu-buttonhover i
+  #menu-button:hover i
     color #f1284e
 
   #header-menu-button
@@ -2123,7 +2109,7 @@ article.small .details a
     font-size 14px
     margin-right 10px
 
-  #header-menu-buttonhover i
+  #header-menu-button:hover i
     color #222
 
   header nav>ul
@@ -2138,10 +2124,10 @@ article.small .details a
     -webkit-box-shadow 0 0 8px 0 rgba(0,0,0,0.2)
     -moz-box-shadow 0 0 8px 0 rgba(0,0,0,0.2)
 
-  header ul>lihover>a
+  header ul>li:hover>a
     color #222 !important
 
-  header ul>lihover
+  header ul>li:hover
     background rgba(0,0,0,0.1) !important
 
   header nav>ul li
@@ -2155,13 +2141,13 @@ article.small .details a
     padding 10px 20px !important
     margin-left 0 !important
 
-  header>.container>nav>ul>liafter
+  header .container>nav>ul>li:after
     content none !important
 
   header nav>ul .dropdown-submenu
     position relative
 
-  header nav>ul .dropdown-submenu > aafter
+  header nav>ul .dropdown-submenu > a:after
     position absolute
     top 30%
     right 10px
@@ -2170,7 +2156,7 @@ article.small .details a
     font-size 11px
     content '\f0d7'
 
-  header nav>ul .dropdown-submenu > .dropdown-menubefore
+  header nav>ul .dropdown-submenu > .dropdown-menu:before
     content none !important
 
   header nav>ul .dropdown-submenu > .dropdown-menu
@@ -2214,7 +2200,7 @@ article.small .details a
   .menu>li
     padding 15px !important
 
-  .menu .dropdown-submenu > aafter
+  .menu .dropdown-submenu > a:after
     position absolute
     top 30%
     right 10px
@@ -2223,7 +2209,7 @@ article.small .details a
     font-size 11px
     content '\f0d7'
 
-  .menu .dropdown-submenu > .dropdown-menubefore
+  .menu .dropdown-submenu > .dropdown-menu:before
     content none !important
 
   .menu .dropdown-submenu > .dropdown-menu
@@ -2358,7 +2344,7 @@ article.small .details a
     font-size 14px
     margin-right 10px
 
-  #header-menu-buttonhover i
+  #header-menu-button:hover i
     color #222
 
   header nav>ul
@@ -2373,12 +2359,12 @@ article.small .details a
     -webkit-box-shadow 0 0 8px 0 rgba(0,0,0,0.2)
     -moz-box-shadow 0 0 8px 0 rgba(0,0,0,0.2)
 
-  header ul>lihover>a,
-header ul>li.hover_effect>a
+  header ul>li:hover>a,
+header ul>li.:hover_effect>a
     color #222 !important
 
-  header ul>lihover,
-header ul>li.hover_effect
+  header ul>li:hover,
+header ul>li.:hover_effect
     background rgba(0,0,0,0.1) !important
 
   header nav>ul li
@@ -2399,13 +2385,13 @@ header ul>li.hover_effect
     padding 10px 20px !important
     margin-left 0 !important
 
-  header>.container>nav>ul>liafter
+  header>.container>nav>ul>li:after
     content none !important
 
   header nav>ul .dropdown-submenu
     position relative
 
-  header nav>ul .dropdown-submenu > aafter
+  header nav>ul .dropdown-submenu > a:after
     position absolute
     top 30%
     right 10px
@@ -2414,7 +2400,7 @@ header ul>li.hover_effect
     font-size 11px
     content '\f0d7'
 
-  header nav>ul .dropdown-submenu > .dropdown-menubefore
+  header nav>ul .dropdown-submenu > .dropdown-menu:before
     content none !important
 
   header nav>ul .dropdown-submenu > .dropdown-menu
@@ -2531,7 +2517,7 @@ header ul>li.hover_effect
     font-size 14px
     margin-right 10px
 
-  #header-menu-buttonhover i
+  #header-menu-button:hover i
     color #222
 
   header nav>ul
@@ -2546,12 +2532,12 @@ header ul>li.hover_effect
     -webkit-box-shadow 0 0 8px 0 rgba(0,0,0,0.2)
     -moz-box-shadow 0 0 8px 0 rgba(0,0,0,0.2)
 
-  header ul>lihover>a,
-header ul>li.hover_effect>a
+  header ul>li:hover>a,
+header ul>li.:hover_effect>a
     color #222 !important
 
-  header ul>lihover,
-header ul>li.hover_effect
+  header ul>li:hover,
+header ul>li.:hover_effect
     background rgba(0,0,0,0.1) !important
 
   header nav>ul li
@@ -2569,13 +2555,13 @@ header ul>li.hover_effect
     padding 10px 20px !important
     margin-left 0 !important
 
-  header>.container>nav>ul>liafter
+  header>.container>nav>ul>li:after
     content none !important
 
   header nav>ul .dropdown-submenu
     position relative
 
-  header nav>ul .dropdown-submenu > aafter
+  header nav>ul .dropdown-submenu > a:after
     position absolute
     top 30%
     right 10px
@@ -2584,7 +2570,7 @@ header ul>li.hover_effect
     font-size 11px
     content '\f0d7'
 
-  header nav>ul .dropdown-submenu > .dropdown-menubefore
+  header nav>ul .dropdown-submenu > .dropdown-menu:before
     content none !important
 
   header nav>ul .dropdown-submenu > .dropdown-menu
@@ -2623,10 +2609,7 @@ article.big .info
     font-size 20px !important
     line-height 20px !important
 
-  article.big .text,
-article.big .details,
-article.big .counters,
-article.big .tags
+  article.big .text, article.big .details, article.big .counters, article.big .tags
     display none
 
   article.big h1
