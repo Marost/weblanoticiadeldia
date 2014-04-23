@@ -5,6 +5,9 @@ require_once("panel@lndd/conexion/funciones.php");
 //NOTICIA DESTACADA
 $rst_not_dest=mysql_query("SELECT * FROM lndd_noticia WHERE destacada=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 4", $conexion);
 
+/*=================================================================================
+===================================================================================*/
+
 //NOTICIA SUPERIOR 1
 $rst_not_sup1=mysql_query("SELECT * FROM lndd_noticia WHERE superior_1=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
 $fila_not_sup1=mysql_fetch_array($rst_not_sup1);
@@ -31,6 +34,9 @@ $fila_notsup1_cat=seleccionTabla($notSup1_categoria, "id", "lndd_noticia_categor
 $notSup1Cat_url=$fila_notsup1_cat["url"];
 $notSup1Cat_titulo=$fila_notsup1_cat["categoria"];
 $notSup1Cat_web=$web."seccion/".$notSup1_categoria."/".$notSup1Cat_url;
+
+/*=================================================================================
+===================================================================================*/
 
 //NOTICIA SUPERIOR 2
 $rst_not_sup2=mysql_query("SELECT * FROM lndd_noticia WHERE superior_2=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
@@ -59,6 +65,9 @@ $notSup2Cat_url=$fila_notsup2_cat["url"];
 $notSup2Cat_titulo=$fila_notsup2_cat["categoria"];
 $notSup2Cat_web=$web."seccion/".$notSup2_categoria."/".$notSup2Cat_url;
 
+/*=================================================================================
+===================================================================================*/
+
 //NOTICIA SUPERIOR 3
 $rst_not_sup3=mysql_query("SELECT * FROM lndd_noticia WHERE superior_3=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
 $fila_not_sup3=mysql_fetch_array($rst_not_sup3);
@@ -85,6 +94,9 @@ $fila_notsup3_cat=seleccionTabla($notSup3_categoria, "id", "lndd_noticia_categor
 $notSup3Cat_url=$fila_notsup3_cat["url"];
 $notSup3Cat_titulo=$fila_notsup3_cat["categoria"];
 $notSup3Cat_web=$web."seccion/".$notSup3_categoria."/".$notSup3Cat_url;
+
+/*=================================================================================
+===================================================================================*/
 
 //NOTICIA SUPERIOR 4
 $rst_not_sup4=mysql_query("SELECT * FROM lndd_noticia WHERE superior_4=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
@@ -113,6 +125,9 @@ $notSup4Cat_url=$fila_notsup4_cat["url"];
 $notSup4Cat_titulo=$fila_notsup4_cat["categoria"];
 $notSup4Cat_web=$web."seccion/".$notSup4_categoria."/".$notSup4Cat_url;
 
+/*=================================================================================
+===================================================================================*/
+
 //NOTICIA SUPERIOR 5
 $rst_not_sup5=mysql_query("SELECT * FROM lndd_noticia WHERE superior_5=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
 $fila_not_sup5=mysql_fetch_array($rst_not_sup5);
@@ -139,6 +154,96 @@ $fila_notsup5_cat=seleccionTabla($notSup5_categoria, "id", "lndd_noticia_categor
 $notSup5Cat_url=$fila_notsup5_cat["url"];
 $notSup5Cat_titulo=$fila_notsup5_cat["categoria"];
 $notSup5Cat_web=$web."seccion/".$notSup5_categoria."/".$notSup5Cat_url;
+
+/*=================================================================================
+===================================================================================*/
+
+//NOTICIA SUPERIOR 6
+$rst_not_sup6=mysql_query("SELECT * FROM lndd_noticia WHERE superior_6=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
+$fila_not_sup6=mysql_fetch_array($rst_not_sup6);
+
+//VARIABLES
+$notSup6_id=$fila_not_sup6["id"];
+$notSup6_url=$fila_not_sup6["url"];
+$notSup6_titulo=$fila_not_sup6["titulo"];
+$notSup6_contenido=soloDescripcion($fila_not_sup6["contenido"]);
+$notSup6_imagen=$fila_not_sup6["imagen"];
+$notSup6_imagen_carpeta=$fila_not_sup6["imagen_carpeta"];
+$notSup6_categoria=$fila_not_sup6["categoria"];
+$notSup6_web=$web."noticia/".$notSup6_id."-".$notSup6_url;
+$notSup6_web_img=$web."imagenes/upload/".$notSup6_imagen_carpeta."thumb/".$notSup6_imagen;
+
+//FECHA PUBLICACION
+$notSup6_fecha=$fila_not_sup6["fecha_publicacion"];
+if($notSup6_fecha=="0000-00-00 00:00:00"){
+	$notSup6_fecha=$fila_not_sup6["fecha"];
+}else{ $notSup6_fecha=notaTiempo($notSup6_fecha);} 
+
+//CATEGORIA
+$fila_notsup6_cat=seleccionTabla($notSup6_categoria, "id", "lndd_noticia_categoria", $conexion);
+$notSup6Cat_url=$fila_notsup6_cat["url"];
+$notSup6Cat_titulo=$fila_notsup6_cat["categoria"];
+$notSup6Cat_web=$web."seccion/".$notSup6_categoria."/".$notSup6Cat_url;
+
+/*=================================================================================
+===================================================================================*/
+
+//NOTICIA SUPERIOR 7
+$rst_not_sup7=mysql_query("SELECT * FROM lndd_noticia WHERE superior_7=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
+$fila_not_sup7=mysql_fetch_array($rst_not_sup7);
+
+//VARIABLES
+$notSup7_id=$fila_not_sup7["id"];
+$notSup7_url=$fila_not_sup7["url"];
+$notSup7_titulo=$fila_not_sup7["titulo"];
+$notSup7_contenido=soloDescripcion($fila_not_sup7["contenido"]);
+$notSup7_imagen=$fila_not_sup7["imagen"];
+$notSup7_imagen_carpeta=$fila_not_sup7["imagen_carpeta"];
+$notSup7_categoria=$fila_not_sup7["categoria"];
+$notSup7_web=$web."noticia/".$notSup7_id."-".$notSup7_url;
+$notSup7_web_img=$web."imagenes/upload/".$notSup7_imagen_carpeta."thumb/".$notSup7_imagen;
+
+//FECHA PUBLICACION
+$notSup7_fecha=$fila_not_sup7["fecha_publicacion"];
+if($notSup7_fecha=="0000-00-00 00:00:00"){
+	$notSup7_fecha=$fila_not_sup7["fecha"];
+}else{ $notSup7_fecha=notaTiempo($notSup7_fecha);} 
+
+//CATEGORIA
+$fila_notsup7_cat=seleccionTabla($notSup7_categoria, "id", "lndd_noticia_categoria", $conexion);
+$notSup7Cat_url=$fila_notsup7_cat["url"];
+$notSup7Cat_titulo=$fila_notsup7_cat["categoria"];
+$notSup7Cat_web=$web."seccion/".$notSup7_categoria."/".$notSup7Cat_url;
+
+/*=================================================================================
+===================================================================================*/
+
+//NOTICIA SUPERIOR 8
+$rst_not_sup8=mysql_query("SELECT * FROM lndd_noticia WHERE superior_8=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
+$fila_not_sup8=mysql_fetch_array($rst_not_sup8);
+
+//VARIABLES
+$notSup8_id=$fila_not_sup8["id"];
+$notSup8_url=$fila_not_sup8["url"];
+$notSup8_titulo=$fila_not_sup8["titulo"];
+$notSup8_contenido=soloDescripcion($fila_not_sup8["contenido"]);
+$notSup8_imagen=$fila_not_sup8["imagen"];
+$notSup8_imagen_carpeta=$fila_not_sup8["imagen_carpeta"];
+$notSup8_categoria=$fila_not_sup8["categoria"];
+$notSup8_web=$web."noticia/".$notSup8_id."-".$notSup8_url;
+$notSup8_web_img=$web."imagenes/upload/".$notSup8_imagen_carpeta."thumb/".$notSup8_imagen;
+
+//FECHA PUBLICACION
+$notSup8_fecha=$fila_not_sup8["fecha_publicacion"];
+if($notSup8_fecha=="0000-00-00 00:00:00"){
+	$notSup8_fecha=$fila_not_sup8["fecha"];
+}else{ $notSup8_fecha=notaTiempo($notSup8_fecha);} 
+
+//CATEGORIA
+$fila_notsup8_cat=seleccionTabla($notSup8_categoria, "id", "lndd_noticia_categoria", $conexion);
+$notSup8Cat_url=$fila_notsup8_cat["url"];
+$notSup8Cat_titulo=$fila_notsup8_cat["categoria"];
+$notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 
 ?>
 <!DOCTYPE html>
@@ -412,7 +517,61 @@ $notSup5Cat_web=$web."seccion/".$notSup5_categoria."/".$notSup5Cat_url;
 						</article>
 
 					</div>
-					<!-- NOTICIA INFERIOR -->
+					<!-- FIN NOTICIA INFERIOR -->
+
+					<!-- NOTICIA INFERIOR HORIZONTAL -->
+					<div class="row">
+						
+						<article class="col-md-4 col-sm-4 mid">
+							<div class="img">
+								<img src="<?php echo $notSup6_web_img; ?>" alt="<?php echo $notSup6Cat_titulo; ?>">
+							</div>
+							<div class="info">
+								<p class="tags">
+									<a href=""><?php echo $notSup6Cat_titulo; ?></a><a href=""></a>
+								</p>
+								<h1><a href=""><?php echo $notSup6_titulo; ?></a></h1>
+								<p class="details"><?php echo $notSup6_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="text">
+									<?php echo $notSup6_contenido; ?>
+								</p>
+							</div>
+						</article>
+
+						<article class="col-md-4 col-sm-4 mid">
+							<div class="img">
+								<img src="<?php echo $notSup7_web_img; ?>" alt="<?php echo $notSup7Cat_titulo; ?>">
+							</div>
+							<div class="info">
+								<p class="tags">
+									<a href=""><?php echo $notSup7Cat_titulo; ?></a><a href=""></a>
+								</p>
+								<h1><a href=""><?php echo $notSup7_titulo; ?></a></h1>
+								<p class="details"><?php echo $notSup7_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="text">
+									<?php echo $notSup7_contenido; ?>
+								</p>
+							</div>
+						</article>
+
+						<article class="col-md-4 col-sm-4 mid">
+							<div class="img">
+								<img src="<?php echo $notSup8_web_img; ?>" alt="<?php echo $notSup8Cat_titulo; ?>">
+							</div>
+							<div class="info">
+								<p class="tags">
+									<a href=""><?php echo $notSup8Cat_titulo; ?></a><a href=""></a>
+								</p>
+								<h1><a href=""><?php echo $notSup8_titulo; ?></a></h1>
+								<p class="details"><?php echo $notSup8_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="text">
+									<?php echo $notSup8_contenido; ?>
+								</p>
+							</div>
+						</article>
+
+					</div>
+					<!-- FIN NOTICIA INFERIOR HORIZONTAL -->
 
 				</div>
 				<!--END CONTENT-->
