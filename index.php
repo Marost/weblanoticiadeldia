@@ -398,7 +398,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 										<p class="tags">
 											<a href=""><?php echo $notDestCat_titulo; ?></a>
 										</p>
-										<h1><a href=""><?php echo $notDest_titulo; ?></a></h1>
+										<h1><a href="<?php echo $notDest_web; ?>"><?php echo $notDest_titulo; ?></a></h1>
 										<p class="text">
 											<?php echo $notDest_contenido; ?>
 										</p>
@@ -420,7 +420,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 								<p class="tags">
 									<a href=""><?php echo $notSup1Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href=""><?php echo $notSup1_titulo; ?></a></h1>
+								<h1><a href="<?php echo $notSup1_web; ?>"><?php echo $notSup1_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup1_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
 									<?php echo $notSup1_contenido; ?>
@@ -451,7 +451,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 								<p class="tags">
 									<a href=""><?php echo $notSup2Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href=""><?php echo $notSup2_titulo; ?></a></h1>
+								<h1><a href="<?php echo $notSup2_web; ?>"><?php echo $notSup2_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup2_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
 									<?php echo $notSup2_contenido; ?>
@@ -469,7 +469,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 								<p class="tags">
 									<a href=""><?php echo $notSup3Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href=""><?php echo $notSup3_titulo; ?></a></h1>
+								<h1><a href="<?php echo $notSup3_web; ?>"><?php echo $notSup3_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup3_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
 									<?php echo $notSup3_contenido; ?>
@@ -492,7 +492,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 								<p class="tags">
 									<a href=""><?php echo $notSup4Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href=""><?php echo $notSup4_titulo; ?></a></h1>
+								<h1><a href="<?php echo $notSup4_web; ?>"><?php echo $notSup4_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup4_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
 									<?php echo $notSup4_contenido; ?>
@@ -508,7 +508,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 								<p class="tags">
 									<a href=""><?php echo $notSup5Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href=""><?php echo $notSup5_titulo; ?></a></h1>
+								<h1><a href="<?php echo $notSup5_web; ?>"><?php echo $notSup5_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup5_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
 									<?php echo $notSup5_contenido; ?>
@@ -530,7 +530,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 								<p class="tags">
 									<a href=""><?php echo $notSup6Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href=""><?php echo $notSup6_titulo; ?></a></h1>
+								<h1><a href="<?php echo $notSup6_web; ?>"><?php echo $notSup6_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup6_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
 									<?php echo $notSup6_contenido; ?>
@@ -546,7 +546,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 								<p class="tags">
 									<a href=""><?php echo $notSup7Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href=""><?php echo $notSup7_titulo; ?></a></h1>
+								<h1><a href="<?php echo $notSup7_web; ?>"><?php echo $notSup7_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup7_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
 									<?php echo $notSup7_contenido; ?>
@@ -562,7 +562,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 								<p class="tags">
 									<a href=""><?php echo $notSup8Cat_titulo; ?></a><a href=""></a>
 								</p>
-								<h1><a href=""><?php echo $notSup8_titulo; ?></a></h1>
+								<h1><a href="<?php echo $notSup8_web; ?>"><?php echo $notSup8_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup8_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
 								<p class="text">
 									<?php echo $notSup8_contenido; ?>

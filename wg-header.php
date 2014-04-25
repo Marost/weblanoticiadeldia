@@ -5,13 +5,7 @@
 		<nav class="clearfix">
 			<a href="" id="header-menu-button"><i class="fa fa-bars"></i></a>  
 			<ul class="list-inline">
-				<li class="dropdown-submenu"><a href="">Inicio</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Home 1</a></li>
-						<li><a href="#">Home 2 (grid)</a></li>
-						<li><a href="#">Home 3 (list)</a></li>
-					</ul>
-				</li>
+				<li class="dropdown-submenu"><a href="">Inicio</a></li>
 				<li><a href="#">Director</a></li>
 				<li class="dropdown-submenu"><a href="">Columnistas</a>
 					<ul class="dropdown-menu">

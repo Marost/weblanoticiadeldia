@@ -11,11 +11,11 @@ $rst_nota=mysql_query("SELECT * FROM lndd_noticia WHERE id=$ReqId;", $conexion);
 $fila_nota=mysql_fetch_array($rst_nota);
 
 //VARIABLES
-$not_titulo=$fila_not["titulo"];
-$not_contenido=soloDescripcion($fila_not["contenido"]);
-$not_imagen=$fila_not["imagen"];
-$not_imagen_carpeta=$fila_not["imagen_carpeta"];
-$not_categoria=$fila_not["categoria"];
+$not_titulo=$fila_nota["titulo"];
+$not_contenido=$fila_nota["contenido"];
+$not_imagen=$fila_nota["imagen"];
+$not_imagen_carpeta=$fila_nota["imagen_carpeta"];
+$not_categoria=$fila_nota["categoria"];
 
 //URLS
 $not_web=$web."noticia/".$not_id."-".$not_url;
