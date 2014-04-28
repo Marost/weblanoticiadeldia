@@ -245,6 +245,15 @@ $notSup8Cat_url=$fila_notsup8_cat["url"];
 $notSup8Cat_titulo=$fila_notsup8_cat["categoria"];
 $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 
+/*=================================================================================
+===================================================================================*/
+
+$xml = new DOMDocument();
+$xml->load('https://api.facebook.com/method/fql.query?query=SELECT%20like_count,share_count,total_count%20FROM%20link_stat%20WHERE%20url=%22https://www.facebook.com/diario16peru%22');
+$like_count = $xml->getElementsByTagName("like_count")->item(0)->nodeValue;
+$share_count = $xml->getElementsByTagName("share_count")->item(0)->nodeValue;
+$total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -266,55 +275,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 	<div class="container">
 
 		<!--MENU-->
-		<nav class="clearfix">
-
-			<a href="" id="menu-button"><i class="fa fa-bars"></i></a>
-
-			<ul class="menu col-md-9 list-inline">
-				<li><a href="fashion.html">Política</a></li>
-				<li class="dropdown-submenu">
-					<a href="travel.html">Actualidad</a>
-					<ul class="dropdown-menu">
-						<li><a href="">xxx1</a></li>
-						<li class="dropdown-submenu">
-							<a href="">xxxxx2</a>
-							<ul class="dropdown-menu">
-								<li><a href="">xxxx3</a></li>
-								<li><a href="">xxxx4</a></li>
-								<li><a href="">xxxx5</a></li>
-							</ul>
-						</li>
-						<li><a href="">xxxxx6/a></li>
-						<li><a href="">xxxx7</a></li>
-						<li><a href="">xxxxx8</a></li>
-					</ul>
-				</li>
-				<li><a href="fashion.html">Economía</a></li>
-				<li><a href="travel.html">Tecnología</a></li>
-				<li class="dropdown-submenu">
-					<a href="fashion.html">Mundo</a>
-					<ul class="dropdown-menu">
-						<li><a href="">xxxxx1</a></li>
-						<li><a href="">Mxxxx2</a></li>
-						<li><a href="">xxxxx3</a></li>
-						<li><a href="">xxxx4</a></li>
-						<li><a href="">xxxxx5</a></li>
-					</ul>
-				</li>
-				<li><a href="travel.html">Sociedad y Cultura</a></li>
-				<li></li>
-				<li></li>
-			</ul>
-			<form class="form-search col-md-3">
-				<div class="input-group">
-					<input type="text" class="search-query form-control" placeholder="Buscar">
-	      			<span class="input-group-btn">
-	        			<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-	      			</span>
-			  	</div>
-			</form>
-
-		</nav>
+		<?php require_once("wg-header-menu.php"); ?>
 		<!--END MENU-->
 		
 		<!--MAIN SECTION-->
@@ -418,7 +379,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup1Cat_titulo; ?></a><a href=""></a>
+									<a href=""><?php echo $notSup1Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup1_web; ?>"><?php echo $notSup1_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup1_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
@@ -435,7 +396,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 					<div class="row">
 
 						<!-- PUBLICIDAD -->
-						<div class="col-md-4 col-sm-4">
+						<div class="col-md-4 col-sm-4 visible-lg">
 
 							<img src="http://placehold.it/300x480" width="100%">
 
@@ -449,7 +410,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup2Cat_titulo; ?></a><a href=""></a>
+									<a href=""><?php echo $notSup2Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup2_web; ?>"><?php echo $notSup2_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup2_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
@@ -467,7 +428,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup3Cat_titulo; ?></a><a href=""></a>
+									<a href=""><?php echo $notSup3Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup3_web; ?>"><?php echo $notSup3_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup3_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
@@ -490,7 +451,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup4Cat_titulo; ?></a><a href=""></a>
+									<a href=""><?php echo $notSup4Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup4_web; ?>"><?php echo $notSup4_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup4_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
@@ -506,7 +467,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup5Cat_titulo; ?></a><a href=""></a>
+									<a href=""><?php echo $notSup5Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup5_web; ?>"><?php echo $notSup5_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup5_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
@@ -528,7 +489,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup6Cat_titulo; ?></a><a href=""></a>
+									<a href=""><?php echo $notSup6Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup6_web; ?>"><?php echo $notSup6_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup6_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
@@ -544,7 +505,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup7Cat_titulo; ?></a><a href=""></a>
+									<a href=""><?php echo $notSup7Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup7_web; ?>"><?php echo $notSup7_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup7_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
@@ -560,7 +521,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup8Cat_titulo; ?></a><a href=""></a>
+									<a href=""><?php echo $notSup8Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup8_web; ?>"><?php echo $notSup8_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup8_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
@@ -583,7 +544,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
 					<ul class="aside-social list-inline visible-md visible-lg">
 						<li>
 							<i class="fa fa-facebook"></i>
-							<p>162K</p>
+							<p><?php echo $total_count; ?></p>
 						</li>
 						<li>
 							<i class="fa fa-twitter"></i>
