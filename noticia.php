@@ -17,6 +17,10 @@ $not_imagen=$fila_nota["imagen"];
 $not_imagen_carpeta=$fila_nota["imagen_carpeta"];
 $not_categoria=$fila_nota["categoria"];
 
+//GALERIA DE FOTOS
+$rst_notaFotos=mysql_query("SELECT * FROM lndd_noticia_slide WHERE noticia=$ReqId ORDER BY orden ASC", $conexion);
+$num_notaFotos=mysql_num_rows($rst_notaFotos);
+
 //URLS
 $not_web=$web."noticia/".$not_id."-".$not_url;
 $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
@@ -40,52 +44,7 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 	<!--CONTAINER-->
 	<div class="container">
 		<!--MENU-->
-		<nav class="clearfix">
-			<a href="" id="menu-button"><i class="fa fa-bars"></i></a>  
-			<ul class="menu col-md-9 list-inline">
-				<li><a href="fashion.html">Fashion</a></li>
-				<li class="dropdown-submenu">
-					<a href="travel.html">Science</a>
-					<ul class="dropdown-menu">
-						<li><a href="">Physics</a></li>
-						<li class="dropdown-submenu">
-							<a href="">Mathematics</a>
-							<ul class="dropdown-menu">
-								<li><a href="">Physics</a></li>
-								<li><a href="">Mathematics</a></li>
-								<li><a href="">Astronomy</a></li>
-							</ul>
-						</li>
-						<li><a href="">Astronomy</a></li>
-						<li><a href="">Astrophysics</a></li>
-						<li><a href="">Ufology</a></li>
-					</ul>
-				</li>
-				<li><a href="fashion.html">Industry</a></li>
-				<li><a href="travel.html">Inspiration</a></li>
-				<li class="dropdown-submenu">
-					<a href="fashion.html">Music</a>
-					<ul class="dropdown-menu">
-						<li><a href="">Physics</a></li>
-						<li><a href="">Mathematics</a></li>
-						<li><a href="">Astronomy</a></li>
-						<li><a href="">Astrophysics</a></li>
-						<li><a href="">Ufology</a></li>
-					</ul>
-				</li>
-				<li><a href="travel.html">Movies & Stars</a></li>
-				<li><a href="fashion.html">Lifestyle</a></li>
-				<li><a href="travel.html">Travel</a></li>
-			</ul>
-			<form class="form-search col-md-3">
-				<div class="input-group">
-					<input type="text" class="search-query form-control" placeholder="Search smth">
-	      			<span class="input-group-btn">
-	        			<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-	      			</span>
-			  	</div>
-			</form>
-		</nav>
+		<?php require_once("wg-header-menu.php"); ?>
 		<!--END MENU-->
 		
 		<!--MAIN SECTION-->
@@ -95,25 +54,49 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 				<div class="col-md-9 col-sm-12 clearfix">
 					<!--POST-->
 					<article class="post mid fullwidth">
-						<img src="<?php echo $not_web_img; ?>" alt="post-image">
-						<div class="info">
-							<h1><?php echo $not_titulo; ?></h1>
-							<div class="data">
-								<p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
-							</div>
-							<div class="text">
-								<?php echo $not_contenido; ?>
-							</div>
-							
-							<!--
-							<p class="tags">
-								<a href="">Fashion</a>
-								<a href="">Inspiration</a>
-								<a href="">lifestyle</a>
-							</p>
-							-->
+						<div class="row">
+							<?php if($num_notaFotos==0){ ?>
+							<img src="<?php echo $not_web_img; ?>" alt="post-image">
+							<?php }elseif($num_notaFotos>0){ ?>
+							<div class="post-slider col-md-12 col-sm-12">
+								<div class="controls">
+									<p class="prev"><i class="fa fa-angle-left"></i></p>
+									<p class="next"><i class="fa fa-angle-right"></i></p>
+								</div>	
+								<div class="slides">
+									<?php while($fila_notaFotos=mysql_fetch_array($rst_notaFotos)){
+											$notaFotos_imagen=$fila_notaFotos["imagen"];
+											$notaFotos_imagen_carpeta=$fila_notaFotos["imagen_carpeta"];
+											$notaFotos_UrlImg=$web."imagenes/upload/".$notaFotos_imagen_carpeta."".$notaFotos_imagen;
+									?>
+									<img src="<?php echo $notaFotos_UrlImg; ?>" alt="post-image">
+									<?php } ?>
+								</div>
+							</div>	
+							<?php } ?>
+						</div>
 
-								
+						<div class="row">
+							<div class="info col-md-12 col-sm-12">
+								<div class="info">
+									<h1><?php echo $not_titulo; ?></h1>
+									<div class="data">
+										<p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+									</div>
+									<div class="text">
+										<?php echo $not_contenido; ?>
+									</div>
+									
+									<!--
+									<p class="tags">
+										<a href="">Fashion</a>
+										<a href="">Inspiration</a>
+										<a href="">lifestyle</a>
+									</p>
+									-->
+										
+								</div>
+							</div>
 						</div>
 					</article>
 					<!--END POST-->
