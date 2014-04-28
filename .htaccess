@@ -301,7 +301,7 @@ FileETag None
 
 RewriteRule ^noticias$                                    /noticias.php
 RewriteRule ^noticia/([0-9]*)-(.*)$                       /noticia.php?id=$1&url=$2
-RewriteRule ^seccion/([0-9]*)/(.*)$                       /categoria.php?id=$1&url=$2
+RewriteRule ^seccion/(.*)$                                /categoria.php?url=$1
 RewriteRule ^columnista/([0-9]*)-(.*)$                    /columnista-select.php?id=$1&url=$2
 RewriteRule ^columnistas$                                 /columnista-lista.php
 RewriteRule ^tag/([0-9]*)-(.*)$                           /etiquetas.php?id=$1&url=$2
