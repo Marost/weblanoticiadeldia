@@ -81,7 +81,7 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 								<div class="info">
 									<h1><?php echo $not_titulo; ?></h1>
 									<div class="data">
-										<p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+										<p class="details">Sep 25, 2013 | Alex Grosville</p>
 									</div>
 									<div class="text">
 										<?php echo $not_contenido; ?>
@@ -98,55 +98,27 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 								</div>
 							</div>
 						</div>
+
 					</article>
 					<!--END POST-->
-
-					<h3>Sobre el Autor</h3>	
-					<article class="row mid member">
-							<img src="img/author.jpg" alt="author">
-							<div class="info">
-								<p class="tags">
-									<a href="">Founder</a>
-									<a href="">Ceo</a>
-								</p>
-								<h1><a href="author.html">Alex Grosville</a></h1>
-								<p class="text">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								</p>
-								<ul class="social list-inline">
-									<li>
-										<a href="#">
-											<i class="fa fa-facebook"></i>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa fa-twitter"></i>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa fa-google-plus"></i>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa  fa-tumblr"></i>
-										</a>
-									</li>
-								</ul>
-							</div>	
-					</article>
 				
 					<!-- COMENTARIOS -->
-					<h3>Comentarios</h3>
-					
+					<div class="row">
+						<h3>Comentarios</h3>
+
+						<div id="fb-root"></div>
+						<script>(function(d, s, id) {
+						  var js, fjs = d.getElementsByTagName(s)[0];
+						  if (d.getElementById(id)) return;
+						  js = d.createElement(s); js.id = id;
+						  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=258988607636876";
+						  fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+
+						<div data-width="100%" class="fb-comments" data-href="<?php echo $not_web; ?>" data-numposts="5" data-colorscheme="light"></div>
+					</div>					
 					<!-- FIN COMENTARIOS -->
+					
 				</div>
 				<!--END CONTENT-->
 
