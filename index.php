@@ -396,11 +396,11 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 					<div class="row">
 
 						<!-- PUBLICIDAD -->
-						<div class="col-md-4 col-sm-4 visible-lg">
+						<article class="col-md-4 col-sm-4 mid">
 
 							<img src="http://placehold.it/300x480" width="100%">
 
-						</div>
+						</article>
 						<!-- FIN PUBLICIDAD -->
 
 						<!-- NOTICIA CENTRAL -->
