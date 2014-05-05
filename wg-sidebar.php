@@ -1,10 +1,10 @@
 <aside class="col-md-3 col-sm-12">
 					
-	<!-- CONTADOR SOCIAL MEDIA -->
+	<!-- CONTADOR SOCIAL MEDIA 
 	<ul class="aside-social list-inline visible-md visible-lg">
 		<li>
 			<i class="fa fa-facebook"></i>
-			<p><?php echo $total_count; ?></p>
+			<p>php echo $total_count; ?></p>
 		</li>
 		<li>
 			<i class="fa fa-twitter"></i>
@@ -19,7 +19,7 @@
 			<p>9,012</p>
 		</li>
 	</ul>
-	<!-- FIN CONTADOR SOCIAL MEDIA -->
+	 FIN CONTADOR SOCIAL MEDIA -->
 
 	<!-- SUSCRIPCION -->
 	<div class="newsletter visible-md visible-lg">
