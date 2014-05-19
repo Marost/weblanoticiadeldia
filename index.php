@@ -286,32 +286,6 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 				<!--CONTENT-->
 				<div class="posts col-md-9 col-sm-12">
 
-					<!--BREAKING NEWS-->
-					<div class="row">
-						<div class="breaking col-md-12 col-sm-12">
-							<div class="controls">
-								<p class="prev"><i class="fa fa-angle-left"></i></p>
-								<p class="next"><i class="fa fa-angle-right"></i></p>
-							</div>
-							<ul class="news">
-								<li>
-                                <span> Lo último! </span>
-									Aumenta presión occidental contra Rusia por el referendo en Crimea
-								</li>
-								<li>
-									<span> Lo último! </span>
-									Muere estudiante en nuevo día de protestas en Venezuela. 
-								</li>
-								
-								<li>
-                                <span> Lo último! </span>
-									Jessica Chastain:Hollywood's Most Versatile Star
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!--END BREAKING NEWS-->
-
 					<!-- NOTICIA SUPERIOR -->
 					<div class="row">
 
