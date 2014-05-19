@@ -16,6 +16,25 @@ $not_contenido=$fila_nota["contenido"];
 $not_imagen=$fila_nota["imagen"];
 $not_imagen_carpeta=$fila_nota["imagen_carpeta"];
 $not_categoria=$fila_nota["categoria"];
+$not_usuario=$fila_nota["usuario"];
+
+//FECHA PUBLICACION
+if($fila_nota["fecha_publicacion"]<>"0000-00-00 00:00:00"){
+    $nota_fechaPub=$fila_nota["fecha_publicacion"];
+    $nota_fechaPubNot=explode(" ", $nota_fechaPub);
+    $nota_fechaPubNotFi=explode("-", $nota_fechaPubNot[0]);
+    $nota_fechaTotal=nombreFechaTotal($nota_fechaPubNotFi[0],$nota_fechaPubNotFi[1],$nota_fechaPubNotFi[2]);
+    $nota_fechaFinal=$nota_fechaTotal;
+}else{
+    $nota_fechaFinal=$fila_nota["fecha"];
+}
+
+//USUARIO
+$rst_usuario=mysql_query("SELECT usuario, nombre, apellidos FROM lndd_usuario WHERE usuario='$not_usuario'");
+$fila_usuario=mysql_fetch_array($rst_usuario);
+
+//VARIABLES
+$user_nomCompleto=$fila_usuario["nombre"]." ".$fila_usuario["apellidos"];
 
 //GALERIA DE FOTOS
 $rst_notaFotos=mysql_query("SELECT * FROM lndd_noticia_slide WHERE noticia=$ReqId ORDER BY orden ASC", $conexion);
@@ -81,7 +100,7 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 								<div class="info">
 									<h1><?php echo $not_titulo; ?></h1>
 									<div class="data">
-										<p class="details">Sep 25, 2013 | Alex Grosville</p>
+										<p class="details"><?php echo $nota_fechaFinal; ?> | <?php echo $user_nomCompleto; ?></p>
 									</div>
 									<div class="text">
 										<?php echo $not_contenido; ?>
@@ -115,7 +134,7 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 						  fjs.parentNode.insertBefore(js, fjs);
 						}(document, 'script', 'facebook-jssdk'));</script>
 
-						<div data-width="100%" class="fb-comments" data-href="<?php echo $not_web; ?>" data-numposts="5" data-colorscheme="light"></div>
+						<div class="fb-comments" data-href="<?php echo $not_web; ?>" data-numposts="5" data-colorscheme="light"></div>
 					</div>					
 					<!-- FIN COMENTARIOS -->
 					
