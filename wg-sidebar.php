@@ -67,7 +67,7 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WH
 				</div>
 			</article>
 			<?php } ?>
-		<a href="#" class="btn btn-default">Ver todos</a>
+		<a href="columnistas" class="btn btn-default">Ver todos</a>
 	</div>
 	<!-- FIN COLUMNISTAS -->
 
