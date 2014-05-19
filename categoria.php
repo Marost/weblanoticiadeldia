@@ -41,9 +41,9 @@ $rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id OR
 		
 		<!--MAIN SECTION-->
 		<div class="main">
-			<div class="row categoria">
+			<div class="row">
 				<!--CONTENT-->
-				<div class="col-md-9 col-sm-12 clearfix">
+				<div class="col-md-9 col-md-12 list-page clearfix">
 					<h2><?php echo $notCat_titulo; ?></h2>			
 					
 					<?php while($fila_notas=mysql_fetch_array($rst_notas)){
@@ -77,17 +77,14 @@ $rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id OR
 							//VARIABLES
 							$user_nomCompleto=$fila_usuario["nombre"]." ".$fila_usuario["apellidos"];
 					?>
-					<article class="col-md-4 col-sm-4 mid">
-						<div class="img">
-							<img src="<?php echo $nota_UrlImg; ?>" alt="post">
-						</div>
+					<article class="row mid">
+						<img src="<?php echo $nota_UrlImg; ?>" alt="post">
 						<div class="info">
 							<h1><a href="<?php echo $nota_UrlWeb; ?>"><?php echo $nota_titulo; ?></a></h1>
 							<p class="details"><?php echo $nota_fechaFinal; ?> | <?php echo $user_nomCompleto; ?></p>
 							<p class="text">
 								<?php echo $nota_contenido; ?>
 							</p>
-							
 						</div>
 					</article>
 					<?php } ?>
