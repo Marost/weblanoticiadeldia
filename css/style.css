@@ -1510,7 +1510,7 @@ article.row .img{
 
 article.row .details{
 	float:left;
-	margin:0;
+	margin:0 0 10px 0;
 }
 
 article.row .tags{
@@ -2164,6 +2164,10 @@ COLUMNISTAS
 		height: 360px;
 	}
 
+	article.mid.row img{
+		width: 270px !important;
+	}
+
 }
 
 @media (min-width: 980px) and (max-width: 1199px) {
@@ -2208,9 +2212,13 @@ COLUMNISTAS
     margin-top: 20px !important;
   }
 
-  article.row .counters{
-	margin-left: 10px;
-}
+  	article.row .counters{
+		margin-left: 10px;
+	}
+
+	article.mid.row img{
+	    width: 270px !important;
+	}
 
   .author article.row .counters {
     margin:10px 0 0 0 !important;
@@ -2438,6 +2446,10 @@ COLUMNISTAS
     font-size: 13px !important;
     line-height: 17px !important;
     margin-bottom: 0px;
+  }
+
+  article.mid.row img{
+    width: 270px !important;
   }
 
   .panel-body .small .details{
@@ -2789,7 +2801,7 @@ COLUMNISTAS
   }
 
   article.mid.row img{
-    width:inherit !important;
+    width: 270px !important;
   }
 
   article, .post-slider{
