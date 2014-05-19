@@ -117,6 +117,9 @@ header .container{
 	margin: 0 auto;
 	display: inline-block;
 	top: 220px;
+	width: 270px;
+	height: 80px;
+	background-color: #fff;
 }
 
 header>.container>nav{
@@ -184,7 +187,7 @@ nav{
 	font-size: 19px;
 	font-weight: 700;
 	color: #222;
-	padding: 8px 15px;
+	padding: 8px 10px;
 	line-height: 20px;
 	letter-spacing: -1px;
 	background:#fff;
@@ -192,6 +195,11 @@ nav{
 	-webkit-transition: background 0.3s, color 0.3s;
 	-moz-transition: background 0.3s, color 0.3s;
 	-o-transition: background 0.3s, color 0.3s;
+}
+
+.menu>li.menu-rcid{
+	font-size: 21px;
+	color: #f1284e;
 }
 
 .menu>li.selected, 
@@ -579,6 +587,12 @@ article.mid .text{
 	font-weight: 400;
 	color:#888;
 	line-height: 170%;
+}
+
+.categoria article.mid .text{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 article.mid .counters{
@@ -2125,12 +2139,32 @@ form [class*="col-md-"]{
 	color:#222;
 }
 
+/******************************************************
+COLUMNISTAS
+******************************************************/
+.columnistas article .info h1{
+	font-size: 16px;
+}
+
+.columnistas article .info p a{
+	font-size: 14px;
+	line-height: 15px;
+	color: #333;
+}
 
 
 
 /**********************
 ******=responsive*****
 **********************/
+
+@media (min-width: 1120px){
+	
+	.categoria article.mid{
+		height: 360px;
+	}
+
+}
 
 @media (min-width: 980px) and (max-width: 1199px) {
   
@@ -2150,6 +2184,10 @@ form [class*="col-md-"]{
   }
   article.small img{
     margin-right: 15px !important;
+  }
+
+  .categoria article.mid{
+  	height: 350px;
   }
 
   .archive img{
@@ -2187,7 +2225,7 @@ form [class*="col-md-"]{
  
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-  
+
   #menu-button{
     display: inline-block !important;
     color:#222;
@@ -2296,10 +2334,10 @@ form [class*="col-md-"]{
     display: inline;
   }
 
-   nav .form-search .col-md-3{
+  nav .form-search .col-md-3{
     width:100% !important;
     margin-left: 0px !important;
-   }
+  }
 
   .menu{
     display: none;
@@ -2373,7 +2411,11 @@ form [class*="col-md-"]{
 
   article.mid .counters li{
 	margin-right: 10px;
-}
+  }
+
+  .categoria article.mid{
+  	height: 330px;
+  }
 
   article.mid .tags{
     font-size: 9px !important;
@@ -2388,12 +2430,12 @@ form [class*="col-md-"]{
   article.mid .details a,
   article.small .details,
   article.small .details a{
-    font-size: 10px !important;
-    margin-top: 5px !important;
+    font-size: 11px !important;
+    margin-top: 6px !important;
   }
 
   article.mid .text{
-    font-size: 11px !important;
+    font-size: 13px !important;
     line-height: 17px !important;
     margin-bottom: 0px;
   }
@@ -2502,9 +2544,9 @@ form [class*="col-md-"]{
       font-size: 14px !important;
   }
   
-footer .col-md-3 {
+  footer .col-md-3 {
 	margin: 0 0 20px 0 !important;
-}
+  }
 
   .main-404{
     padding:40px 0 !important;
