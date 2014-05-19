@@ -9,7 +9,7 @@ $id_url=$_REQUEST["id"];
 $reqColum=$_REQUEST["colum"];
 
 //COLUMNISTA
-$rst_columnista=mysql_query("SELECT * FROM dr_columnista WHERE id=$reqColum", $conexion);
+$rst_columnista=mysql_query("SELECT * FROM ".$tabla_suf."_columnista WHERE id=$reqColum", $conexion);
 $fila_columnista=mysql_fetch_array($rst_columnista);
 
 //VARIABLES
