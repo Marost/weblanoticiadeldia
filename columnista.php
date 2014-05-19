@@ -28,7 +28,7 @@ $Columnista_UrlImg=$web."imagenes/columnistas/".$Columnista_imagen;
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0,width=device-width">
-	<title>MODARAMA</title>
+	<title>Columnista: <?php echo $Columista_nombre; ?> | <?php echo $web_nombre; ?></title>
 	
 	<?php require_once("wg-header-script.php"); ?>
 
@@ -57,10 +57,6 @@ $Columnista_UrlImg=$web."imagenes/columnistas/".$Columnista_imagen;
 								<img src="<?php echo $Columnista_UrlImg; ?>" alt="post2">
 							</div>
 							<div class="info">
-								<p class="tags">
-									<a href="">Founder</a>
-									<a href="">Ceo</a>
-								</p>
 								<h1><?php echo $Columista_nombre; ?></h1>
 								<p class="text">
 									<?php echo $Columnista_descripcion; ?>
@@ -88,10 +84,6 @@ $Columnista_UrlImg=$web."imagenes/columnistas/".$Columnista_imagen;
 									$Columna_UrlWeb=$web."columna/".$columna_id."-".$columna_url;
 							?>
 							<article class="row mid">
-
-								<div class="img">
-									<img src="img/mid2.jpg" alt="post">
-								</div>
 
 								<div class="info">
 									<h1><a href="<?php echo $Columna_UrlWeb; ?>"><?php echo $columna_titulo; ?></a></h1>

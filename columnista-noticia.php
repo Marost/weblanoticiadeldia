@@ -25,19 +25,6 @@ $user_nomCompleto=$fila_usuario["nombre"]." ".$fila_usuario["apellidos"];
 $user_url=$fila_usuario["url"];
 $user_UrlWeb=$web."columnista/".$user_url;
 
-/*
-$not_imagen=$fila_nota["imagen"];
-$not_imagen_carpeta=$fila_nota["imagen_carpeta"];
-$not_categoria=$fila_nota["categoria"];
-$not_usuario=$fila_nota["usuario"];
-*/
-
-/*
-//GALERIA DE FOTOS
-$rst_notaFotos=mysql_query("SELECT * FROM lndd_noticia_slide WHERE noticia=$ReqId ORDER BY orden ASC", $conexion);
-$num_notaFotos=mysql_num_rows($rst_notaFotos);
-*/
-
 //URLS
 $not_web=$web."columna/".$ReqId."-".$ReqUrl;
 $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
@@ -48,7 +35,7 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php echo $not_titulo; ?></title>
+	<title><?php echo $not_titulo; ?> | <?php echo $web_nombre; ?></title>
 	
 	<?php require_once("wg-header-script.php"); ?>
 

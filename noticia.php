@@ -50,7 +50,7 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php echo $not_titulo; ?></title>
+	<title><?php echo $not_titulo; ?> | <?php echo $web_nombre; ?></title>
 	
 	<?php require_once("wg-header-script.php"); ?>
 

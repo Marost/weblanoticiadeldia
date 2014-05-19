@@ -260,7 +260,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>LNDD</title>
+	<title><?php echo $web_nombre; ?></title>
 	
 	<?php require_once("wg-header-script.php"); ?>
 	

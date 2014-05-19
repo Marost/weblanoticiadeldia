@@ -23,7 +23,7 @@ $rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id OR
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0,width=device-width">
-	<title><?php echo $notCat_titulo; ?></title>
+	<title><?php echo $notCat_titulo; ?> | <?php echo $web_nombre; ?></title>
 	
 	<?php require_once("wg-header-script.php"); ?>
 

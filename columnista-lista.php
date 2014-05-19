@@ -12,7 +12,7 @@ $rst_Columnista=mysql_query("SELECT * FROM lndd_columnista ORDER BY nombre_compl
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0,width=device-width">
-	<title>Columnistas</title>
+	<title>Columnistas | <?php echo $web_nombre; ?></title>
 	
 	<?php require_once("wg-header-script.php"); ?>
 
