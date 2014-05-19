@@ -1,3 +1,15 @@
+<?php
+
+//COLUMNISTAS
+if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WHERE dia_lunes=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==2){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WHERE dia_martes=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==3){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WHERE dia_miercoles=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==4){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WHERE dia_jueves=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==5){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WHERE dia_viernes=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==6){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WHERE dia_sabado=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==7){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WHERE dia_domingo=1 AND publicar=1 ORDER BY id ASC;", $conexion);}
+
+?>
 <aside class="col-md-3 col-sm-12">
 					
 	<!-- CONTADOR SOCIAL MEDIA 
@@ -21,6 +33,52 @@
 	</ul>
 	 FIN CONTADOR SOCIAL MEDIA -->
 
+	 <!-- COLUMNISTAS -->
+	<div class="most-discussed col-md-12 col-sm-6 columnistas">
+		<h4>Columnistas</h4>
+
+			<?php while($fila_columselect=mysql_fetch_array($rst_columselect)){
+                $columSelect_id=$fila_columselect["id"];
+                $columSelect_url=$fila_columselect["url"];
+                $columSelect_titulo=$fila_columselect["nombre_completo"];
+                $columSelect_imagen=$fila_columselect["foto"];
+                
+                //COLUMNA
+                $rst_columna=mysql_query("SELECT * FROM lndd_columnista_columna WHERE columnista=$columSelect_id ORDER BY id DESC LIMIT 1;", $conexion);
+                $fila_columna=mysql_fetch_array($rst_columna);
+
+                //VARIABLES
+                $columna_id=$fila_columna["id"];
+                $columna_url=$fila_columna["url"];
+                $columna_titulo=$fila_columna["titulo"];
+
+                //URLS
+                $columSelect_webImg=$web."imagenes/columnistas/".$columSelect_imagen;
+                $columSelect_webUrl=$web."columna/".$columna_id."-".$columna_url;
+                $columSelect_webUrlColumnista=$web."columnista/".$columSelect_url;
+        	?>
+			<article class="small clearfix">
+				<img src="<?php echo $columSelect_webImg; ?>" alt="post" width="75">
+				<div class="info">
+					<h1><a href="<?php echo $columSelect_webUrlColumnista; ?>"><?php echo $columSelect_titulo; ?></a></h1>
+					<p class="details">
+						<a href="<?php echo $columSelect_webUrl; ?>"><?php echo $columna_titulo; ?></a>
+					</p>
+				</div>
+			</article>
+			<?php } ?>
+		<a href="#" class="btn btn-default">Ver todos</a>
+	</div>
+	<!-- FIN COLUMNISTAS -->
+
+	<!-- PUBLICIDAD -->
+	<div class="banner visible-md visible-lg">
+		<img src="img/banner2.png" alt="banner">
+	</div>
+	<!-- PUBLICIDAD -->
+
+	<div class="hidden-xs hidden-sm hidden-md hidden-lg"></div>
+
 	<!-- SUSCRIPCION -->
 	<div class="newsletter visible-md visible-lg">
 		<h3>Mantente al dia</h3>
@@ -31,67 +89,5 @@
 		</form>
 	</div>
 	<!-- FIN SUSCRIPCION -->
-
-	<!-- PUBLICIDAD -->
-	<div class="banner visible-md visible-lg">
-		<img src="img/banner2.png" alt="banner">
-	</div>
-	<!-- PUBLICIDAD -->
-
-	<div class="hidden-xs hidden-sm hidden-md hidden-lg"></div>
-
-	<!-- BLOG -->
-	<div class="most-discussed col-md-12 col-sm-6">
-		<h4>Blogs</h4>
-			<article class="small clearfix">
-				<img src="img/small_10.jpg" alt="post">
-				<div class="info">
-					<p class="tags">
-						<a href="">Science</a>
-						<a href="">lifestyle</a>
-					</p>
-					<h1><a href="">Trend Colours 2014</a></h1>
-					<p class="details">Sep 25, 2013 | <a href="author.html">Melomano</a></p>
-					<p class="text">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-					</p>
-					
-				</div>
-			</article>
-		
-			<article class="small clearfix">
-				<img src="img/small_11.jpg" alt="post">
-				<div class="info">
-					<p class="tags">
-						<a href="">Science</a>
-						<a href="">lifestyle</a>
-					</p>
-					<h1><a href="">Couple Problems</a></h1>
-					<p class="details">Sep 25, 2013 | <a href="author.html">El pasajero</a></p>
-					<p class="text">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-					</p>
-					
-				</div>
-			</article>
-		
-			<article class="small clearfix">
-				<img src="img/small_12.jpg" alt="post">
-				<div class="info">
-					<p class="tags">
-						<a href="">Science</a>
-						<a href="">lifestyle</a>
-					</p>
-					<h1><a href="">Mismo Backpaks</a></h1>
-					<p class="details">Sep 25, 2013 | <a href="author.html">dinosaurio de latón</a></p>
-					<p class="text">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-					</p>
-					
-				</div>
-			</article>
-		<a href="#" class="btn btn-default">Ver todos</a>
-	</div>
-	<!-- FIN BLOG -->
 
 </aside>
