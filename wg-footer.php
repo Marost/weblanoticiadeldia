@@ -35,6 +35,7 @@ $rst_catFooter=mysql_query("SELECT * FROM lndd_noticia_categoria ORDER BY orden 
 				?>
 				<li><a href="<?php echo $catFooter_UrlWeb; ?>"><?php echo $catFooter_titulo; ?></a></li>
 				<?php } ?>
+				<li><a href="columnistas">Columnistas</a></li>
 				<li><a href="javascript:;">Reportero Ciudadano</a></li>
 			</ul>
 		</div>

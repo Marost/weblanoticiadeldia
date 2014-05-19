@@ -16,6 +16,8 @@ $rst_categoria=mysql_query("SELECT * FROM lndd_noticia_categoria ORDER BY orden 
 		?>
 		<li><a href="<?php echo $categoria_UrlWeb; ?>"><?php echo $categoria_titulo; ?></a></li>
 		<?php } ?>
+		<li><a href="columnistas">Columnistas</a></li>
+		<li class="menu-rcid"><a href="javascript:;">Reportero Ciudadano</a></li>
 	</ul>
 	<form class="form-search col-md-3">
 		<div class="input-group">
