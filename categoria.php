@@ -14,7 +14,7 @@ $notCat_id=$fila_notCat["id"];
 $notCat_titulo=$fila_notCat["categoria"];
 
 //NOTICIAS
-$rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id ORDER BY fecha_publicacion ASC LIMIT 9;", $conexion);
+$rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id ORDER BY fecha_publicacion DESC LIMIT 9;", $conexion);
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ $rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id OR
 		
 		<!--MAIN SECTION-->
 		<div class="main">
-			<div class="row">
+			<div class="row categoria">
 				<!--CONTENT-->
 				<div class="col-md-9 col-sm-12 clearfix">
 					<h2><?php echo $notCat_titulo; ?></h2>			
@@ -53,26 +53,37 @@ $rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id OR
 							$nota_contenido=soloDescripcion($fila_notas["contenido"]);
 							$nota_imagen=$fila_notas["imagen"];
 							$nota_imagen_carpeta=$fila_notas["imagen_carpeta"];
-							$nota_fecha_publicacion=$fila_notas["fecha_publicacion"];
+							$nota_usuario=$fila_notas["usuario"];
+
+							//FECHA PUBLICACION
+							if($fila_notas["fecha_publicacion"]<>"0000-00-00 00:00:00"){
+							    $nota_fechaPub=$fila_notas["fecha_publicacion"];
+							    $nota_fechaPubNot=explode(" ", $nota_fechaPub);
+							    $nota_fechaPubNotFi=explode("-", $nota_fechaPubNot[0]);
+							    $nota_fechaTotal=nombreFechaTotal($nota_fechaPubNotFi[0],$nota_fechaPubNotFi[1],$nota_fechaPubNotFi[2]);
+							    $nota_fechaFinal=$nota_fechaTotal;
+							}else{
+							    $nota_fechaFinal=$fila_notas["fecha"];
+							}
 
 							//URLS
 							$nota_UrlWeb=$web."noticia/".$nota_url."-".$nota_id;
 							$nota_UrlImg=$web."imagenes/upload/".$nota_imagen_carpeta."thumb/".$nota_imagen;
+
+							//USUARIO
+							$rst_usuario=mysql_query("SELECT usuario, nombre, apellidos FROM lndd_usuario WHERE usuario='$nota_usuario'");
+							$fila_usuario=mysql_fetch_array($rst_usuario);
+
+							//VARIABLES
+							$user_nomCompleto=$fila_usuario["nombre"]." ".$fila_usuario["apellidos"];
 					?>
 					<article class="col-md-4 col-sm-4 mid">
 						<div class="img">
 							<img src="<?php echo $nota_UrlImg; ?>" alt="post">
 						</div>
 						<div class="info">
-							<!--
-							<p class="tags">
-								<a href="">Fashion</a>
-								<a href="">Inspiration</a>
-								<a href="">lifestyle</a>
-							</p>
-							-->
 							<h1><a href="<?php echo $nota_UrlWeb; ?>"><?php echo $nota_titulo; ?></a></h1>
-							<p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+							<p class="details"><?php echo $nota_fechaFinal; ?> | <?php echo $user_nomCompleto; ?></p>
 							<p class="text">
 								<?php echo $nota_contenido; ?>
 							</p>
