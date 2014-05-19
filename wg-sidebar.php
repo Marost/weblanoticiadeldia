@@ -90,4 +90,8 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WH
 	</div>
 	<!-- FIN SUSCRIPCION -->
 
+	<div class="flickr col-md-12 col-sm-6">
+		<h4>Galería de Imágenes</h4>
+	</div>
+
 </aside>
