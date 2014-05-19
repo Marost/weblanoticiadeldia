@@ -1,3 +1,7 @@
+<?php
+//CATEGORIA
+$rst_catFooter=mysql_query("SELECT * FROM lndd_noticia_categoria ORDER BY orden ASC;", $conexion);
+?>
 <footer>
 	<div class="row">
 		<div class="about col-md-3 col-sm-6">
@@ -22,13 +26,16 @@
 		<div class="categories col-md-3 col-sm-6">
 			<h5>Categorias</h5>
 			<ul>
-				<li><a href="#">dsddsdsdd (13)</a></li>
-				<li><a href="#">vfvgfbfgb (23)</a></li>
-				<li><a href="#">fgbfbfg (781)</a></li>
-				<li><a href="#">gfbfgfgn (14)</a></li>
-				<li><a href="#">fngfnf (3)</a></li>
-				<li><a href="#">fgnfgn (5)</a></li>
-				<li><a href="#">fgnfgngfn (32)</a></li>
+				<?php while($fila_catFooter=mysql_fetch_array($rst_catFooter)){
+					$catFooter_url=$fila_catFooter["url"];
+					$catFooter_titulo=$fila_catFooter["categoria"];
+
+					//URL
+					$catFooter_UrlWeb=$web."seccion/".$catFooter_url;
+				?>
+				<li><a href="<?php echo $catFooter_UrlWeb; ?>"><?php echo $catFooter_titulo; ?></a></li>
+				<?php } ?>
+				<li><a href="javascript:;">Reportero Ciudadano</a></li>
 			</ul>
 		</div>
 
