@@ -10,6 +10,8 @@ $url=getUrlAmigable(eliminarTextoURL($nombre));
 $contenido=$_POST["contenido"];
 $categoria=$_POST["categoria"];
 $tipo_noticia=$_POST["tipo_noticia"];
+$usuario=$_SESSION["user-".$sesion_pre.""];
+
 //FECHA Y HORA
 $pub_fecha=$_POST["pub_fecha"];
 $pub_hora=$_POST["pub_hora"];
@@ -101,7 +103,7 @@ if($video_youtube<>""){
 }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_noticia (url, titulo, contenido, imagen, imagen_carpeta, fecha_publicacion, publicar, destacada, superior_1, superior_2, superior_3, superior_4, superior_5, superior_6, superior_7, superior_8, superior_9, categoria, tags, video, tipo_video, mostrar_video, carpeta_video) VALUES('$url', '".htmlspecialchars($nombre)."', '$contenido', '$imagen', '$imagen_carpeta', '$fecha_publicacion', $publicar, $destacada, $superior1, $superior2, $superior3, $superior4, $superior5, $superior6, $superior7, $superior8, $superior9, $categoria, '0,$union_tags,0', '$video', '$tipo_video', '$mostrar_video', '$video_carpeta');",$conexion);
+$rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_noticia (url, titulo, contenido, imagen, imagen_carpeta, fecha_publicacion, publicar, destacada, superior_1, superior_2, superior_3, superior_4, superior_5, superior_6, superior_7, superior_8, superior_9, categoria, tags, video, tipo_video, mostrar_video, carpeta_video, usuario) VALUES('$url', '".htmlspecialchars($nombre)."', '$contenido', '$imagen', '$imagen_carpeta', '$fecha_publicacion', $publicar, $destacada, $superior1, $superior2, $superior3, $superior4, $superior5, $superior6, $superior7, $superior8, $superior9, $categoria, '0,$union_tags,0', '$video', '$tipo_video', '$mostrar_video', '$video_carpeta', '$usuario');",$conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();

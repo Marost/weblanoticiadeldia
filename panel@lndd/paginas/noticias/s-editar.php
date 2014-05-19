@@ -12,6 +12,7 @@ $contenido=$_POST["contenido"];
 $categoria=$_POST["categoria"];
 $tipo_noticia=$_POST["tipo_noticia"];
 $tags=$_POST["tags"];
+$usuario=$_SESSION["user-".$sesion_pre.""];
 
 //FECHA Y HORA
 $pub_fecha=$_POST["pub_fecha"];
