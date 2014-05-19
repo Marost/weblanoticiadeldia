@@ -26,42 +26,42 @@ $( document ).ready(function() {
 		if(width>=768 && width<=979){
 			$('.flickr').flickrush({
 				limit:20,
-				id:'52617155@N08',
+				id:'124559478@N06',
 				random:true
 			}); 
 		}
 		if(width>979){
 			$('.flickr').flickrush({
 				limit:12,
-				id:'52617155@N08',
+				id:'124559478@N06',
 				random:true
 			}); 
 		}
 		if(width>640 && width<=767){
 			$('.flickr').flickrush({
 				limit:16,
-				id:'52617155@N08',
+				id:'124559478@N06',
 				random:true
 			}); 
 		}
 		if(width>480 && width<=640){
 			$('.flickr').flickrush({
 				limit:14,
-				id:'52617155@N08',
+				id:'124559478@N06',
 				random:true
 			}); 
 		}
 		if(width>320 && width<=480){
 			$('.flickr').flickrush({
 				limit:15,
-				id:'52617155@N08',
+				id:'124559478@N06',
 				random:true
 			}); 
 		}
 		if(width<=320){
 			$('.flickr').flickrush({
 				limit:12,
-				id:'52617155@N08',
+				id:'124559478@N06',
 				random:true
 			}); 
 		}
