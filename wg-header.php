@@ -1,6 +1,7 @@
 <header>
 	<div class="container">
-		<a href="index.html" class="logo"><img src="img/logo.png" alt="logo"></a>
+		<a href="/" class="logo"><img src="imagenes/logo.png" alt="logo"></a>
+
 		<!--MENU-->
 		<nav class="clearfix">
 			<a href="" id="header-menu-button"><i class="fa fa-bars"></i></a>  
