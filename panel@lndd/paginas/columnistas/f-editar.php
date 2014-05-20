@@ -14,7 +14,8 @@ $fila_nota=mysql_fetch_array($rst_nota);
 //VARIABLES
 $nota_nombre=$fila_nota["nombre"];
 $nota_apellidos=$fila_nota["apellidos"];
-$nota_imagen=$fila_nota["foto"];
+$nota_imagen=$fila_nota["imagen_portada"];
+$nota_imagen_cuerpo=$fila_nota["foto"];
 $nota_contenido=$fila_nota["descripcion"];
 $nota_publicar=$fila_nota["publicar"];
 $dia_lunes=$fila_nota["dia_lunes"];
@@ -90,16 +91,31 @@ $dia_domingo=$fila_nota["dia_domingo"];
 
 
                     <div class="formRow">
-                        <div class="grid3"><label>Imagen:</label> </div>
+                        <div class="grid3"><label>Foto 270 x 270:</label> </div>
                         <div class="grid9">
                             <div class="floatL">
                                 <a href="../../../imagenes/columnistas/<?php echo $nota_imagen; ?>" class="lightbox">
                                     <img src="../../../imagenes/columnistas/<?php echo $nota_imagen; ?>" width="100" >
                                 </a>
                             </div>
-                            <div class="floarL width60 margin1020">    
-                                <input type="file" class="styled" id="fileInput" name="fileInput" />
-                                <input type="hidden" name="imagen_actual" value="<?php echo $nota_imagen; ?>" />
+                            <div class="widget floarL width60 margin1020">    
+                                <div id="uploader_columnista">Tu navegador no soporta HTML5.</div>
+                                <input type="hidden" name="imagen" value="<?php echo $nota_imagen; ?>">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Foto 270 x 500:</label> </div>
+                        <div class="grid9">
+                            <div class="floatL">
+                                <a href="../../../imagenes/columnistas/<?php echo $nota_imagen_cuerpo; ?>" class="lightbox">
+                                    <img src="../../../imagenes/columnistas/<?php echo $nota_imagen_cuerpo; ?>" width="100" >
+                                </a>
+                            </div>
+                            <div class="widget floarL width60 margin1020">    
+                                <div id="uploader_columnista_cuerpo">Tu navegador no soporta HTML5.</div>
+                                <input type="hidden" name="imagen_cuerpo" value="<?php echo $nota_imagen_cuerpo; ?>">
                             </div>
                         </div>
                     </div>

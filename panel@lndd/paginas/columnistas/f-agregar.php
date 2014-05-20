@@ -45,7 +45,7 @@ require_once("../../conexion/verificar_sesion.php");
     <!-- Main content -->
     <div class="wrapper">
 
-        <form id="submit-form" class="main" method="POST" action="s-guardar.php" enctype="multipart/form-data">
+        <form id="submit-form" class="main" method="POST" action="s-guardar.php">
 
             <fieldset>
                 <div class="widget fluid">
@@ -68,9 +68,20 @@ require_once("../../conexion/verificar_sesion.php");
                     </div>
 
                     <div class="formRow">
-                        <div class="grid3"><label>Imagen:</label> </div>
+                        <div class="grid3"><label>Foto 270 x 270:</label> </div>
                         <div class="grid9">
-                            <input type="file" class="styled" id="fileInput" name="fileInput" />
+                            <div class="widget nomargin">    
+                                <div id="uploader_columnista">Tu navegador no soporta HTML5.</div>                    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Foto 270 x 500:</label> </div>
+                        <div class="grid9">
+                            <div class="widget nomargin">    
+                                <div id="uploader_columnista_cuerpo">Tu navegador no soporta HTML5.</div>                    
+                            </div>
                         </div>
                     </div>
 

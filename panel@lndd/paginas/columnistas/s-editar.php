@@ -33,25 +33,18 @@ if($dia_viernes<>""){ $dia_viernes=1; }else{ $dia_viernes=0; }
 if($dia_sabado<>""){ $dia_sabado=1; }else{ $dia_sabado=0; }
 if($dia_domingo<>""){ $dia_domingo=1; }else{ $dia_domingo=0; }
 
-//SUBIR IMAGEN
-if(is_uploaded_file($_FILES['fileInput']['tmp_name'])){ 
-	$fileName=$_FILES['fileInput']['name'];
-	$uploadDir="../../../imagenes/columnistas/";
-	$uploadFile=$uploadDir.$fileName;
-	$num = 0;
-	$name = $fileName;
-	$extension = end(explode('.',$fileName));     
-	$onlyName = substr($fileName,0,strlen($fileName)-(strlen($extension)+1));
-	while(file_exists($uploadDir.$name))
-	{
-		$num++;         
-		$name = $onlyName."".$num.".".$extension; 
-	}
-	$uploadFile = $uploadDir.$name; 
-	move_uploaded_file($_FILES['fileInput']['tmp_name'], $uploadFile);  
-	$name;
+//SUBIR IMAGEN 270 x 270
+if($_POST['uploader_columnista_0_tmpname']<>""){
+	$upload_imagen=$_POST["uploader_columnista_0_tmpname"]; //PORTADA 270*270 --> IMAGEN PORTADA
 }else{
-	$name=$_POST["imagen_actual"];
+	$upload_imagen=$_POST["imagen"];
+}
+
+//SUBIR IMAGEN 270 x 500
+if($_POST['uploader_columnista_cuerpo_0_tmpname']<>""){
+	$upload_imagen_cuerpo=$_POST["uploader_columnista_cuerpo_0_tmpname"]; //CUERPO COMPLETO 270*500 --> FOTO
+}else{
+	$upload_imagen_cuerpo=$_POST["imagen_cuerpo"];
 }
 
 //INSERTANDO DATOS
@@ -59,7 +52,8 @@ $rst_guardar=mysql_query("UPDATE ".$tabla_suf."_columnista SET url='$url',
 	nombre='$nombre',
 	apellidos='$apellidos',
 	nombre_completo='$nombre_completo',
-	foto='$name',
+	imagen_portada='$upload_imagen',
+	foto='$upload_imagen_cuerpo',
 	descripcion='$contenido',
 	publicar=$publicar,
 	dia_lunes=$dia_lunes,

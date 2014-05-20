@@ -315,6 +315,36 @@ $(function() {
 		]
 	});
 
+	//===== File uploader: COLUMNISTA FOTO 270 X 270 =====//
+	
+	$("#uploader_columnista").pluploadQueue({
+		runtimes : 'html5,html4',
+		url : '/panel@lndd/php/upload_columnista.php',
+		max_file_size : '100mb',
+		chunk_size : '1mb',
+		unique_names : true,
+		dragdrop: false,
+		resize: {quality: 100},
+		filters : [
+			{title : "Imagenes", extensions : "jpg"}
+		]
+	});
+
+	//===== File uploader: COLUMNISTA FOTO 270 X 500 =====//
+	
+	$("#uploader_columnista_cuerpo").pluploadQueue({
+		runtimes : 'html5,html4',
+		url : '/panel@lndd/php/upload_columnista_cuerpo.php',
+		max_file_size : '100mb',
+		chunk_size : '1mb',
+		unique_names : true,
+		dragdrop: false,
+		resize: {quality: 100},
+		filters : [
+			{title : "Imagenes", extensions : "jpg"}
+		]
+	});
+
 	//===== File uploader: PDF =====//
 	
 	$("#uploader_pdf").pluploadQueue({
