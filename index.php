@@ -372,7 +372,20 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 						<!-- PUBLICIDAD -->
 						<article class="col-md-4 col-sm-4 mid">
 
-							<img src="http://placehold.it/300x480" width="100%">
+							<style>
+							.pp-responsive-izquierda { width: 270px; height: 480px; }
+							@media(min-width: 500px) { .pp-responsive-izquierda { width: 468px; height: 60px; } }
+							@media(min-width: 800px) { .pp-responsive-izquierda { width: 728px; height: 90px; } }
+							</style>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- PP - Responsive - Izquierda -->
+							<ins class="adsbygoogle pp-responsive-izquierda"
+							     style="display:inline-block"
+							     data-ad-client="ca-pub-3674889010429322"
+							     data-ad-slot="4693711543"></ins>
+							<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
 
 						</article>
 						<!-- FIN PUBLICIDAD -->

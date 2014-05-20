@@ -51,8 +51,16 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WH
 	<!-- FIN COLUMNISTAS -->
 
 	<!-- PUBLICIDAD -->
-	<div class="banner visible-md visible-lg">
-		<img src="img/banner2.png" alt="banner">
+	<div class="banner visible-xs visible-md visible-lg">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- PP - Responsive - 271x350 -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:271px;height:350px"
+		     data-ad-client="ca-pub-3674889010429322"
+		     data-ad-slot="4554110744"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
 	</div>
 	<!-- PUBLICIDAD -->
 
