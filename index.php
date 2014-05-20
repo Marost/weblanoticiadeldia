@@ -290,7 +290,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 					<div class="row">
 
 						<!-- POST SLIDER -->
-						<div class="post-slider col-md-8 col-sm-8">
+						<div class="post-slider slider-home col-md-8 col-sm-8">
 
 							<div class="controls">
 								<p class="prev"><i class="fa fa-angle-left"></i></p>
