@@ -1,0 +1,4 @@
+Porta Perú
+==================
+Sobre Portal Perú
+Portal Perú busca democratizar la información bajo el principio universal que toda persona tiene derecho, no solo a recibir información y opinión sino también a difundirla por cualquier medio de expresión.
