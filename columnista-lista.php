@@ -40,7 +40,7 @@ $rst_Columnista=mysql_query("SELECT * FROM lndd_columnista ORDER BY nombre_compl
 							$Columnista_url=$fila_Columnista["url"];
 							$Columnista_titulo=$fila_Columnista["nombre_completo"];
 							$Columnista_contenido=$fila_Columnista["descripcion"];
-							$Columnista_imagen=$fila_Columnista["foto"];
+							$Columnista_imagen=$fila_Columnista["imagen_portada"];
 
 							//URLS
 							$nota_UrlWeb=$web."columnista/".$Columnista_url;
