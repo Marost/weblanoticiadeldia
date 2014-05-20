@@ -15,6 +15,7 @@ $not_titulo=$fila_nota["titulo"];
 $not_contenido=$fila_nota["contenido"];
 $not_imagen=$fila_nota["imagen"];
 $not_imagen_carpeta=$fila_nota["imagen_carpeta"];
+$not_video=$fila_nota["video"];
 $not_categoria=$fila_nota["categoria"];
 $not_usuario=$fila_nota["usuario"];
 
@@ -41,7 +42,7 @@ $rst_notaFotos=mysql_query("SELECT * FROM lndd_noticia_slide WHERE noticia=$ReqI
 $num_notaFotos=mysql_num_rows($rst_notaFotos);
 
 //URLS
-$not_web=$web."noticia/".$not_id."-".$not_url;
+$not_web=$web."noticia/".$ReqId."-".$ReqUrl;
 $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 
 ?>
@@ -73,10 +74,12 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 				<div class="col-md-9 col-sm-12 clearfix">
 					<!--POST-->
 					<article class="post mid fullwidth">
+						<?php if($not_video<>""){ ?>
+						<div class="video">
+							<iframe width="100%" height="500px" src="//www.youtube.com/embed/<?php echo $not_video; ?>?rel=0" frameborder="0" allowfullscreen></iframe>
+						</div>
+						<?php }elseif($num_notaFotos>0){ ?>
 						<div class="row">
-							<?php if($num_notaFotos==0){ ?>
-							<img src="<?php echo $not_web_img; ?>" alt="post-image">
-							<?php }elseif($num_notaFotos>0){ ?>
 							<div class="post-slider col-md-12 col-sm-12">
 								<div class="controls">
 									<p class="prev"><i class="fa fa-angle-left"></i></p>
@@ -91,9 +94,11 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 									<img src="<?php echo $notaFotos_UrlImg; ?>" alt="post-image">
 									<?php } ?>
 								</div>
-							</div>	
-							<?php } ?>
-						</div>
+							</div>
+						</div>	
+						<?php }elseif($num_notaFotos==0){ ?>
+						<img src="<?php echo $not_web_img; ?>" alt="post-image">
+						<?php } ?>
 
 						<div class="row">
 							<div class="info col-md-12 col-sm-12">
@@ -104,16 +109,7 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 									</div>
 									<div class="text">
 										<?php echo $not_contenido; ?>
-									</div>
-									
-									<!--
-									<p class="tags">
-										<a href="">Fashion</a>
-										<a href="">Inspiration</a>
-										<a href="">lifestyle</a>
-									</p>
-									-->
-										
+									</div>										
 								</div>
 							</div>
 						</div>
