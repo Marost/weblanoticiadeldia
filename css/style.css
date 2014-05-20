@@ -41,7 +41,7 @@ iframe {
 	border: none; 
 }
 
-.post-slider img{
+.slider-home img{
 	filter: url('#grayscale'); /* Versión SVG para IE10, Chrome 17, FF3.5, Safari 5.2 and Opera 11.6 */
 	-webkit-filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
@@ -57,7 +57,7 @@ iframe {
 	transition: all 0.5s ease;
 }
 
-.post-slider img:hover { 
+.slider-home img:hover { 
 	-webkit-filter: grayscale(0%);
 	-moz-filter: grayscale(0%);
 	-ms-filter: grayscale(0%);
