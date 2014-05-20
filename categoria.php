@@ -67,7 +67,7 @@ $rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id OR
 							}
 
 							//URLS
-							$nota_UrlWeb=$web."noticia/".$nota_url."-".$nota_id;
+							$nota_UrlWeb=$web."noticia/".$nota_id."-".$nota_url;
 							$nota_UrlImg=$web."imagenes/upload/".$nota_imagen_carpeta."thumb/".$nota_imagen;
 
 							//USUARIO
