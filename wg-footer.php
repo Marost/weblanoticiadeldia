@@ -5,10 +5,10 @@ $rst_catFooter=mysql_query("SELECT * FROM lndd_noticia_categoria ORDER BY orden 
 <footer>
 	<div class="row">
 		<div class="about col-md-3 col-sm-6">
-			<img src="img/about-logo.png" alt="logo">
-			<h5>Sobre TabloideDigital</h5>
+			<img src="imagenes/logo-footer.png" alt="logo">
+			<h5>Sobre Portal Perú</h5>
 			<p>
-				Tbla bla bla jdbjvbjvb jvbkjvbk jbvjvbkfjvb kbvjdfb vkjdfb vkjfdbv kjfbvkj jf kjfd kjfvkjn v jdf vkjf kjf jb jfdbfjdb kfnb lkfbnfldk n blknb lkdnblkd flknblkn dflkbnfb n 
+				Portal Perú busca democratizar la información bajo el principio universal que toda persona tiene derecho, no solo a recibir información y opinión sino también a difundirla por cualquier medio de expresión.
 			</p>
 
 			<ul class="social list-inline">
