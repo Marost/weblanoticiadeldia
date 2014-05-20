@@ -5,7 +5,7 @@ $rst_catFooter=mysql_query("SELECT * FROM lndd_noticia_categoria ORDER BY orden 
 <footer>
 	<div class="row">
 		<div class="about col-md-3 col-sm-6">
-			<img src="imagenes/logo-footer.png" alt="logo">
+			<img src="imagenes/logo-footer.png" alt="logo" width="180">
 			<h5>Sobre Portal Perú</h5>
 			<p>
 				Portal Perú busca democratizar la información bajo el principio universal que toda persona tiene derecho, no solo a recibir información y opinión sino también a difundirla por cualquier medio de expresión.
