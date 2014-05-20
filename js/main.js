@@ -203,19 +203,6 @@ $( document ).ready(function() {
 		}
 	});
 
-	
-	
-
-	
-
-
-	Fluidvids.init({
-	    selector: 'iframe',
-	    players: ['www.youtube.com', 'player.vimeo.com']
-	  });
-
-
-
 	$("#menu-button").on('click', function(e) {  
         e.preventDefault();  
         $('ul.menu').slideToggle();  
