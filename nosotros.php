@@ -1,10 +1,6 @@
 <?php
 require_once("panel@lndd/conexion/conexion.php");
 require_once("panel@lndd/conexion/funciones.php");
-
-//VARIABLES DE URL
-$ReqId=$_REQUEST["id"];
-$ReqUrl=$_REQUEST["url"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
