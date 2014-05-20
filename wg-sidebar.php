@@ -11,27 +11,6 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WH
 
 ?>
 <aside class="col-md-3 col-sm-12">
-					
-	<!-- CONTADOR SOCIAL MEDIA 
-	<ul class="aside-social list-inline visible-md visible-lg">
-		<li>
-			<i class="fa fa-facebook"></i>
-			<p>php echo $total_count; ?></p>
-		</li>
-		<li>
-			<i class="fa fa-twitter"></i>
-			<p>73K</p>
-		</li>
-		<li>
-			<i class="fa fa-google-plus"></i>
-			<p>29K</p>
-		</li>
-		<li>
-			<i class="fa fa-rss"></i>
-			<p>9,012</p>
-		</li>
-	</ul>
-	 FIN CONTADOR SOCIAL MEDIA -->
 
 	 <!-- COLUMNISTAS -->
 	<div class="most-discussed col-md-12 col-sm-6 columnistas">
@@ -41,7 +20,7 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WH
                 $columSelect_id=$fila_columselect["id"];
                 $columSelect_url=$fila_columselect["url"];
                 $columSelect_titulo=$fila_columselect["nombre_completo"];
-                $columSelect_imagen=$fila_columselect["foto"];
+                $columSelect_imagen=$fila_columselect["imagen_portada"];
                 
                 //COLUMNA
                 $rst_columna=mysql_query("SELECT * FROM lndd_columnista_columna WHERE columnista=$columSelect_id ORDER BY id DESC LIMIT 1;", $conexion);
