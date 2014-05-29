@@ -66,6 +66,12 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WH
 
 	<div class="hidden-xs hidden-sm hidden-md hidden-lg"></div>
 
+	<!-- GALERIA DE FOTOS -->
+	<div class="flickr col-md-12 col-sm-6">
+		<h4>Galería de Imágenes</h4>
+	</div>
+	<!-- FIN GALERIA DE FOTOS -->
+
 	<!-- SUSCRIPCION -->
 	<div class="newsletter visible-md visible-lg">
 		<h3>Mantente al dia</h3>
@@ -75,10 +81,6 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM lndd_columnista WH
 			<input type="submit" value="suscribete" class="btn btn-default btn-block">
 		</form>
 	</div>
-	<!-- FIN SUSCRIPCION -->
-
-	<div class="flickr col-md-12 col-sm-6">
-		<h4>Galería de Imágenes</h4>
-	</div>
+	<!-- FIN SUSCRIPCION -->	
 
 </aside>
