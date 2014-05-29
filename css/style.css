@@ -481,6 +481,16 @@ article .counters li:hover{
 	color:#f1284e !important;
 }
 
+.slider-home article .info{
+	bottom: 0 !important;
+	background-image: url("../imagenes/fondo_trans.png");
+}
+
+.slider-home article .info h1{
+	font-size: 32px !important;
+	margin: 0 70px 10px !important;
+}
+
 article.big{
 	position: relative;
 	color:#fff;
@@ -488,9 +498,10 @@ article.big{
 
 article.big .info{
 	position: absolute;
-	bottom:20px;
+	bottom:0;
 	text-align: center;
 	width:100%;
+	background-image: url("../imagenes/fondo_trans.png");
 }
 
 article.big .tags{
@@ -775,6 +786,7 @@ article.col:last-child{
 	color:#fff;
 	padding:20px;
 	margin-bottom: 20px;
+	float: left;
 }
 
 .newsletter h3{
@@ -859,6 +871,11 @@ aside h4{
 	text-transform: uppercase;
 	padding-top: 20px;
 	margin-top: 0;
+}
+
+.columnistas article{
+	border-bottom: 1px solid #CCC;
+	padding-bottom: 20px;
 }
 
 .most-discussed article,
@@ -3087,8 +3104,8 @@ COLUMNISTAS
     padding-right: 10px;
   }
 
-  .post-slider.col-md-8 .info{
-    bottom: 15% !important;
+  .slider-home article .info h1{
+  	font-size: 26px !important;
   }
   
   .col-md-9 .post-slider.col-md-12 .info{
@@ -3274,10 +3291,10 @@ COLUMNISTAS
   nav .form-search {
     margin: 0 0 0 10px !important;
   }
-  
-  .post-slider.col-md-8 .info,
-  article.big .info{
-    bottom: 30% !important;
+
+  .slider-home article .info h1{
+  	font-size: 20px !important;
+	margin: 20px !important;
   }
   
   .col-md-9 .post-slider.col-md-12 .info{

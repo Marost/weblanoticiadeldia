@@ -334,10 +334,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 											<a href=""><?php echo $notDestCat_titulo; ?></a>
 										</p>
 										<h1><a href="<?php echo $notDest_web; ?>"><?php echo $notDest_titulo; ?></a></h1>
-										<p class="text">
-											<?php echo $notDest_contenido; ?>
-										</p>
-										<p class="details"><?php echo $notDest_fecha; ?><!--  | <a href="author.html">Julio De La Cruz</a> --></p>
+										<p class="details"><?php echo $notDest_fecha; ?></p>
 									</div>
 								</article>
 								<?php } ?>
@@ -356,7 +353,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 									<a href=""><?php echo $notSup1Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup1_web; ?>"><?php echo $notSup1_titulo; ?></a></h1>
-								<p class="details"><?php echo $notSup1_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="details"><?php echo $notSup1_fecha ?></p>
 								<p class="text">
 									<?php echo $notSup1_contenido; ?>
 								</p>
@@ -372,17 +369,12 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 						<!-- PUBLICIDAD -->
 						<article class="col-md-4 col-sm-4 mid">
 
-							<style>
-							.pp-responsive-izquierda { width: 270px; height: 480px; }
-							@media(min-width: 500px) { .pp-responsive-izquierda { width: 468px; height: 60px; } }
-							@media(min-width: 800px) { .pp-responsive-izquierda { width: 728px; height: 90px; } }
-							</style>
 							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-							<!-- PP - Responsive - Izquierda -->
-							<ins class="adsbygoogle pp-responsive-izquierda"
-							     style="display:inline-block"
+							<!-- PP - 250 x 250 -->
+							<ins class="adsbygoogle"
+							     style="display:inline-block;width:250px;height:250px"
 							     data-ad-client="ca-pub-3674889010429322"
-							     data-ad-slot="4693711543"></ins>
+							     data-ad-slot="9772725943"></ins>
 							<script>
 							(adsbygoogle = window.adsbygoogle || []).push({});
 							</script>
@@ -400,7 +392,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 									<a href=""><?php echo $notSup2Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup2_web; ?>"><?php echo $notSup2_titulo; ?></a></h1>
-								<p class="details"><?php echo $notSup2_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="details"><?php echo $notSup2_fecha ?></p>
 								<p class="text">
 									<?php echo $notSup2_contenido; ?>
 								</p>
@@ -418,7 +410,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 									<a href=""><?php echo $notSup3Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup3_web; ?>"><?php echo $notSup3_titulo; ?></a></h1>
-								<p class="details"><?php echo $notSup3_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="details"><?php echo $notSup3_fecha ?></p>
 								<p class="text">
 									<?php echo $notSup3_contenido; ?>
 								</p>
@@ -441,7 +433,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 									<a href=""><?php echo $notSup4Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup4_web; ?>"><?php echo $notSup4_titulo; ?></a></h1>
-								<p class="details"><?php echo $notSup4_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="details"><?php echo $notSup4_fecha ?></p>
 								<p class="text">
 									<?php echo $notSup4_contenido; ?>
 								</p>
@@ -457,10 +449,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 									<a href=""><?php echo $notSup5Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup5_web; ?>"><?php echo $notSup5_titulo; ?></a></h1>
-								<p class="details"><?php echo $notSup5_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
-								<p class="text">
-									<?php echo $notSup5_contenido; ?>
-								</p>
+								<p class="details"><?php echo $notSup5_fecha ?></p>
 							</div>
 						</article>
 
@@ -479,7 +468,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 									<a href=""><?php echo $notSup6Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup6_web; ?>"><?php echo $notSup6_titulo; ?></a></h1>
-								<p class="details"><?php echo $notSup6_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="details"><?php echo $notSup6_fecha ?></p>
 								<p class="text">
 									<?php echo $notSup6_contenido; ?>
 								</p>
@@ -495,7 +484,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 									<a href=""><?php echo $notSup7Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup7_web; ?>"><?php echo $notSup7_titulo; ?></a></h1>
-								<p class="details"><?php echo $notSup7_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="details"><?php echo $notSup7_fecha ?></p>
 								<p class="text">
 									<?php echo $notSup7_contenido; ?>
 								</p>
@@ -511,7 +500,7 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 									<a href=""><?php echo $notSup8Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup8_web; ?>"><?php echo $notSup8_titulo; ?></a></h1>
-								<p class="details"><?php echo $notSup8_fecha ?><!--  | <a href="author.html">Julio De La cruz</a> --></p>
+								<p class="details"><?php echo $notSup8_fecha ?></p>
 								<p class="text">
 									<?php echo $notSup8_contenido; ?>
 								</p>
