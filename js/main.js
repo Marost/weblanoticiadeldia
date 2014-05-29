@@ -118,7 +118,7 @@ $( document ).ready(function() {
 
 		
 		$('.post-slider .slides').bxSlider({
-		  speed: 300,
+		  speed: 1000,
 		  touchEnabled: true,
 		  pager: false,
 		  infiniteLoop: true,
@@ -126,7 +126,7 @@ $( document ).ready(function() {
 		  prevSelector: ".post-slider .controls .prev",
 		  fadeText: true,
 		  auto: true,
-		  pause: 4000
+		  pause: 8000
 
 		});
 	}
