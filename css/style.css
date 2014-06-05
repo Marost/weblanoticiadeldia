@@ -22,7 +22,7 @@ a{
 }
 
 a:hover{
-	color:#f1284e;
+	color:#BE1622;
 }
 
 h1,h2,h3{
@@ -188,7 +188,6 @@ nav{
 	margin:25px 0 25px;
 	padding-right: 15px;
 	padding-left: 0px;
-	margin-left: -15px !important;
 	z-index: 999;
 }
 
@@ -214,7 +213,7 @@ nav{
 
 .menu>li.menu-rcid{
 	font-size: 21px;
-	color: #f1284e;
+	color: #BE1622;
 }
 
 .menu>li.selected, 
@@ -223,7 +222,7 @@ nav{
 	border-radius: 2px;
 	-webkit-border-radius: 2px;
   	-moz-border-radius: 2px;
-	background:#f1284e;
+	background:#BE1622;
 	color: #fff;
 }
 
@@ -242,7 +241,6 @@ nav{
 
 nav .form-search{
 	padding:25px 0;
-	margin:0 0 0 15px;
 }
 
 .form-search .search-query:-moz-placeholder {
@@ -337,9 +335,9 @@ nav .form-search{
 .form-search .btn:focus,
 .form-search .btn:hover,
 .form-search .btn:focus {
-  background: #f1284e;
+  background: #BE1622;
   color:#fff;
-  border-color: #f1284e;
+  border-color: #BE1622;
 }
 
 /****************************
@@ -418,7 +416,7 @@ nav .form-search{
 }
 
 .breaking span{
-	color: #f1284e;
+	color: #BE1622;
 	font-weight: 700;
 }
 
@@ -478,7 +476,7 @@ article.small img:hover{
 }
 
 article .counters li:hover{
-	color:#f1284e !important;
+	color:#BE1622 !important;
 }
 
 .slider-home article .info{
@@ -499,6 +497,7 @@ article.big{
 article.big .info{
 	position: absolute;
 	bottom:0;
+	left: 0;
 	text-align: center;
 	width:100%;
 	background-image: url("../imagenes/fondo_trans.png");
@@ -545,7 +544,7 @@ article.big .details a{
 article.big .details a:hover,
 article.mid .details a:hover,
 article.small .details a:hover{
-	color:#f1284e;
+	color:#BE1622;
 }
 
 article.big .counters{
@@ -586,6 +585,10 @@ article.mid .tags{
 	font-weight: 600;
 	text-transform: uppercase;
 	margin: 10px 0 0;
+}
+
+article.mid .info .tags a.cat-rciud{
+	color: #f00;
 }
 
 article.mid h1{
@@ -970,7 +973,7 @@ aside h4{
 }
 
 .most-commented .counter i{
-	color:#f1284e;
+	color:#BE1622;
 	font-size: 12px;
 }
 
@@ -1046,8 +1049,8 @@ aside h4{
 
 .bx-pager-link:hover,
 .bx-pager-link.active{
-	background: #f1284e;
-	border:1px solid #f1284e;
+	background: #BE1622;
+	border:1px solid #BE1622;
 
 }
 
@@ -1118,7 +1121,7 @@ aside h4{
 }
 
 .best-week.color{
-	background: #f1284e;
+	background: #BE1622;
 }
 
 .best-week.gray h3,
@@ -1231,7 +1234,7 @@ footer{
 }
 
 footer h5{
-	color:#f1284e;
+	color:#BE1622;
 	text-transform: uppercase;
 	font-weight: 400;
 	margin-top:0;
@@ -1269,8 +1272,8 @@ footer .about p{
 }
 
 .social li a:hover{
-	background: #f1284e;
-	border:1px solid #f1284e;
+	background: #BE1622;
+	border:1px solid #BE1622;
 	transition: background 0.1s, border 0.1s;
 	-webkit-transition: background 0.1s, border 0.1s;
 	-moz-transition:  background 0.1s, border 0.1s;
@@ -1329,7 +1332,7 @@ footer .about p{
 }
 
 .categories ul>li:hover a{
-	color:#f1284e;
+	color:#BE1622;
 }
 
 
@@ -1373,11 +1376,11 @@ footer .event .col{
 }
 
 footer .event .col:hover{
-	border:1px solid #f1284e;
+	border:1px solid #BE1622;
 }
 footer .event .col:hover h1,
 footer .event .col:hover p{
-	color:#f1284e;
+	color:#BE1622;
 }
 
 footer .event .col>p{
@@ -1416,8 +1419,8 @@ footer .calendar .calendar-nav{
 .calendar-nav>.prev:focus,
 .calendar-nav>.next:hover,
 .calendar-nav>.next:focus{
-	border:1px solid #f1284e;
-	background:#f1284e;
+	border:1px solid #BE1622;
+	background:#BE1622;
 }
 
 .calendar-nav>.prev:hover i,
@@ -1482,8 +1485,8 @@ footer .calendar table td{
 }
 
 footer .calendar table td:hover{
-	border: 1px solid #f1284e;
-	background: #f1284e;
+	border: 1px solid #BE1622;
+	background: #BE1622;
 	transition: background 0.1s, border 0.1s;
 	-webkit-transition: background 0.1s, border 0.1s;
 	-moz-transition:  background 0.1s, border 0.1s;
@@ -1616,7 +1619,7 @@ article.row .counters{
 
 .info-404 small{
 	font-weight: 700;
-	color:#f1284e;
+	color:#BE1622;
 	font-family: "Montserrat";
 	letter-spacing: -2px;
 }
@@ -1681,8 +1684,8 @@ article.row .counters{
 }
 
 .member .social li:hover{
-	background: #f1284e;
-	border:1px solid #f1284e;
+	background: #BE1622;
+	border:1px solid #BE1622;
 }
 
 .member .social li i{
@@ -1716,7 +1719,7 @@ ul.statistic li{
 
 ul.statistic li i{
 	font-size: 28px;
-	color: #f1284e;
+	color: #BE1622;
 }
 
 ul.statistic li h3{
@@ -1762,7 +1765,7 @@ ul.statistic li p{
 }
 
 .author h2 span{
-	color:#f1284e;
+	color:#BE1622;
 }
 
 .author article .tags{
@@ -1783,7 +1786,7 @@ ul.statistic li p{
 
 .search-result h3 span{
 	font-size: 30px;
-	color:#f1284e;
+	color:#BE1622;
 }
 
 /************************
@@ -1914,7 +1917,7 @@ form [class*="col-md-"]{
 }
 
 .countdown_section{
-	color:#f1284e;
+	color:#BE1622;
 	font-weight: 700;
 	font-family: "Montserrat";
 	font-size: 24px;
@@ -2086,7 +2089,7 @@ form [class*="col-md-"]{
 }
 
 .post-page .comments article .btn:hover{
-	background:#f1284e;
+	background:#BE1622;
 	color:#fff;
 }
 
@@ -2160,12 +2163,12 @@ form [class*="col-md-"]{
 .progress-block .score span{
 	font-size: 60px;
 	line-height: 60px;
-	color:#f1284e;
+	color:#BE1622;
 }
 
 .progress-block .score p{
 	font-size:18px;
-	color:#f1284e;
+	color:#BE1622;
 	margin: 0;
 }
 
@@ -2283,7 +2286,7 @@ COLUMNISTAS
   }
 
   #menu-button:hover i{
-    color:#f1284e;
+    color:#BE1622;
   }
 
   #header-menu-button{
@@ -2670,7 +2673,7 @@ COLUMNISTAS
     color:#222;
   }
   #menu-button:hover i{
-    color:#f1284e;
+    color:#BE1622;
   }
 
   #header-menu-button{
@@ -3320,7 +3323,7 @@ COLUMNISTAS
   article.big h1{
     font-size: 20px !important;
     line-height: 20px !important;
-    margin:0 10px !important;
+    margin:10px 0 !important;
   }
 
   article.small img{
@@ -3426,4 +3429,23 @@ COLUMNISTAS
   .comments article.mid.row img{
     margin-right: 15px !important;
   }
+}
+
+/*==========================
+PAGINACION
+==========================*/
+
+#paginacion{
+	padding: 40px 0 0 0;
+	text-align: center;
+}
+
+.categoria-nota{
+	border-bottom: 1px solid #CCC;
+	padding: 15px 0;
+	margin-bottom: 0px;
+}
+
+.categoria-nota:last-child{
+	border-bottom: none;
 }

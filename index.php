@@ -33,7 +33,7 @@ if($notSup1_fecha=="0000-00-00 00:00:00"){
 $fila_notsup1_cat=seleccionTabla($notSup1_categoria, "id", "lndd_noticia_categoria", $conexion);
 $notSup1Cat_url=$fila_notsup1_cat["url"];
 $notSup1Cat_titulo=$fila_notsup1_cat["categoria"];
-$notSup1Cat_web=$web."seccion/".$notSup1_categoria."/".$notSup1Cat_url;
+$notSup1Cat_web=$web."seccion/".$notSup1Cat_url;
 
 /*=================================================================================
 ===================================================================================*/
@@ -63,7 +63,7 @@ if($notSup2_fecha=="0000-00-00 00:00:00"){
 $fila_notsup2_cat=seleccionTabla($notSup2_categoria, "id", "lndd_noticia_categoria", $conexion);
 $notSup2Cat_url=$fila_notsup2_cat["url"];
 $notSup2Cat_titulo=$fila_notsup2_cat["categoria"];
-$notSup2Cat_web=$web."seccion/".$notSup2_categoria."/".$notSup2Cat_url;
+$notSup2Cat_web=$web."seccion/".$notSup2Cat_url;
 
 /*=================================================================================
 ===================================================================================*/
@@ -93,7 +93,7 @@ if($notSup3_fecha=="0000-00-00 00:00:00"){
 $fila_notsup3_cat=seleccionTabla($notSup3_categoria, "id", "lndd_noticia_categoria", $conexion);
 $notSup3Cat_url=$fila_notsup3_cat["url"];
 $notSup3Cat_titulo=$fila_notsup3_cat["categoria"];
-$notSup3Cat_web=$web."seccion/".$notSup3_categoria."/".$notSup3Cat_url;
+$notSup3Cat_web=$web."seccion/".$notSup3Cat_url;
 
 /*=================================================================================
 ===================================================================================*/
@@ -123,7 +123,7 @@ if($notSup4_fecha=="0000-00-00 00:00:00"){
 $fila_notsup4_cat=seleccionTabla($notSup4_categoria, "id", "lndd_noticia_categoria", $conexion);
 $notSup4Cat_url=$fila_notsup4_cat["url"];
 $notSup4Cat_titulo=$fila_notsup4_cat["categoria"];
-$notSup4Cat_web=$web."seccion/".$notSup4_categoria."/".$notSup4Cat_url;
+$notSup4Cat_web=$web."seccion/".$notSup4Cat_url;
 
 /*=================================================================================
 ===================================================================================*/
@@ -153,7 +153,7 @@ if($notSup5_fecha=="0000-00-00 00:00:00"){
 $fila_notsup5_cat=seleccionTabla($notSup5_categoria, "id", "lndd_noticia_categoria", $conexion);
 $notSup5Cat_url=$fila_notsup5_cat["url"];
 $notSup5Cat_titulo=$fila_notsup5_cat["categoria"];
-$notSup5Cat_web=$web."seccion/".$notSup5_categoria."/".$notSup5Cat_url;
+$notSup5Cat_web=$web."seccion/".$notSup5Cat_url;
 
 /*=================================================================================
 ===================================================================================*/
@@ -183,7 +183,7 @@ if($notSup6_fecha=="0000-00-00 00:00:00"){
 $fila_notsup6_cat=seleccionTabla($notSup6_categoria, "id", "lndd_noticia_categoria", $conexion);
 $notSup6Cat_url=$fila_notsup6_cat["url"];
 $notSup6Cat_titulo=$fila_notsup6_cat["categoria"];
-$notSup6Cat_web=$web."seccion/".$notSup6_categoria."/".$notSup6Cat_url;
+$notSup6Cat_web=$web."seccion/".$notSup6Cat_url;
 
 /*=================================================================================
 ===================================================================================*/
@@ -213,7 +213,7 @@ if($notSup7_fecha=="0000-00-00 00:00:00"){
 $fila_notsup7_cat=seleccionTabla($notSup7_categoria, "id", "lndd_noticia_categoria", $conexion);
 $notSup7Cat_url=$fila_notsup7_cat["url"];
 $notSup7Cat_titulo=$fila_notsup7_cat["categoria"];
-$notSup7Cat_web=$web."seccion/".$notSup7_categoria."/".$notSup7Cat_url;
+$notSup7Cat_web=$web."seccion/".$notSup7Cat_url;
 
 /*=================================================================================
 ===================================================================================*/
@@ -243,16 +243,7 @@ if($notSup8_fecha=="0000-00-00 00:00:00"){
 $fila_notsup8_cat=seleccionTabla($notSup8_categoria, "id", "lndd_noticia_categoria", $conexion);
 $notSup8Cat_url=$fila_notsup8_cat["url"];
 $notSup8Cat_titulo=$fila_notsup8_cat["categoria"];
-$notSup8Cat_web=$web."seccion/".$notSup8_categoria."/".$notSup8Cat_url;
-
-/*=================================================================================
-===================================================================================*/
-
-$xml = new DOMDocument();
-$xml->load('https://api.facebook.com/method/fql.query?query=SELECT%20like_count,share_count,total_count%20FROM%20link_stat%20WHERE%20url=%22https://www.facebook.com/diario16peru%22');
-$like_count = $xml->getElementsByTagName("like_count")->item(0)->nodeValue;
-$share_count = $xml->getElementsByTagName("share_count")->item(0)->nodeValue;
-$total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
+$notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 
 ?>
 <!DOCTYPE html>
@@ -325,16 +316,15 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 										//VARIABLES
 										$notDestCat_url=$fila_notdest_cat["url"];
 										$notDestCat_titulo=$fila_notdest_cat["categoria"];
-										$notDestCat_web=$web."seccion/".$notDest_categoria."/".$fila_notdest_cat["url"];
+										$notDestCat_web=$web."seccion/".$fila_notdest_cat["url"];
 								?>
 								<article class="big clearfix">
 									<img src="<?php echo $notDest_web_img; ?>" alt="<?php echo $notDest_titulo; ?>">
 									<div class="info">
 										<p class="tags">
-											<a href=""><?php echo $notDestCat_titulo; ?></a>
+											<a href="<?php echo $notDestCat_we; ?>"><?php echo $notDestCat_titulo; ?></a>
 										</p>
 										<h1><a href="<?php echo $notDest_web; ?>"><?php echo $notDest_titulo; ?></a></h1>
-										<p class="details"><?php echo $notDest_fecha; ?></p>
 									</div>
 								</article>
 								<?php } ?>
@@ -350,7 +340,12 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup1Cat_titulo; ?></a>
+									<?php if($notSup1_categoria==7){ ?>
+									<a class="cat-rciud" href="<?php echo $notSup1Cat_web; ?>">
+									<?php }else{ ?>
+									<a href="<?php echo $notSup1Cat_web; ?>">
+									<?php } ?>
+										<?php echo $notSup1Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup1_web; ?>"><?php echo $notSup1_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup1_fecha ?></p>
@@ -389,7 +384,12 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup2Cat_titulo; ?></a>
+									<?php if($notSup2_categoria==7){ ?>
+									<a class="cat-rciud" href="<?php echo $notSup2Cat_web; ?>">
+									<?php }else{ ?>
+									<a href="<?php echo $notSup2Cat_web; ?>">
+									<?php } ?>
+										<?php echo $notSup2Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup2_web; ?>"><?php echo $notSup2_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup2_fecha ?></p>
@@ -407,7 +407,12 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup3Cat_titulo; ?></a>
+									<?php if($notSup3_categoria==7){ ?>
+									<a class="cat-rciud" href="<?php echo $notSup3Cat_web; ?>">
+									<?php }else{ ?>
+									<a href="<?php echo $notSup3Cat_web; ?>">
+									<?php } ?>
+										<?php echo $notSup3Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup3_web; ?>"><?php echo $notSup3_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup3_fecha ?></p>
@@ -430,7 +435,12 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup4Cat_titulo; ?></a>
+									<?php if($notSup4_categoria==7){ ?>
+									<a class="cat-rciud" href="<?php echo $notSup4Cat_web; ?>">
+									<?php }else{ ?>
+									<a href="<?php echo $notSup4Cat_web; ?>">
+									<?php } ?>
+										<?php echo $notSup4Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup4_web; ?>"><?php echo $notSup4_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup4_fecha ?></p>
@@ -446,10 +456,14 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup5Cat_titulo; ?></a>
+									<?php if($notSup5_categoria==7){ ?>
+									<a class="cat-rciud" href="<?php echo $notSup5Cat_web; ?>">
+									<?php }else{ ?>
+									<a href="<?php echo $notSup5Cat_web; ?>">
+									<?php } ?>
+										<?php echo $notSup5Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup5_web; ?>"><?php echo $notSup5_titulo; ?></a></h1>
-								<p class="details"><?php echo $notSup5_fecha ?></p>
 							</div>
 						</article>
 
@@ -465,7 +479,12 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup6Cat_titulo; ?></a>
+									<?php if($notSup6_categoria==7){ ?>
+									<a class="cat-rciud" href="<?php echo $notSup6Cat_web; ?>">
+									<?php }else{ ?>
+									<a href="<?php echo $notSup6Cat_web; ?>">
+									<?php } ?>
+										<?php echo $notSup6Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup6_web; ?>"><?php echo $notSup6_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup6_fecha ?></p>
@@ -481,7 +500,12 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup7Cat_titulo; ?></a>
+									<?php if($notSup7_categoria==7){ ?>
+									<a class="cat-rciud" href="<?php echo $notSup7Cat_web; ?>">
+									<?php }else{ ?>
+									<a href="<?php echo $notSup7Cat_web; ?>">
+									<?php } ?>
+										<?php echo $notSup7Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup7_web; ?>"><?php echo $notSup7_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup7_fecha ?></p>
@@ -497,7 +521,12 @@ $total_count = $xml->getElementsByTagName("total_count")->item(0)->nodeValue;
 							</div>
 							<div class="info">
 								<p class="tags">
-									<a href=""><?php echo $notSup8Cat_titulo; ?></a>
+									<?php if($notSup8_categoria==7){ ?>
+									<a class="cat-rciud" href="<?php echo $notSup8Cat_web; ?>">
+									<?php }else{ ?>
+									<a href="<?php echo $notSup8Cat_web; ?>">
+									<?php } ?>
+										<?php echo $notSup8Cat_titulo; ?></a>
 								</p>
 								<h1><a href="<?php echo $notSup8_web; ?>"><?php echo $notSup8_titulo; ?></a></h1>
 								<p class="details"><?php echo $notSup8_fecha ?></p>
