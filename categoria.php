@@ -11,10 +11,23 @@ $fila_notCat=mysql_fetch_array($rst_notCat);
 
 //VARIABLES
 $notCat_id=$fila_notCat["id"];
+$notCat_url=$fila_notCat["url"];
 $notCat_titulo=$fila_notCat["categoria"];
 
-//NOTICIAS
-$rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id ORDER BY fecha_publicacion DESC LIMIT 9;", $conexion);
+$url_web=$web."seccion/".$notCat_url;
+
+//PAGINACION
+require("libs/pagination/class_pagination.php");
+
+//INICIO DE PAGINACION
+$page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
+$rst_notas        = mysql_query("SELECT COUNT(*) as count FROM lndd_noticia WHERE categoria=$notCat_id AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC", $conexion);
+$fila_notas       = mysql_fetch_assoc($rst_notas);
+$generated      = intval($fila_notas['count']);
+$pagination     = new Pagination("10", $generated, $page, $url_web."&page", 1, 0);
+$start          = $pagination->prePagination();
+$rst_notas        = mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
+
 
 ?>
 <!DOCTYPE html>
@@ -26,6 +39,9 @@ $rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id OR
 	<title><?php echo $notCat_titulo; ?> | <?php echo $web_nombre; ?></title>
 	
 	<?php require_once("wg-header-script.php"); ?>
+
+	<!-- PAGINACION -->
+    <link rel="stylesheet" href="/libs/pagination/pagination.css" media="screen">
 
 </head>
 <body>
@@ -77,7 +93,7 @@ $rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id OR
 							//VARIABLES
 							$user_nomCompleto=$fila_usuario["nombre"]." ".$fila_usuario["apellidos"];
 					?>
-					<article class="row mid">
+					<article class="row mid categoria-nota">
 						<img src="<?php echo $nota_UrlImg; ?>" alt="post">
 						<div class="info">
 							<h1><a href="<?php echo $nota_UrlWeb; ?>"><?php echo $nota_titulo; ?></a></h1>
@@ -89,15 +105,9 @@ $rst_notas=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id OR
 					</article>
 					<?php } ?>
 					
-				  	<ul class="pagination">
-				    	<li class="disabled"><span><i class="fa fa-long-arrow-left"></i></span></li>
-				    	<li class="active"><span>1</span></li>
-				    	<li><a href="#">2</a></li>
-				    	<li><a href="#">3</a></li>
-				    	<li><a href="#">...</a></li>
-				    	<li><a href="#">15</a></li>
-				    	<li><a href="#"><i class="fa fa-long-arrow-right"></i></a></li>
-				 	</ul>
+				  	<div id="paginacion">
+		                <?php $pagination->pagination(); ?>
+		            </div>
 
 				</div>
 				<!--END CONTENT-->
