@@ -1,6 +1,15 @@
 <?php
 //CATEGORIA
-$rst_catFooter=mysql_query("SELECT * FROM lndd_noticia_categoria ORDER BY orden ASC;", $conexion);
+$rst_catFooter=mysql_query("SELECT * FROM lndd_noticia_categoria WHERE id<>7 ORDER BY orden ASC;", $conexion);
+
+//REPORTERO CIUDADANO
+$rst_rciudFooter=mysql_query("SELECT * FROM lndd_noticia_categoria WHERE id=7;", $conexion);
+$fila_rciudFooter=mysql_fetch_array($rst_rciudFooter);
+$rciudFooter_url=$fila_rciudFooter["url"];
+$rciudFooter_titulo=$fila_rciudFooter["categoria"];
+
+//URL
+$rciudFooter_UrlWeb=$web."seccion/".$rciudFooter_url;
 ?>
 <footer>
 	<div class="row">
@@ -36,7 +45,7 @@ $rst_catFooter=mysql_query("SELECT * FROM lndd_noticia_categoria ORDER BY orden 
 				<li><a href="<?php echo $catFooter_UrlWeb; ?>"><?php echo $catFooter_titulo; ?></a></li>
 				<?php } ?>
 				<li><a href="columnistas">Columnistas</a></li>
-				<li><a href="javascript:;">Reportero Ciudadano</a></li>
+				<li><a href="<?php echo $rciudFooter_UrlWeb; ?>"><?php echo $rciudFooter_titulo; ?></a></li>
 			</ul>
 		</div>
 
