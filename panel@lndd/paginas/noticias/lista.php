@@ -26,7 +26,7 @@ include_once('../../js/plugins/creative_table/creativeTable.php');
 $ct=new CreativeTable();
 
 // Data Gathering
-$params['sql_query']                = "SELECT noti.id,noti.titulo,cat.categoria,noti.fecha_publicacion FROM ".$tabla_suf."_noticia AS noti, ".$tabla_suf."_noticia_categoria AS cat WHERE noti.categoria=cat.id ORDER BY fecha_publicacion DESC, id DESC";
+$params['sql_query']                = "SELECT noti.id,noti.titulo,cat.categoria,noti.fecha_publicacion FROM ".$tabla_suf."_noticia AS noti, ".$tabla_suf."_noticia_categoria AS cat WHERE noti.categoria=cat.id AND noti.categoria<>7 ORDER BY fecha_publicacion DESC, id DESC";
 //$params['search']                   = $search;
 $params['multiple_search']          = $multiple_search;
 $params['items_per_page']           = $items_per_page;
@@ -35,7 +35,7 @@ $params['page']                     = $page;
 $params['total_items']              = $total_items;
 
 $params['header']                   = 'ID,Registro,Categoria,Fecha publicación';
-$params['width']                    = '30,650,100,140';
+$params['width']                    = '30,600,150,140';
 
 /* ORDENAR POR CAMPOS */
 $params['sort_init'] = false;  // sort all fields

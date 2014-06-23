@@ -7,9 +7,11 @@ require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 //DECLARACION DE VARIABLES
 $nombre=$_POST["nombre"];
 $url=getUrlAmigable(eliminarTextoURL($nombre));
+$contenido_corto=$_POST["contenido_corto"];
 $contenido=$_POST["contenido"];
 $categoria=$_POST["categoria"];
 $tipo_noticia=$_POST["tipo_noticia"];
+$redaccion=$_POST["redaccion"];
 $usuario=$_SESSION["user-".$sesion_pre.""];
 
 //FECHA Y HORA
@@ -37,6 +39,13 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$mostrar_imagen=1;
+		
+		//IMAGEN NORMAL
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->cropFromCenter(870,500);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
+
+		//THUMB
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
 		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
@@ -68,6 +77,13 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$mostrar_imagen=1;
+		
+		//IMAGEN NORMAL
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->cropFromCenter(870,500);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
+
+		//THUMB
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
 		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
@@ -81,6 +97,13 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$mostrar_imagen=1;
+		
+		//IMAGEN NORMAL
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->cropFromCenter(870,500);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
+
+		//THUMB
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
 		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
@@ -103,7 +126,7 @@ if($video_youtube<>""){
 }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_noticia (url, titulo, contenido, imagen, imagen_carpeta, fecha_publicacion, publicar, destacada, superior_1, superior_2, superior_3, superior_4, superior_5, superior_6, superior_7, superior_8, superior_9, categoria, tags, video, tipo_video, mostrar_video, carpeta_video, usuario) VALUES('$url', '".htmlspecialchars($nombre)."', '$contenido', '$imagen', '$imagen_carpeta', '$fecha_publicacion', $publicar, $destacada, $superior1, $superior2, $superior3, $superior4, $superior5, $superior6, $superior7, $superior8, $superior9, $categoria, '0,$union_tags,0', '$video', '$tipo_video', '$mostrar_video', '$video_carpeta', '$usuario');",$conexion);
+$rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_noticia (url, titulo, contenido_corto, contenido, imagen, imagen_carpeta, fecha_publicacion, publicar, destacada, superior_1, superior_2, superior_3, superior_4, superior_5, superior_6, superior_7, superior_8, superior_9, categoria, tags, video, tipo_video, mostrar_video, carpeta_video, usuario, redaccion) VALUES('$url', '".htmlspecialchars($nombre)."', '".htmlspecialchars($contenido_corto)."', '$contenido', '$imagen', '$imagen_carpeta', '$fecha_publicacion', $publicar, $destacada, $superior1, $superior2, $superior3, $superior4, $superior5, $superior6, $superior7, $superior8, $superior9, $categoria, '0,$union_tags,0', '$video', '$tipo_video', '$mostrar_video', '$video_carpeta', '$usuario', '$redaccion');",$conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();

@@ -8,10 +8,12 @@ require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 $nota_id=$_REQUEST["id"];
 $nombre=$_POST["nombre"];
 $url=getUrlAmigable(eliminarTextoURL($nombre));
+$contenido_corto=$_POST["contenido_corto"];
 $contenido=$_POST["contenido"];
 $categoria=$_POST["categoria"];
 $tipo_noticia=$_POST["tipo_noticia"];
 $tags=$_POST["tags"];
+$redaccion=$_POST["redaccion"];
 $usuario=$_SESSION["user-".$sesion_pre.""];
 
 //FECHA Y HORA
@@ -37,15 +39,19 @@ if ($tipo_noticia=="not_destacada") {
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
+		
+		//IMAGEN NORMAL
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->cropFromCenter(870,500);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
+
+		//THUMB
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
 		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}else{
 		$imagen=$_POST["imagen"];
-		$imagen_carpeta=$_POST["imagen_carpeta"];	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(570,460);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$imagen_carpeta=$_POST["imagen_carpeta"];
 	}
 }elseif($tipo_noticia=="not_superior1" OR 
 	$tipo_noticia=="not_superior2" OR 
@@ -71,15 +77,19 @@ if ($tipo_noticia=="not_destacada") {
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
+		
+		//IMAGEN NORMAL
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->cropFromCenter(870,500);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
+
+		//THUMB
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
 		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}else{
 		$imagen=$_POST["imagen"];
 		$imagen_carpeta=$_POST["imagen_carpeta"];	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(570,460);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}
 
 }elseif($tipo_noticia=="not_normal"){
@@ -87,15 +97,19 @@ if ($tipo_noticia=="not_destacada") {
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
 		$imagen_carpeta=fechaCarpeta()."/";	
+		
+		//IMAGEN NORMAL
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->cropFromCenter(870,500);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
+
+		//THUMB
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
 		$thumb->cropFromCenter(570,460);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}else{
 		$imagen=$_POST["imagen"];
-		$imagen_carpeta=$_POST["imagen_carpeta"];	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(570,460);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$imagen_carpeta=$_POST["imagen_carpeta"];
 	}
 }
 
@@ -114,6 +128,7 @@ if($video_youtube<>""){
 
 //INSERTANDO DATOS
 $rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia SET url='$url', titulo='".htmlspecialchars($nombre)."', 
+	contenido_corto='".htmlspecialchars($contenido_corto)."', 
 	contenido='$contenido', 
 	imagen='$imagen', 
 	imagen_carpeta='$imagen_carpeta', 
@@ -134,7 +149,8 @@ $rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia SET url='$url', titulo='
 	video='$video', 
 	tipo_video='$tipo_video', 
 	mostrar_video=$mostrar_video, 
-	carpeta_video='$video_carpeta' WHERE id=$nota_id;", $conexion);
+	carpeta_video='$video_carpeta',
+	redaccion='$redaccion' WHERE id=$nota_id;", $conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();

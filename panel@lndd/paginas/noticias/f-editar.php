@@ -15,6 +15,7 @@ $fila_nota=mysql_fetch_array($rst_nota);
 $nota_nombre=$fila_nota["titulo"];
 $nota_imagen=$fila_nota["imagen"];
 $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
+$nota_contenido_corto=$fila_nota["contenido_corto"];
 $nota_contenido=$fila_nota["contenido"];
 $nota_video=$fila_nota["video"];
 $nota_video_tipo=$fila_nota["tipo_video"];
@@ -30,6 +31,7 @@ $nota_superior7=$fila_nota["superior_7"];
 $nota_superior8=$fila_nota["superior_8"];
 $nota_superior9=$fila_nota["superior_9"];
 $nota_publicar=$fila_nota["publicar"];
+$nota_redaccion=$fila_nota["redaccion"];
 
 /* FECHA */
 $nota_fecha_pub=explode(" ", $fila_nota["fecha_publicacion"]);
@@ -52,6 +54,48 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
 <title>Administrador</title>
 
 <?php require_once("../../w-scripts.php"); ?>
+
+<!-- CONTADOR DE CARACTERES -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+var jTxCount=jQuery.noConflict();
+
+jTxCount(document).on("ready", function(){
+    init_contadorTa("contenido_corto","contadorContCorto", 140);
+});
+
+function init_contadorTa(idtextarea, idcontador,max)
+{
+    jTxCount("#"+idtextarea).keyup(function()
+            {
+                updateContadorTa(idtextarea, idcontador,max);
+            });
+    
+    jTxCount("#"+idtextarea).change(function()
+    {
+            updateContadorTa(idtextarea, idcontador,max);
+    });
+    
+}
+
+function updateContadorTa(idtextarea, idcontador,max)
+{
+    var contador = jTxCount("#"+idcontador);
+    var ta =     jTxCount("#"+idtextarea);
+    contador.html("0/"+max);
+    
+    contador.html(ta.val().length+"/"+max);
+    if(parseInt(ta.val().length)>max)
+    {
+        ta.val(ta.val().substring(0,max-1));
+        contador.html(max+"/"+max);
+    }
+
+}
+</script>
+<style>
+#contadorContCorto{ font-size:15px; font-weight:bold; color:#000; }
+</style>
 
 </head>
 
@@ -94,6 +138,14 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                     <div class="formRow">
                         <div class="grid3"><label>Titulo:</label></div>
                         <div class="grid9"><input type="text" name="nombre" value="<?php echo $nota_nombre; ?>" /></div>
+                    </div>
+
+                    <<div class="formRow">
+                        <div class="grid3"><label>Descripción corta de la noticia:</label></div>
+                        <div class="grid9">
+                            <textarea id="contenido_corto" name="contenido_corto" maxlength="140con" /></textarea>
+                            <p id="contadorContCorto">Caracteres: 0/140</p>
+                        </div>
                     </div>
 
                     <div class="widget">
@@ -240,6 +292,11 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
 
                             </select>  
                         </div>             
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Redacción:</label></div>
+                        <div class="grid9"><input type="text" name="redaccion" value="<?php echo $nota_redaccion; ?>" /></div>
                     </div>
 
                     <div class="formRow">
