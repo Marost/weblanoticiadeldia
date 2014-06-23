@@ -27,7 +27,14 @@ $rciud_UrlWeb=$web."seccion/".$rciud_url;
 		<li><a href="<?php echo $categoria_UrlWeb; ?>"><?php echo $categoria_titulo; ?></a></li>
 		<?php } ?>
 		<li><a href="columnistas">Columnistas</a></li>
-		<li class="menu-rcid"><a href="<?php echo $rciud_UrlWeb; ?>"><?php echo $rciud_titulo; ?></a></li>
+		<li class="menu-rcid dropdown-submenu">
+			<a href="javascript:;"><?php echo $rciud_titulo; ?></a>
+			<ul class="dropdown-menu">
+				<li><a href="<?php echo $rciud_UrlWeb; ?>">Noticias</a></li>
+				<li><a target="_blank" href="reportero-ciudadano/">Registrarse</a></li>
+				<li><a target="_blank" href="reportero-ciudadano/login.php">Iniciar sesión</a></li>
+			</ul>
+		</li>
 	</ul>
 	<form action="buscar.php" method="get" name="busqueda" class="form-search col-md-2">
 		<div class="input-group">
