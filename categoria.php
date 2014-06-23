@@ -66,7 +66,7 @@ $rst_notas        = mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$not
 							$nota_id=$fila_notas["id"];
 							$nota_url=$fila_notas["url"];
 							$nota_titulo=$fila_notas["titulo"];
-							$nota_contenido=soloDescripcion($fila_notas["contenido"]);
+							$nota_contenido=$fila_notas["contenido_corto"];
 							$nota_imagen=$fila_notas["imagen"];
 							$nota_imagen_carpeta=$fila_notas["imagen_carpeta"];
 							$nota_usuario=$fila_notas["usuario"];
@@ -94,10 +94,12 @@ $rst_notas        = mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$not
 							$user_nomCompleto=$fila_usuario["nombre"]." ".$fila_usuario["apellidos"];
 					?>
 					<article class="row mid categoria-nota">
+						<?php if($nota_imagen<>""){ ?>
 						<img src="<?php echo $nota_UrlImg; ?>" alt="post">
+						<?php } ?>
 						<div class="info">
 							<h1><a href="<?php echo $nota_UrlWeb; ?>"><?php echo $nota_titulo; ?></a></h1>
-							<p class="details"><?php echo $nota_fechaFinal; ?> | <?php echo $user_nomCompleto; ?></p>
+							<p class="details"><?php echo $nota_fechaFinal; ?></p>
 							<p class="text">
 								<?php echo $nota_contenido; ?>
 							</p>

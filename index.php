@@ -16,7 +16,7 @@ $fila_not_sup1=mysql_fetch_array($rst_not_sup1);
 $notSup1_id=$fila_not_sup1["id"];
 $notSup1_url=$fila_not_sup1["url"];
 $notSup1_titulo=$fila_not_sup1["titulo"];
-$notSup1_contenido=soloDescripcion($fila_not_sup1["contenido"]);
+$notSup1_contenido=$fila_not_sup1["contenido_corto"];
 $notSup1_imagen=$fila_not_sup1["imagen"];
 $notSup1_imagen_carpeta=$fila_not_sup1["imagen_carpeta"];
 $notSup1_categoria=$fila_not_sup1["categoria"];
@@ -46,7 +46,7 @@ $fila_not_sup2=mysql_fetch_array($rst_not_sup2);
 $notSup2_id=$fila_not_sup2["id"];
 $notSup2_url=$fila_not_sup2["url"];
 $notSup2_titulo=$fila_not_sup2["titulo"];
-$notSup2_contenido=soloDescripcion($fila_not_sup2["contenido"]);
+$notSup2_contenido=$fila_not_sup2["contenido_corto"];
 $notSup2_imagen=$fila_not_sup2["imagen"];
 $notSup2_imagen_carpeta=$fila_not_sup2["imagen_carpeta"];
 $notSup2_categoria=$fila_not_sup2["categoria"];
@@ -76,7 +76,7 @@ $fila_not_sup3=mysql_fetch_array($rst_not_sup3);
 $notSup3_id=$fila_not_sup3["id"];
 $notSup3_url=$fila_not_sup3["url"];
 $notSup3_titulo=$fila_not_sup3["titulo"];
-$notSup3_contenido=soloDescripcion($fila_not_sup3["contenido"]);
+$notSup3_contenido=$fila_not_sup3["contenido_corto"];
 $notSup3_imagen=$fila_not_sup3["imagen"];
 $notSup3_imagen_carpeta=$fila_not_sup3["imagen_carpeta"];
 $notSup3_categoria=$fila_not_sup3["categoria"];
@@ -106,7 +106,7 @@ $fila_not_sup4=mysql_fetch_array($rst_not_sup4);
 $notSup4_id=$fila_not_sup4["id"];
 $notSup4_url=$fila_not_sup4["url"];
 $notSup4_titulo=$fila_not_sup4["titulo"];
-$notSup4_contenido=soloDescripcion($fila_not_sup4["contenido"]);
+$notSup4_contenido=$fila_not_sup4["contenido_corto"];
 $notSup4_imagen=$fila_not_sup4["imagen"];
 $notSup4_imagen_carpeta=$fila_not_sup4["imagen_carpeta"];
 $notSup4_categoria=$fila_not_sup4["categoria"];
@@ -136,7 +136,7 @@ $fila_not_sup5=mysql_fetch_array($rst_not_sup5);
 $notSup5_id=$fila_not_sup5["id"];
 $notSup5_url=$fila_not_sup5["url"];
 $notSup5_titulo=$fila_not_sup5["titulo"];
-$notSup5_contenido=soloDescripcion($fila_not_sup5["contenido"]);
+$notSup5_contenido=$fila_not_sup5["contenido_corto"];
 $notSup5_imagen=$fila_not_sup5["imagen"];
 $notSup5_imagen_carpeta=$fila_not_sup5["imagen_carpeta"];
 $notSup5_categoria=$fila_not_sup5["categoria"];
@@ -166,7 +166,7 @@ $fila_not_sup6=mysql_fetch_array($rst_not_sup6);
 $notSup6_id=$fila_not_sup6["id"];
 $notSup6_url=$fila_not_sup6["url"];
 $notSup6_titulo=$fila_not_sup6["titulo"];
-$notSup6_contenido=soloDescripcion($fila_not_sup6["contenido"]);
+$notSup6_contenido=$fila_not_sup6["contenido_corto"];
 $notSup6_imagen=$fila_not_sup6["imagen"];
 $notSup6_imagen_carpeta=$fila_not_sup6["imagen_carpeta"];
 $notSup6_categoria=$fila_not_sup6["categoria"];
@@ -196,7 +196,7 @@ $fila_not_sup7=mysql_fetch_array($rst_not_sup7);
 $notSup7_id=$fila_not_sup7["id"];
 $notSup7_url=$fila_not_sup7["url"];
 $notSup7_titulo=$fila_not_sup7["titulo"];
-$notSup7_contenido=soloDescripcion($fila_not_sup7["contenido"]);
+$notSup7_contenido=$fila_not_sup7["contenido_corto"];
 $notSup7_imagen=$fila_not_sup7["imagen"];
 $notSup7_imagen_carpeta=$fila_not_sup7["imagen_carpeta"];
 $notSup7_categoria=$fila_not_sup7["categoria"];
@@ -226,7 +226,7 @@ $fila_not_sup8=mysql_fetch_array($rst_not_sup8);
 $notSup8_id=$fila_not_sup8["id"];
 $notSup8_url=$fila_not_sup8["url"];
 $notSup8_titulo=$fila_not_sup8["titulo"];
-$notSup8_contenido=soloDescripcion($fila_not_sup8["contenido"]);
+$notSup8_contenido=$fila_not_sup8["contenido_corto"];
 $notSup8_imagen=$fila_not_sup8["imagen"];
 $notSup8_imagen_carpeta=$fila_not_sup8["imagen_carpeta"];
 $notSup8_categoria=$fila_not_sup8["categoria"];
@@ -294,7 +294,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 										$notDest_id=$fila_not_dest["id"];
 										$notDest_url=$fila_not_dest["url"];
 										$notDest_titulo=$fila_not_dest["titulo"];
-										$notDest_contenido=soloDescripcion($fila_not_dest["contenido"]);
+										$notDest_contenido=$fila_not_dest["contenido_corto"];
 										$notDest_imagen=$fila_not_dest["imagen"];
 										$notDest_imagen_carpeta=$fila_not_dest["imagen_carpeta"];
 										$notDest_categoria=$fila_not_dest["categoria"];
@@ -335,9 +335,11 @@ $notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 						<!-- FIN POST SLIDER -->
 
 						<article class="col-md-4 col-sm-4 mid">
+							<?php if($notSup1_imagen<>""){ ?>
 							<div class="img">
 								<img src="<?php echo $notSup1_web_img; ?>" alt="<?php echo $notSup1Cat_titulo; ?>">
 							</div>
+							<?php } ?>
 							<div class="info">
 								<p class="tags">
 									<?php if($notSup1_categoria==7){ ?>
@@ -379,9 +381,11 @@ $notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 
 						<!-- NOTICIA CENTRAL -->
 						<article class="col-md-4 col-sm-4 mid">
+							<?php if($notSup2_imagen<>""){ ?>
 							<div class="img">
 								<img src="<?php echo $notSup2_web_img; ?>" alt="<?php echo $notSup2Cat_titulo; ?>">
 							</div>
+							<?php } ?>
 							<div class="info">
 								<p class="tags">
 									<?php if($notSup2_categoria==7){ ?>
@@ -402,9 +406,11 @@ $notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 
 						<!-- NOTICIA CENTRAL -->
 						<article class="col-md-4 col-sm-4 mid">
+							<?php if($notSup3_imagen<>""){ ?>
 							<div class="img">
 								<img src="<?php echo $notSup3_web_img; ?>" alt="<?php echo $notSup3Cat_titulo; ?>">
 							</div>
+							<?php } ?>
 							<div class="info">
 								<p class="tags">
 									<?php if($notSup3_categoria==7){ ?>
@@ -430,9 +436,11 @@ $notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 					<div class="row">
 
 						<article class="col-md-4 col-sm-4 mid">
+							<?php if($notSup4_imagen<>""){ ?>
 							<div class="img">
 								<img src="<?php echo $notSup4_web_img; ?>" alt="<?php echo $notSup4Cat_titulo; ?>">
 							</div>
+							<?php } ?>
 							<div class="info">
 								<p class="tags">
 									<?php if($notSup4_categoria==7){ ?>
@@ -474,9 +482,11 @@ $notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 					<div class="row">
 						
 						<article class="col-md-4 col-sm-4 mid">
+							<?php if($notSup6_imagen<>""){ ?>
 							<div class="img">
 								<img src="<?php echo $notSup6_web_img; ?>" alt="<?php echo $notSup6Cat_titulo; ?>">
 							</div>
+							<?php } ?>
 							<div class="info">
 								<p class="tags">
 									<?php if($notSup6_categoria==7){ ?>
@@ -495,9 +505,11 @@ $notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 						</article>
 
 						<article class="col-md-4 col-sm-4 mid">
+							<?php if($notSup7_imagen<>""){ ?>
 							<div class="img">
 								<img src="<?php echo $notSup7_web_img; ?>" alt="<?php echo $notSup7Cat_titulo; ?>">
 							</div>
+							<?php } ?>
 							<div class="info">
 								<p class="tags">
 									<?php if($notSup7_categoria==7){ ?>
@@ -516,9 +528,11 @@ $notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 						</article>
 
 						<article class="col-md-4 col-sm-4 mid">
+							<?php if($notSup8_imagen<>""){ ?>
 							<div class="img">
 								<img src="<?php echo $notSup8_web_img; ?>" alt="<?php echo $notSup8Cat_titulo; ?>">
 							</div>
+							<?php } ?>
 							<div class="info">
 								<p class="tags">
 									<?php if($notSup8_categoria==7){ ?>
