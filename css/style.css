@@ -1,9 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-
 body{
-	background-image: url(../img/background.jpg);
-	background-attachment: fixed;
 	height: 100%;
 	font-family: 'Open Sans';
 }
@@ -604,10 +599,10 @@ article.mid .details,
 article.mid .details a,
 article.small .details,
 article.small .details a{
-	font-size: 10px;
+	font-size: 12px;
 	line-height: 10px;
-	font-weight: 400;
-	color:#aaa;
+	font-weight: bold;
+	color:#666;
 	margin:10px 0 6px;
 }
 
@@ -1990,7 +1985,7 @@ form [class*="col-md-"]{
 }
 
 .post-page article.post.fullwidth h1{
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
 }
 
 .post-page article.post.fullwidth .info{
@@ -2002,12 +1997,21 @@ form [class*="col-md-"]{
 	border-top: 1px dashed #ddd;
 	padding:10px 0;
 	overflow:hidden;
+	margin-bottom: 10px;
 }
 
 .post-page article.post .details{
 	float:left;
 	margin:0;
 	padding-top: 5px;
+	width: 100%;
+	position: relative;
+}
+
+.post-page article.post .details span.redaccion{
+	text-align: right;
+	right: 0;
+	position: absolute;
 }
 
 .post-page article.post .counters{
@@ -2015,7 +2019,7 @@ form [class*="col-md-"]{
 }
 
 .post-page article.post .text{
-	padding-top: 10px;
+	/*padding-top: 10px;*/
 }
 
 .post-page article.post .tags{
@@ -2203,7 +2207,7 @@ COLUMNISTAS
 		height: 360px;
 	}
 
-	article.mid.row img{
+	article.mid.row.categoria-nota img{
 		width: 270px !important;
 	}
 
@@ -3448,4 +3452,26 @@ PAGINACION
 
 .categoria-nota:last-child{
 	border-bottom: none;
+}
+
+/*==========================
+REGISTRO PARA REPORTERO CIUDADANO
+==========================*/
+.rciud-registro{
+	margin:0 auto;
+	float: none;
+	overflow: hidden;
+}
+
+.rciud-registro .row{
+	margin-bottom: 20px;
+}
+
+.rciud-registro .row .input-group{
+	margin-bottom: 15px;
+}
+
+.rciud-registro .row .input-group label.error{
+	color: #f00;
+	font-size: 12px;
 }
