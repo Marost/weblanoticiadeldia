@@ -1992,6 +1992,10 @@ form [class*="col-md-"]{
 	overflow: hidden;
 }
 
+.post-page article.post.fullwidth .info.imagen{
+	text-align: center;
+}
+
 .post-page article.post .data{
 	border-bottom: 1px dashed #ddd;
 	border-top: 1px dashed #ddd;

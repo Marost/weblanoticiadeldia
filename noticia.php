@@ -128,7 +128,9 @@ $not_web_img=$web."imagenes/upload/".$not_imagen_carpeta."".$not_imagen;
 						</div>	
 						<?php }elseif($num_notaFotos==0){ ?>
 							<?php if($not_imagen<>""){ ?>
-							<img src="<?php echo $not_web_img; ?>" alt="post-image">
+							<div class="info imagen">
+								<img src="<?php echo $not_web_img; ?>" alt="post-image">
+							</div>
 							<?php } ?>
 						<?php } ?>
 
