@@ -62,9 +62,9 @@ $ct->pager = getCreativePagerLite('ct',$page,$ct->total_items,$ct->items_per_pag
 if($ct->total_items>0){
     foreach($ct->data as $key => $value){
         //$ct->data[$key][2]='<a href="something.php?id='.$ct->data[$key][0].'">'.$ct->data[$key][2].'</a>';
-        if($data[$key][2]==0){
+        if($ct->data[$key][2]==0){
             $ct->data[$key][2]="NO PUBLICADO";
-        }elseif($data[$key][2]==1){
+        }elseif($ct->data[$key][2]==1){
             $ct->data[$key][2]="PUBLICADO";
         }        
     }
