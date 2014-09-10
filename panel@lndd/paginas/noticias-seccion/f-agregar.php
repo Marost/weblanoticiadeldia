@@ -56,6 +56,13 @@ require_once("../../conexion/verificar_sesion.php");
                         <div class="grid3"><label>Nombre:</label></div>
                         <div class="grid9"><input type="text" name="nombre" /></div>
                     </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Aparecer en menú: </label></div>
+                        <div class="grid9 enabled_disabled">
+                            <div class="floatL mr10"><input type="checkbox" id="check4" value="1" name="menu" /></div>
+                        </div>
+                    </div>
                     
                     <div class="formRow">
                         <div class="body" align="center">

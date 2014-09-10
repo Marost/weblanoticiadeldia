@@ -7,9 +7,10 @@ include("../../conexion/funciones.php");
 $nota_id=$_REQUEST["id"];
 $nombre=$_POST["nombre"];
 $url=getUrlAmigable(eliminarTextoURL($nombre));
+if ($_POST["menu"]<>""){ $menu=$_POST["menu"]; }else{ $menu=0; }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia_categoria SET categoria='$nombre', url='$url' WHERE id=$nota_id;", $conexion);
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia_categoria SET categoria='$nombre', url='$url', menu=$menu WHERE id=$nota_id;", $conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
