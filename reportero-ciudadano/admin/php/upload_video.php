@@ -1,4 +1,5 @@
 <?php
+include("../conexion/conexion.php");
 include("../conexion/funciones.php");
 /**
  * upload.php
