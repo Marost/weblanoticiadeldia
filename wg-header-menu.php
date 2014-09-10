@@ -1,6 +1,6 @@
 <?php
 //CATEGORIA
-$rst_categoria=mysql_query("SELECT * FROM lndd_noticia_categoria WHERE id<>7 ORDER BY orden ASC;", $conexion);
+$rst_categoria=mysql_query("SELECT * FROM lndd_noticia_categoria WHERE id<>7 AND menu=1 ORDER BY orden ASC;", $conexion);
 
 //REPORTERO CIUDADANO
 $rst_rciud=mysql_query("SELECT * FROM lndd_noticia_categoria WHERE id=7;", $conexion);
