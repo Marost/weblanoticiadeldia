@@ -30,7 +30,7 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
 var jTxCount=jQuery.noConflict();
 
 jTxCount(document).on("ready", function(){
-    init_contadorTa("contenido_corto","contadorContCorto", 140);
+    init_contadorTa("contenido_corto","contadorContCorto", 280);
 });
 
 function init_contadorTa(idtextarea, idcontador,max)
@@ -113,8 +113,8 @@ function updateContadorTa(idtextarea, idcontador,max)
                     <div class="formRow">
                         <div class="grid3"><label>Descripción corta de la noticia:</label></div>
                         <div class="grid9">
-                            <textarea id="contenido_corto" name="contenido_corto" maxlength="140con" /></textarea>
-                            <p id="contadorContCorto">Caracteres: 0/140</p>
+                            <textarea id="contenido_corto" name="contenido_corto" maxlength="280con" /></textarea>
+                            <p id="contadorContCorto">Caracteres: 0/280</p>
                         </div>
                     </div>
 

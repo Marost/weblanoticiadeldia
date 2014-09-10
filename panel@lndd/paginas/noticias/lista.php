@@ -35,7 +35,7 @@ $params['page']                     = $page;
 $params['total_items']              = $total_items;
 
 $params['header']                   = 'ID,Registro,Categoria,Fecha publicación';
-$params['width']                    = '30,600,150,140';
+$params['width']                    = '20,600,150,140';
 
 /* ORDENAR POR CAMPOS */
 $params['sort_init'] = false;  // sort all fields
@@ -45,7 +45,7 @@ $params['search_init'] = false;  // no search
 $params['multiple_search_init'] = true;  // all fields
 $params['multiple_search_init'] = false;  // no advanced search
 $params['multiple_search_init'] = hide;  // all fields but in beginnig they are hidden
-$params['multiple_search_init'] = 'ftff';  // 3rd field only
+$params['multiple_search_init'] = 'ffff';  // 3rd field only
 
 $arr_extra_cols[0]  = array(6,'Acciones','100','<div class="btn-group" style="display: inline-block; margin-bottom: -4px;">
                                 <a class="buttonS bDefault" data-toggle="dropdown" href="#">Acción<span class="caret"></span></a>

@@ -1,4 +1,6 @@
 <?php
+require_once("conexion.php");
+
 function fecha(){
 	$meses = array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
 	$dias = array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
