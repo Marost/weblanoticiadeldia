@@ -32,13 +32,21 @@ $rciud_UrlWeb=$web."seccion/".$rciud_url;
 			</ul>
 		</li>
 	</ul>
-	<form action="buscar.php" method="get" name="busqueda" class="form-search col-md-2">
-		<div class="input-group">
-			<input type="text" class="search-query form-control" placeholder="Buscar" name="busqueda">
-  			<span class="input-group-btn">
-    			<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-  			</span>
-	  	</div>
-	</form>
+
+	<div class="buscador form-search col-md-2">
+		<script>
+		  (function() {
+		    var cx = '018282985496243368695:hzzjbqgus9q';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:searchbox-only></gcse:searchbox-only>
+	</div>
 
 </nav>
