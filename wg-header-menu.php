@@ -17,16 +17,12 @@ $rciud_UrlWeb=$web."seccion/".$rciud_url;
 
 	<ul class="menu col-md-10 list-inline">
 		<li><a href="/"><i class="fa fa-home"></i></a></li>
-		<?php while($fila_categoria=mysql_fetch_array($rst_categoria)){
-				$categoria_url=$fila_categoria["url"];
-				$categoria_titulo=$fila_categoria["categoria"];
-
-				//URL
-				$categoria_UrlWeb=$web."seccion/".$categoria_url;
-		?>
-		<li><a href="<?php echo $categoria_UrlWeb; ?>"><?php echo $categoria_titulo; ?></a></li>
-		<?php } ?>
-		<li><a href="columnistas">Columnistas</a></li>
+		<li><a href="seccion/noticia">Noticia</a></li>
+		<li><a href="seccion/informe">Informe</a></li>
+		<li><a href="seccion/entrevista">Entrevista</a></li>
+		<li><a href="columnistas">Columnista</a></li>
+		<li><a href="seccion/portal-tv">Portal TV</a></li>
+		<li><a href="seccion/mira-peru">Mira el Perú</a></li>
 		<li class="menu-rcid dropdown-submenu">
 			<a href="javascript:;"><?php echo $rciud_titulo; ?></a>
 			<ul class="dropdown-menu">
