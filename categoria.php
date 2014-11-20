@@ -16,18 +16,44 @@ $notCat_titulo=$fila_notCat["categoria"];
 
 $url_web=$web."seccion/".$notCat_url;
 
-//PAGINACION
-require("libs/pagination/class_pagination.php");
 
-//INICIO DE PAGINACION
-$page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
-$rst_notas        = mysql_query("SELECT COUNT(*) as count FROM lndd_noticia WHERE categoria=$notCat_id AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC", $conexion);
-$fila_notas       = mysql_fetch_assoc($rst_notas);
-$generated      = intval($fila_notas['count']);
-$pagination     = new Pagination("10", $generated, $page, $url_web."&page", 1, 0);
-$start          = $pagination->prePagination();
-$rst_notas        = mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
+	//PAGINACION
+	require("libs/pagination/class_pagination.php");
 
+if($notCat_url<>"portal-tv"){
+
+	//INICIO DE PAGINACION
+	$page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
+	$rst_notas        = mysql_query("SELECT COUNT(*) as count FROM lndd_noticia WHERE categoria=$notCat_id AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC", $conexion);
+	$fila_notas       = mysql_fetch_assoc($rst_notas);
+	$generated      = intval($fila_notas['count']);
+	$pagination     = new Pagination("10", $generated, $page, $url_web."&page", 1, 0);
+	$start          = $pagination->prePagination();
+	$rst_notas        = mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
+}
+else{
+	//NOTICIA DESTACADA DE PORTAL TV
+	$rst_dest=mysql_query("SELECT * FROM lndd_noticia WHERE categoria=2 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC LIMIT 1", $conexion);
+	$fila_dest=mysql_fetch_array($rst_dest);
+
+	$dest_id=$fila_dest["id"];
+	$dest_url=$fila_dest["url"];
+	$dest_titulo=$fila_dest["titulo"];
+	$dest_contenido=$fila_dest["contenido_corto"];
+	$dest_video=$fila_dest["video"];
+
+	//URLS
+	$dest_UrlWeb=$web."noticia/".$dest_id."-".$dest_url;
+
+	//INICIO DE PAGINACION
+	$page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
+	$rst_notas        = mysql_query("SELECT COUNT(*) as count FROM lndd_noticia WHERE categoria=$notCat_id AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC", $conexion);
+	$fila_notas       = mysql_fetch_assoc($rst_notas);
+	$generated      = intval($fila_notas['count']);
+	$pagination     = new Pagination("5", $generated, $page, $url_web."&page", 1, 0);
+	$start          = $pagination->prePagination();
+	$rst_notas        = mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$notCat_id AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 5", $conexion);
+}
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +70,7 @@ $rst_notas        = mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$not
     <link rel="stylesheet" href="/libs/pagination/pagination.css" media="screen">
 
 </head>
-<body>
+<body class="<?php echo $notCat_url ?>">
 	<!--HEADER-->
 	<?php require_once("wg-header.php"); ?>
 	<!--END HEADER-->
@@ -60,7 +86,20 @@ $rst_notas        = mysql_query("SELECT * FROM lndd_noticia WHERE categoria=$not
 			<div class="row">
 				<!--CONTENT-->
 				<div class="col-md-9 col-md-12 list-page clearfix">
-					<h2><?php echo $notCat_titulo; ?></h2>			
+					<h2><?php echo $notCat_titulo; ?></h2>
+
+					<?php if($notCat_url=="portal-tv"){ ?>
+					<article class="portaltv">
+						
+						<div class="titulo">
+							<h1><a href="<?php echo $dest_UrlWeb; ?>"><?php echo $dest_titulo; ?></a></h1>
+						</div>
+						<div class="video">
+							<iframe width="100%" height="450" src="//www.youtube.com/embed/<?php echo $dest_video; ?>" frameborder="0" allowfullscreen></iframe>
+						</div>
+
+					</article>
+					<?php } ?>
 					
 					<?php while($fila_notas=mysql_fetch_array($rst_notas)){
 							$nota_id=$fila_notas["id"];

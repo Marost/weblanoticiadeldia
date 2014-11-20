@@ -498,6 +498,15 @@ article.big .info{
 	background-image: url("../imagenes/fondo_trans.png");
 }
 
+article.big .info2{
+	position: absolute;
+	bottom:0;
+	left: 0;
+	text-align: center;
+	margin: 0 15px;
+	background-image: url("../imagenes/fondo_trans.png");
+}
+
 article.big .tags{
 	text-transform: uppercase;
 	font-size: 10px;
@@ -3456,6 +3465,24 @@ PAGINACION
 
 .categoria-nota:last-child{
 	border-bottom: none;
+}
+
+/*==========================
+COLUMNISTA
+==========================*/
+
+.columnistas h1 a{
+	color: #BE1622;
+}
+
+/*==========================
+PORTAL TV
+==========================*/
+
+.portaltv{
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	border-bottom: 1px dashed #c6c6c6;
 }
 
 /*==========================
