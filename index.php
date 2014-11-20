@@ -462,7 +462,7 @@ $notSup8Cat_web=$web."seccion/".$notSup8Cat_url;
 							<div class="img">
 								<img src="<?php echo $notSup5_web_img; ?>" alt="<?php echo $notSup5Cat_titulo; ?>">
 							</div>
-							<div class="info">
+							<div class="info2">
 								<p class="tags">
 									<?php if($notSup5_categoria==7){ ?>
 									<a class="cat-rciud" href="<?php echo $notSup5Cat_web; ?>">
