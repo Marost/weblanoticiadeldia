@@ -1,6 +1,4 @@
 <?php
-require_once("conexion.php");
-
 function fecha(){
 	$meses = array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
 	$dias = array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
@@ -82,7 +80,7 @@ function nombreMes($numero_mes){
 		case 05: return "Mayo"; break;
 		case 06: return "Junio"; break;
 		case 07: return "Julio"; break;
-		case 08: return "Agosto"; break;
+        case 08: return "Agosto"; break;
 		case 09: return "Septiembre"; break;
 		case 10: return "Octubre"; break;
 		case 11: return "Noviembre"; break;
@@ -149,6 +147,12 @@ function UserPass($cadena){
 	return $cadena;
 }
 
+function mesCorto($mes){
+    $tmeses = array("ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC");
+    $nombrefecha = $tmeses[$mes-1];
+    return $nombrefecha;
+}
+
 function nombreFecha($anio, $mes, $dia){
 	$tmeses = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 	$nombrefecha = $tmeses[$mes-1]." ".$dia.", ".$anio;
@@ -164,13 +168,13 @@ function nombreFechaTotal($anio, $mes, $dia){
 function getUrlAmigable($s){
 
     $s = strtolower($s);
-    $s = ereg_replace("[áàâãäª@]","a",$s);
-    $s = ereg_replace("[éèêë]","e",$s);
-    $s = ereg_replace("[íìîï]","i",$s);
-    $s = ereg_replace("[óòôõºö]","o",$s);
-    $s = ereg_replace("[úùûü]","u",$s);
-    $s = ereg_replace("[ç]","c",$s);
-    $s = ereg_replace("[ñ]","n",$s);
+    $s = preg_replace("[áàâãäª@]","a",$s);
+    $s = preg_replace("[éèêë]","e",$s);
+    $s = preg_replace("[íìîï]","i",$s);
+    $s = preg_replace("[óòôõºö]","o",$s);
+    $s = preg_replace("[úùûü]","u",$s);
+    $s = preg_replace("[ç]","c",$s);
+    $s = preg_replace("[ñ]","n",$s);
     $s = preg_replace( "/[^a-zA-Z0-9\-]/", "-", $s );
     $s = preg_replace( array("`[^a-z0-9]`i","`[-]+`") , "-", $s);
 
@@ -179,23 +183,23 @@ function getUrlAmigable($s){
 
 function guardarArchivo($carpeta,$archivo){
 	if(is_uploaded_file($archivo['tmp_name']))
-	{ 
+	{
 		$fileName=$archivo['name'];
 		$uploadDir=$carpeta;
 		$uploadFile=$uploadDir.$fileName;
 		$num = 0;
 		$name = $fileName;
-		$extension = end(explode('.',$fileName));     
+		$extension = end(explode('.',$fileName));
 		$onlyName = substr($fileName,0,strlen($fileName)-(strlen($extension)+1));
 		$nombrese=codigoAleatorio(20, false, true, false);
 		$todo=$nombrese.".".$extension;
 		while(file_exists($uploadDir.$todo))
 		{
-			$num++;         
-			$todo = $nombrese."".$num.".".$extension; 
+			$num++;
+			$todo = $nombrese."".$num.".".$extension;
 		}
-		$uploadFile = $uploadDir.$todo; 
-		move_uploaded_file($archivo['tmp_name'], $uploadFile);  
+		$uploadFile = $uploadDir.$todo;
+		move_uploaded_file($archivo['tmp_name'], $uploadFile);
 		return $todo;
 	}
 }
@@ -204,23 +208,23 @@ function actualizarArchivo($carpeta,$archivo,$archivo_actual){
 	if($archivo['name']!="")
 	{
 		if(is_uploaded_file($archivo['tmp_name']))
-		{ 
+		{
 			$fileName=$archivo['name'];
 			$uploadDir=$carpeta;
 			$uploadFile=$uploadDir.$fileName;
 			$num = 0;
 			$name = $fileName;
-			$extension = end(explode('.',$fileName));     
+			$extension = end(explode('.',$fileName));
 			$onlyName = substr($fileName,0,strlen($fileName)-(strlen($extension)+1));
 			$nombrese=codigoAleatorio(20, false, true, false);
 			$todo=$nombrese.".".$extension;
 			while(file_exists($uploadDir.$todo))
 			{
-				$num++;         
-				$todo = $nombrese."".$num.".".$extension; 
+				$num++;
+				$todo = $nombrese."".$num.".".$extension;
 			}
-			$uploadFile = $uploadDir.$todo; 
-			move_uploaded_file($archivo['tmp_name'], $uploadFile);  
+			$uploadFile = $uploadDir.$todo;
+			move_uploaded_file($archivo['tmp_name'], $uploadFile);
 			$todo;
 		}
 	}else{
@@ -251,8 +255,8 @@ function errorComentario($codmensaje){
 
 function tipoVideo($tipo, $carpeta_video, $video, $imagen, $carpeta_imagen, $identificador, $ancho, $alto, $web){
 	if($tipo=='youtube'){
-		$codigo='<iframe width="'.$ancho.'" height="'.$alto.'" 
-		src="http://www.youtube.com/embed/'.$video.'?rel=0" 
+		$codigo='<iframe width="'.$ancho.'" height="'.$alto.'"
+		src="http://www.youtube.com/embed/'.$video.'?rel=0"
 		frameborder="0" allowfullscreen></iframe>';
 	}elseif($tipo=='flv'){
 		$codigo='<a href="'.$web.'video/'.$carpeta_video.''.$video.'" class="player"
@@ -263,26 +267,26 @@ function tipoVideo($tipo, $carpeta_video, $video, $imagen, $carpeta_imagen, $ide
 				</a>
 				<script>
 					flowplayer("player", "'.$web.'video/flowplayer-3.2.16.swf");
-				</script>';				
+				</script>';
 	}
 	return $codigo;
 }
 
 function VideoYoutube($video, $ancho, $alto){
-	$codigo='<iframe width="'.$ancho.'" height="'.$alto.'" 
-					src="http://www.youtube.com/embed/'.$video.'?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0&theme=light" 
+	$codigo='<iframe width="'.$ancho.'" height="'.$alto.'"
+					src="http://www.youtube.com/embed/'.$video.'?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0&theme=light"
 					frameborder="0" allowfullscreen></iframe>';
 	return $codigo;
 }
 
-function extraerArray($string){ 
-    $string = explode(",", $string); 
-    $salida = array(); 
-    foreach($string as $i){ 
-        $i = trim($i); 
-        if(!empty($i)) $salida[] = $i; 
-    } 
-    return $salida; //devuelve un array 
+function extraerArray($string){
+    $string = explode(",", $string);
+    $salida = array();
+    foreach($string as $i){
+        $i = trim($i);
+        if(!empty($i)) $salida[] = $i;
+    }
+    return $salida; //devuelve un array
 }
 
 function descativadoCasilla($elemento){
@@ -312,7 +316,7 @@ function AnteriorSiguienteOrden($orden, $campo, $idcampo, $tabla, $conexion, $an
 function cortarTexto($texto, $superior, $inferior, $caracteres){
 	$b_superior='<div style="page-break-after: always;">';
 	$b_inferior='<span style="display: none;">&nbsp;</span></div>';
-	if(ereg($b_superior, $texto) or ereg($b_inferior, $texto)){
+	if(preg_match($b_superior, $texto) or preg_match($b_inferior, $texto)){
 		if($superior==1){
 			$total=explode($b_superior, $texto);
 			return $total[0];}
@@ -331,7 +335,7 @@ function cortarTexto($texto, $superior, $inferior, $caracteres){
 
 function cortarTextoRH($texto, $superior, $inferior, $caracteres){
 	$b_superior="<hr />";
-	if(ereg($b_superior, $texto)){
+	if(preg_match($b_superior, $texto)){
 		if($superior==1){
 			$total=explode($b_superior, $texto);
 			return $total[0];}
@@ -369,16 +373,24 @@ function crearCarpeta(){
 
 function primerParrafo($texto){
 	$b_superior="</p>";
-	if(ereg($b_superior, $texto)){
+	if(preg_match($b_superior, $texto)){
 		$total=explode($b_superior, $texto);
 		return $total[0];
 	}
 }
 
+function siguienteParrafo($texto){
+    $b_superior="</p>";
+    if(preg_match($b_superior, $texto)){
+        $total=explode($b_superior, $texto);
+        return $total[1];
+    }
+}
+
 function soloDescripcion($texto){
 	$b_superior="</p>";
 	$e_parrafo="<p>";
-	if(ereg($b_superior, $texto)){
+	if(preg_match($b_superior, $texto)){
 		$total=explode($b_superior, $texto);
 		$parrafo=explode($e_parrafo,$total[0]);
 		return $parrafo[1];
@@ -491,4 +503,54 @@ function notaTiempo($fecha_mysql) {
 }
 
 
-?>
+function guardarImagen($imagen, $imagen_carpeta){
+
+    //THUMB DESTACADA
+    $thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+    $thumb->adaptiveResize(728,452);
+    $thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumbdest/".$imagen."", "jpg");
+
+    //THUMB NORMAL - VISTO
+    $thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+    $thumb->adaptiveResize(243,225);
+    $thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumbnor/".$imagen."", "jpg");
+
+    //THUMB DEVOCIONAL - EVENTOS
+    $thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+    $thumb->adaptiveResize(385,250);
+    $thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumbdeven/".$imagen."", "jpg");
+
+    //THUMB PORTADA
+    $thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+    $thumb->adaptiveResize(263,149);
+    $thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumbport/".$imagen."", "jpg");
+
+    //THUMB CATEGORIA - RELACIONADA
+    $thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+    $thumb->adaptiveResize(290,210);
+    $thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+}
+
+function listaSocialMedia($facebook=true, $twitter=true, $twitter_usuario, $google=true, $pinterest=true, $url, $titulo, $imagen){
+
+    echo '<ul class="social-media-fc hidden-xs">';
+
+        if($facebook==true){ echo '<li class="fb"><div class="fb-like" data-href="'.$url.'" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li>'; };
+
+        if($twitter==true){ echo '<li class="tw"><a class="twitter-share-button" href="https://twitter.com/share" data-url="'.$url.'" data-via="'.$twitter_usuario.'">Tweet</a></li>'; };
+
+        if($google==true){ echo '<li class="gp"><div class="g-plusone" data-size="medium" data-href="'.$url.'"></div></li>'; };
+
+        if($pinterest==true){ echo '<li class="pn"><a href="//es.pinterest.com/pin/create/button/?url='.$url.'&media='.$imagen.'&description='.$titulo.'" data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a></li>'; };
+
+    echo '</ul>';
+
+    if($facebook==true){ echo '<div id="fb-root"></div><script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return;js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=595809933879793&version=v2.0"; fjs.parentNode.insertBefore(js, fjs); }(document, "script", "facebook-jssdk"));</script>'; };
+
+    if($twitter==true){ echo '<script type="text/javascript">window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));</script>'; };
+
+    if($google==true){ echo '<script src="https://apis.google.com/js/platform.js" async defer>{lang: "es-419"}</script>'; };
+
+    if($pinterest==true){ echo '<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>'; };
+
+}
