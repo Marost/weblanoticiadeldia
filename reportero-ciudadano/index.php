@@ -26,6 +26,7 @@ require_once("admin/conexion/funciones.php");
                 
                     <div class="spacer-b40">
                     	<div class="tagline"><span>Tus datos personales</span></div><!-- .tagline -->
+                        <p>Integra nuestra red de reporteros, llena tus datos, información necesaria para conocernos mejor. </p>
                     </div>
                 
                 	<div class="frm-row">
