@@ -1,7 +1,7 @@
 <?php
 //CONEXION CON EL SERVIDOR
-$conexion=mysql_connect("localhost","marost2_admin","master@18073");
-mysql_select_db("marost2_lnddprbd",$conexion);
+$conexion=mysql_connect("localhost","root","");
+mysql_select_db("pperugdpr14",$conexion);
 
 //ZONA HORARIA
 date_default_timezone_set('America/Lima');

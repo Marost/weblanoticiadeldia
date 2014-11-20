@@ -1,6 +1,6 @@
 <?php
 //CONEXION CON EL SERVIDOR
-$conexion=mysql_connect("localhost","wbadmppgd14","f7GVyJ8HHrLW4cZ3IR");
+$conexion=mysql_connect("localhost","root","");
 mysql_select_db("pperugdpr14",$conexion);
 
 //ZONA HORARIA

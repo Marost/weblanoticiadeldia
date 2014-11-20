@@ -214,4 +214,8 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
+#CARPETAS
 .idea/
+imagenes/upload/
+imagenes/columnistas/
+imagenes/rciud/
