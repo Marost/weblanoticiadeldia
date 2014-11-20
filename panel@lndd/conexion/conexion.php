@@ -6,6 +6,9 @@ mysql_select_db("pperugdpr14",$conexion);
 //ZONA HORARIA
 date_default_timezone_set('America/Lima');
 
+//ERROR REPORTING
+ini_set('error_reporting', E_ALL ^ E_NOTICE);
+
 //VARIABLES GLOBALES
 global $carpeta_admin;
 global $tabla_suf;
