@@ -300,15 +300,26 @@ FileETag None
 </IfModule>
 
 RewriteRule ^nosotros$                                    /nosotros.php
-RewriteRule ^noticias$                                    /noticias.php
-RewriteRule ^noticia/([0-9]*)-(.*)$                       /noticia.php?id=$1&url=$2
+
+#SECCIONES
 RewriteRule ^seccion/(.*)$                                /categoria.php?url=$1
 RewriteRule ^tecnologia$                                  /tecnologia.php
+RewriteRule ^tag/([0-9]*)-(.*)$                           /etiquetas.php?id=$1&url=$2
+
+#NOTICIAS
+RewriteRule ^noticias$                                    /noticias.php
+RewriteRule ^noticia/([0-9]*)-(.*)$                       /noticia.php?id=$1&url=$2
+
+#COLUMNISTA
 RewriteRule ^columnistas$                                 /columnista-lista.php
 RewriteRule ^columnista/(.*)$                             /columnista.php?url=$1
 RewriteRule ^columna/([0-9]*)-(.*)$                       /columnista-noticia.php?id=$1&url=$2
 RewriteRule ^columnistas$                                 /columnista-lista.php
-RewriteRule ^tag/([0-9]*)-(.*)$                           /etiquetas.php?id=$1&url=$2
+
+#MODIFICAR IMAGEN
+RewriteRule ^imagenes/upload/(.*)/(.*)-([0-9]*)x([0-9]*)$ /img.php?carpeta=$1&img=$2&width=$3&height=$4
+
+#ADMINISTRADOR
 RewriteRule ^panel@lndd/$                                 /panel@lndd/login.php
 
 # ----------------------------------------------------------------------
