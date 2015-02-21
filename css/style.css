@@ -735,6 +735,13 @@ article.col:last-child{
 
 .post-slider .slides img{
 	width:100%;
+	/*height: 500px;*/
+}
+
+
+.post-slider.designfour .slides img{
+	width:100%;
+	height: 500px;
 }
 
 
@@ -3547,4 +3554,16 @@ REGISTRO PARA REPORTERO CIUDADANO
 .rciud-registro .row .input-group label.error{
 	color: #f00;
 	font-size: 12px;
+}
+
+/*==========================
+CLASES
+==========================*/
+.mr0-pd0{
+	margin: 0;
+	padding: 0;
+}
+
+.mrbt0{
+	margin-bottom: 0;
 }
