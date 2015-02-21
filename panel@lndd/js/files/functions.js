@@ -309,7 +309,7 @@ $(function() {
 		chunk_size : '1mb',
 		unique_names : true,
 		dragdrop: false,
-		resize: {width: 900, height: 900, quality: 90},
+		resize: {width: 1500, height: 1500, quality: 90},
 		filters : [
 			{title : "Imagenes", extensions : "jpg"}
 		]
