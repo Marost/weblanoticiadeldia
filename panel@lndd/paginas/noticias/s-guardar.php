@@ -39,16 +39,6 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$mostrar_imagen=1;
-		
-		//IMAGEN NORMAL
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(870,500);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
-
-		//THUMB
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(570,460);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}else{
 		$imagen=""; $imagen_carpeta="";
 	}
@@ -77,16 +67,6 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$mostrar_imagen=1;
-		
-		//IMAGEN NORMAL
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(870,500);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
-
-		//THUMB
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(570,460);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}else{
 		$imagen=""; $imagen_carpeta="";
 	}	
@@ -97,16 +77,6 @@ if ($tipo_noticia=="not_destacada") {
 		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
 		$mostrar_imagen=1;
-		
-		//IMAGEN NORMAL
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(870,500);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
-
-		//THUMB
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(570,460);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
 	}else{
 		$imagen=""; $imagen_carpeta="";
 	}

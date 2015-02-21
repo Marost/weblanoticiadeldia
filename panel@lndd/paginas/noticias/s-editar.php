@@ -38,17 +38,7 @@ if ($tipo_noticia=="not_destacada") {
 	$destacada=1; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2;
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
-		$imagen_carpeta=fechaCarpeta()."/";	
-		
-		//IMAGEN NORMAL
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(870,500);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
-
-		//THUMB
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(570,460);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$imagen_carpeta=fechaCarpeta()."/";
 	}else{
 		$imagen=$_POST["imagen"];
 		$imagen_carpeta=$_POST["imagen_carpeta"];
@@ -76,17 +66,7 @@ if ($tipo_noticia=="not_destacada") {
 	$destacada=2; 
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
-		$imagen_carpeta=fechaCarpeta()."/";	
-		
-		//IMAGEN NORMAL
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(870,500);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
-
-		//THUMB
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(570,460);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$imagen_carpeta=fechaCarpeta()."/";
 	}else{
 		$imagen=$_POST["imagen"];
 		$imagen_carpeta=$_POST["imagen_carpeta"];	
@@ -96,17 +76,7 @@ if ($tipo_noticia=="not_destacada") {
 	$destacada=2; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2;
 	if($_POST['uploader_0_tmpname']<>""){
 		$imagen=$_POST["uploader_0_tmpname"];
-		$imagen_carpeta=fechaCarpeta()."/";	
-		
-		//IMAGEN NORMAL
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(870,500);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."".$imagen."", "jpg");
-
-		//THUMB
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->cropFromCenter(570,460);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+		$imagen_carpeta=fechaCarpeta()."/";
 	}else{
 		$imagen=$_POST["imagen"];
 		$imagen_carpeta=$_POST["imagen_carpeta"];
